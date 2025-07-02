@@ -1,34 +1,60 @@
+import { FaFacebookF, FaInstagram, FaLinkedinIn, FaTiktok } from "react-icons/fa";
+import logo from "../assets/images/logo.jpeg";
+
 export default function Footer() {
   return (
-    <footer className="bg-[#046404] text-white px-6 py-10">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
-
+    <footer className="bg-[#046404] text-white px-6 py-12">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10">
         {/* Brand Info */}
         <div>
-          <h2 className="text-2xl font-bold text-[#D5A20A]">Nogma.H Enterprise</h2>
-          <p className="mt-3 text-sm">
+          <div className="flex items-center mb-3">
+            <img src={logo} alt="Nogma.H Enterprise Logo" className="w-10 h-10 rounded mr-3" />
+            <span className="text-2xl font-bold text-[#D5A20A]">Nogma.H <span className="text-white">Enterprise</span></span>
+          </div>
+          <p className="text-sm mb-4">
             Delivering trusted food products like tombrown, shea butter, and peanut butter — while empowering women through practical trainings in wellness and liquid soap making.
           </p>
+          <div className="flex space-x-4 mt-2">
+            <a href="#" aria-label="Facebook"><FaFacebookF className="text-[#D5A20A] hover:text-white" size={20} /></a>
+            <a href="#" aria-label="Instagram"><FaInstagram className="text-[#D5A20A] hover:text-white" size={20} /></a>
+            <a href="#" aria-label="LinkedIn"><FaLinkedinIn className="text-[#D5A20A] hover:text-white" size={20} /></a>
+            <a href="#" aria-label="TikTok"><FaTiktok className="text-[#D5A20A] hover:text-white" size={20} /></a>
+          </div>
         </div>
 
-        {/* Newsletter */}
+        {/* Shop */}
         <div>
-          <ul>
-            <li>Shop</li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
+          <h3 className="font-bold text-lg text-[#D5A20A] mb-3">Shop</h3>
+          <ul className="space-y-2">
+            <li>Tom brown</li>
+            <li>Peanut butter</li>
+            <li>Powdered Pepper</li>
+            <li>Liquid Soap</li>
           </ul>
-          
         </div>
 
-        {/* Contact Info */}
+        {/* Company */}
         <div>
-          <h3 className="text-lg font-semibold text-[#D5A20A] mb-3">Contact Us</h3>
-          <p className="text-sm">Email: info@nogma-enterprise.com</p>
-          <p className="text-sm">Phone: +233 123 456 789</p>
-          <p className="text-sm">Location: Accra, Ghana</p>
+          <h3 className="font-bold text-lg text-[#D5A20A] mb-3">Company</h3>
+          <ul className="space-y-2">
+            <li>About Us</li>
+            <li>Blog</li>
+            <li>Contact</li>
+            <li>Careers</li>
+            <li>Wholesale</li>
+          </ul>
+        </div>
+
+        {/* Help */}
+        <div>
+          <h3 className="font-bold text-lg text-[#D5A20A] mb-3">Help</h3>
+          <ul className="space-y-2">
+            <li>Shipping & Returns</li>
+            <li>FAQ</li>
+            <li>Privacy Policy</li>
+            <li>Terms of Service</li>
+            <li>Track Order</li>
+          </ul>
         </div>
       </div>
 
