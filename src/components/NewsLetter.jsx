@@ -1,6 +1,6 @@
 export default function NewsLetter() {
   return (
-    <div className="bg-[#4C6C3C] px-6 py-10 text-center space-y-6 mt-10">
+    <div className="bg-[#4C6C3C] px-6 py-10 text-center space-y-6">
       {/* Header */}
       <h1 className="text-white font-extrabold text-3xl space-x-2">
         <span>Join</span>
