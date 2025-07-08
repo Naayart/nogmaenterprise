@@ -1,6 +1,10 @@
 import { FiShoppingCart } from "react-icons/fi";
 
-export default function ProductCard({ product }) {
+export default function ProductCard({ product, addToCart }) {
+  const handleBuyNow = () => {
+    addToCart(product);
+  };
+
   return (
     <div className="bg-[#19213a] rounded-xl shadow-md overflow-hidden flex flex-col">
       <img src={product.image} alt={product.name} className="h-48 w-full object-cover" />
@@ -13,6 +17,12 @@ export default function ProductCard({ product }) {
           <span className="text-[#FFD233] font-bold text-lg">{product.price}</span>
           <FiShoppingCart className="text-[#FFD233] text-xl" />
         </div>
+        <button
+          onClick={handleBuyNow}
+          className="mt-4 px-4 py-2 bg-[#D4AF37] text-white font-semibold rounded hover:bg-[#B8860B] transition"
+        >
+          Buy Now
+        </button>
       </div>
     </div>
   );

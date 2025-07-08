@@ -3,11 +3,11 @@ import Footer from "../components/Footer";
 import NewsLetter from "../components/NewsLetter";
 import { useState, useEffect } from "react";
 import ProductCard from "../components/ProductCard";
-import tombrown from "../assets/images/Tom brown.jpeg";
-import sheaButterImg from "../assets/images/Sheabutter.jpeg";
-import peanutImg from "../assets/images/Peanut.jpeg";
+import tombrown from "../assets/images/Tom brown.png";
+import sheaButterImg from "../assets/images/Sheabutter.png";
+import peanutImg from "../assets/images/Peanut-1.png";
 import peanutButterImg from "../assets/images/Groundnut paste.png";
-import liquidSoapImg from "../assets/images/Liquid Soap.jpeg";
+import liquidSoapImg from "../assets/images/Liquid Soap.png";
 import barSoapImg from "../assets/images/Bar-soap.jpeg";
 import powderedPepperImg from "../assets/images/Powdered pepper.jpeg";
 import watermarkLogo from "../assets/images/logo.jpeg";
@@ -61,9 +61,11 @@ const products = [
     name: "Powdered Pepper",
     price: "₵12.00",
   },
+
+
 ];
 
-export default function Home() {
+export default function Home({ addToCart, cart }) {
   const [current, setCurrent] = useState(0);
 
   useEffect(() => {
@@ -75,7 +77,7 @@ export default function Home() {
 
   return (
     <>
-      <Navbar />
+    <Navbar />
       <section className="relative min-h-[70vh] flex flex-col md:flex-row items-center justify-between px-8 py-16 overflow-hidden bg-[#222]">
         {/* Logo as background */}
         <img
@@ -121,11 +123,11 @@ export default function Home() {
         </div>
       </section>
       {/* Product Cards Section */}
-      <section className="max-w-7xl mx-auto px-4 py-12">
+      <section id="products" className="max-w-7xl mx-auto px-4 py-12 bg-[#F8F9FA]">
         <h2 className="text-2xl font-bold mb-8 text-[#19213a]">Our Products</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
           {products.map((product) => (
-            <ProductCard key={product.id} product={product} />
+            <ProductCard key={product.id} product={product} addToCart={addToCart} />
           ))}
         </div>
       </section>
