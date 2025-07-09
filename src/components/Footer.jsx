@@ -1,5 +1,6 @@
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaTiktok } from "react-icons/fa";
 import logo from "../assets/images/logo.jpeg";
+import { Link } from "react-router";
 
 export default function Footer() {
   return (
@@ -24,8 +25,8 @@ export default function Footer() {
 
         {/* Shop */}
         <div>
-          <h3 className="font-bold text-lg text-[#D5A20A] mb-3">Shop</h3>
-          <ul className="space-y-2">
+          <Link to={'/products'} className="font-bold text-lg text-[#D5A20A] mb-3">Products</Link>
+          < ul className="space-y-2">
             <li>Tom brown</li>
             <li>Peanut butter</li>
             <li>Powdered Pepper</li>

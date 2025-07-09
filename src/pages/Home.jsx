@@ -77,7 +77,7 @@ export default function Home({ addToCart, cart }) {
 
   return (
     <>
-    <Navbar />
+    <Navbar cart={cart} />
       <section className="relative min-h-[70vh] flex flex-col md:flex-row items-center justify-between px-8 py-16 overflow-hidden bg-[#222]">
         {/* Logo as background */}
         <img
@@ -123,7 +123,7 @@ export default function Home({ addToCart, cart }) {
         </div>
       </section>
       {/* Product Cards Section */}
-      <section id="products" className="max-w-7xl mx-auto px-4 py-12 bg-[#F8F9FA]">
+      <section id="products" className="max-w-7xl mx-auto px-4 py-12">
         <h2 className="text-2xl font-bold mb-8 text-[#19213a]">Our Products</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
           {products.map((product) => (

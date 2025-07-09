@@ -1,11 +1,10 @@
 import { createBrowserRouter, RouterProvider } from "react-router";
-import Register from "./pages/Register";
-import Login from "./pages/Login";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Cart from "./pages/Cart";
 import { useState } from "react";
+import NotFound from "./pages/NotFound";
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -15,11 +14,10 @@ function App() {
 
   const nogmaHEnterpriseRouter = createBrowserRouter([
     { path: "/", element: <Home addToCart={addToCart} cart={cart} /> },
-    { path: "/register", element: <Register /> },
-    { path: "/login", element: <Login /> },
     { path: "/contact", element: <Contact /> },
     { path: "/about", element: <About /> },
     { path: "/cart", element: <Cart cart={cart} setCart={setCart} /> },
+    { path: "*", element: <NotFound /> },
   ]);
 
   return (

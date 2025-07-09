@@ -56,6 +56,7 @@ export default function Navbar({ cart }) {
                 key={link.to}
                 href={link.to}
                 className="hover:text-[#046404] hover:underline"
+                aria-label={link.label}
               >
                 {link.label}
               </a>
@@ -64,8 +65,11 @@ export default function Navbar({ cart }) {
                 key={link.to}
                 to={link.to}
                 className={({ isActive }) =>
-                  isActive ? "text-gray-700" : undefined
+                  isActive
+                    ? "text-[#046404] underline font-bold"
+                    : "hover:text-[#046404] hover:underline"
                 }
+                aria-label={link.label}
               >
                 {link.label}
               </NavLink>
@@ -75,17 +79,8 @@ export default function Navbar({ cart }) {
 
         {/* Auth + Cart (Desktop) */}
         <div className="hidden md:flex flex-row items-center space-x-5">
-          <div className="flex items-center space-x-2 text-[#043424] font-semibold">
-            <NavLink to="/login" className={({ isActive }) => isActive ? "underline text-[#046404]" : "hover:underline hover:text-[#046404]"}>
-              Login
-            </NavLink>
-            <span>/</span>
-            <NavLink to="/register" className={({ isActive }) => isActive ? "underline text-[#046404]" : "hover:underline hover:text-[#046404]"}>
-              Signup
-            </NavLink>
-          </div>
           <button
-            className="relative"
+            className="relative cursor-pointer"
             onClick={() => navigate("/cart")}
             aria-label="View cart"
           >
@@ -125,6 +120,7 @@ export default function Navbar({ cart }) {
                       <a
                         href={link.to}
                         className="hover:text-[#046404] hover:underline"
+                        aria-label={link.label}
                         onClick={() => setDrawerOpen(false)}
                       >
                         {link.label}
@@ -133,8 +129,11 @@ export default function Navbar({ cart }) {
                       <NavLink
                         to={link.to}
                         className={({ isActive }) =>
-                          isActive ? "text-[#046404] underline" : undefined
+                          isActive
+                            ? "text-[#046404] underline font-bold"
+                            : "hover:text-[#046404] hover:underline"
                         }
+                        aria-label={link.label}
                         onClick={() => setDrawerOpen(false)}
                       >
                         {link.label}
@@ -145,16 +144,21 @@ export default function Navbar({ cart }) {
               </ul>
             </nav>
             <div className="mt-10 flex flex-col space-y-4">
-              <div className="flex items-center space-x-2 text-[#043424] font-semibold">
-                <NavLink to="/login" className={({ isActive }) => isActive ? "underline text-[#046404]" : "hover:underline hover:text-[#046404]"} onClick={() => setDrawerOpen(false)}>
-                  Login
-                </NavLink>
-                <span>/</span>
-                <NavLink to="/register" className={({ isActive }) => isActive ? "underline text-[#046404]" : "hover:underline hover:text-[#046404]"} onClick={() => setDrawerOpen(false)}>
-                  Signup
-                </NavLink>
-              </div>
-              <ShoppingCart />
+              <button
+                className="relative cursor-pointer"
+                onClick={() => {
+                  setDrawerOpen(false);
+                  navigate("/cart");
+                }}
+                aria-label="View cart"
+              >
+                <ShoppingCart />
+                {cart && cart.length > 0 && (
+                  <span className="absolute -top-2 -right-2 bg-[#D4AF37] text-white text-xs font-bold rounded-full px-2 py-0.5">
+                    {cart.length}
+                  </span>
+                )}
+              </button>
             </div>
           </div>
         </>

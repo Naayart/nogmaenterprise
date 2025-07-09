@@ -48,8 +48,9 @@ export default function Cart({ cart = [], setCart }) {
           </button>
         </div>
       )}
-      <Footer />
+      
     </div>
+    <Footer />
     </>
   );
 }

@@ -21,7 +21,7 @@ export default function ProductCard({ product, addToCart }) {
           onClick={handleBuyNow}
           className="mt-4 px-4 py-2 bg-[#D4AF37] text-white font-semibold rounded hover:bg-[#B8860B] transition"
         >
-          Buy Now
+          Add to Cart
         </button>
       </div>
     </div>
