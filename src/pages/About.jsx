@@ -165,26 +165,27 @@ export default function About() {
             The visionary leader behind Nogma H Enterprise, bringing authentic
             Ghanaian products and community empowerment to you
           </p>
-          <div className="flex flex-col md:flex-row items-center md:items-start gap-10 max-w-4xl mx-auto bg-[#101828] rounded-2xl shadow-xl p-6 md:p-10 border-t-8 border-[#D4AF37]">
+          <div className="flex flex-col md:flex-row items-center md:items-start gap-10 max-w-5xl mx-auto bg-[#101828] rounded-2xl shadow-xl p-6 md:p-10 border-t-8 border-[#D4AF37]">
             {/* Founder Image */}
-            <div className="flex-shrink-0 w-full md:w-1/3 flex justify-center md:justify-start">
+            <div className="w-full md:w-1/3 flex justify-center md:justify-start">
               <img
                 src={profilePicture}
                 alt="Ms. Helen, Founder of Nogma H Enterprise"
-                className="rounded-xl w-60 h-60 object-cover border-4 border-[#D4AF37] bg-white shadow-lg"
+                className="rounded-xl object-cover border-4 border-[#D4AF37] bg-white shadow-lg w-full h-[400px] md:h-full max-h-[500px] mt-30"
               />
             </div>
+
             {/* Founder Info */}
-            <div className="flex-1 text-white md:pl-8">
+            <div className="flex-1 text-white">
               <h3 className="text-2xl md:text-3xl font-bold mb-2">
                 Helen Akunyanra
               </h3>
               <p className="text-[#D4AF37] font-semibold mb-4">Founder & CEO</p>
               <p className="text-base md:text-lg text-[#F5F5DC] leading-relaxed">
                 As the visionary founder of Nogma H. Enterprise, Hajia Helen
-                Akunyanra leads a fast-growing Ghanaian brand producing local food
-                and household essentials. Her entrepreneurial journey began in
-                2019, inspired by a dream and supported by her mentor, Mr.
+                Akunyanra leads a fast-growing Ghanaian brand producing local
+                food and household essentials. Her entrepreneurial journey began
+                in 2019, inspired by a dream and supported by her mentor, Mr.
                 Joseph Payre. She started with Tombrown, powdered pepper, and
                 groundnut paste. In 2021, another dream led her to introduce
                 liquid soap, training over 5,000 people in the Tolon District.

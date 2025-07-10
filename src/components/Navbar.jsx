@@ -1,5 +1,5 @@
 import logo from "../assets/images/logo.jpeg";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate, useLocation } from "react-router-dom";
 import { ShoppingCart } from "lucide-react";
 import { FiMenu, FiX } from "react-icons/fi";
 import { useState } from "react";
@@ -7,18 +7,32 @@ import { useState } from "react";
 export default function Navbar({ cart }) {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const navLinks = [
     { to: "/", label: "Home" },
     { to: "/about", label: "About" },
-    { to: "/#products", label: "Products", isAnchor: true },
+    { to: "/#products", label: "Products", isProducts: true },
     { to: "/contact", label: "Contact" },
     { to: "/blog", label: "Blog" },
   ];
 
+  // Smooth scroll to featured products
+  const handleProductsClick = (e) => {
+    e.preventDefault();
+    if (location.pathname === "/") {
+      const section = document.getElementById("featured-products");
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      navigate("/", { state: { scrollTo: "featured-products" } });
+    }
+  };
+
   return (
-    <nav className="fixed top-0 left-0 right-0 bg-[#B4E4AC]/95 backdrop-blur-md shadow-lg px-6 py-4 z-50">
-      <div className="flex flex-row items-center justify-between">
+    <nav className="h-20 bg-[#B4E4AC]/80 backdrop-blur-md shadow-lg px-6 py-4 transition-colors duration-300">
+      <div className="flex flex-row items-center justify-between h-full">
         {/* Logo + Company Name */}
         <div className="flex items-center space-x-4">
           <img src={logo} alt="Logo" className="h-14 w-auto" />
@@ -49,13 +63,23 @@ export default function Navbar({ cart }) {
         </button>
 
         {/* Navigation Links (Desktop) */}
-        <div className="hidden md:flex flex-row items-center space-x-6 text-lg font-medium text-gray-700 hover:[&>a]:text-[#046404] hover:underline">
+        <div className="hidden md:flex flex-row items-center space-x-6 text-lg font-medium">
           {navLinks.map((link) =>
             link.isAnchor ? (
               <a
                 key={link.to}
                 href={link.to}
-                className="hover:text-[#046404] hover:underline"
+                className="text-gray-600 hover:text-[#9CC40C] transition-colors duration-200"
+                aria-label={link.label}
+              >
+                {link.label}
+              </a>
+            ) : link.isProducts ? (
+              <a
+                key={link.to}
+                href="#featured-products"
+                onClick={handleProductsClick}
+                className="text-gray-600 hover:text-[#9CC40C] transition-colors duration-200"
                 aria-label={link.label}
               >
                 {link.label}
@@ -66,8 +90,8 @@ export default function Navbar({ cart }) {
                 to={link.to}
                 className={({ isActive }) =>
                   isActive
-                    ? "text-[#046404] underline font-bold"
-                    : "hover:text-[#046404] hover:underline"
+                    ? "text-[#9CC40C] font-semibold"
+                    : "text-gray-600 hover:text-[#9CC40C] transition-colors duration-200"
                 }
                 aria-label={link.label}
               >
@@ -113,13 +137,13 @@ export default function Navbar({ cart }) {
               <FiX size={28} />
             </button>
             <nav aria-label="Mobile navigation">
-              <ul className="flex flex-col space-y-6 text-lg font-medium text-gray-700">
+              <ul className="flex flex-col space-y-6 text-lg font-medium">
                 {navLinks.map((link) => (
                   <li key={link.to}>
                     {link.isAnchor ? (
                       <a
                         href={link.to}
-                        className="hover:text-[#046404] hover:underline"
+                        className="text-gray-600 hover:text-blue-600 transition-colors duration-200"
                         aria-label={link.label}
                         onClick={() => setDrawerOpen(false)}
                       >
@@ -130,8 +154,8 @@ export default function Navbar({ cart }) {
                         to={link.to}
                         className={({ isActive }) =>
                           isActive
-                            ? "text-[#046404] underline font-bold"
-                            : "hover:text-[#046404] hover:underline"
+                            ? "text-blue-600 font-semibold"
+                            : "text-gray-600 hover:text-blue-600 transition-colors duration-200"
                         }
                         aria-label={link.label}
                         onClick={() => setDrawerOpen(false)}

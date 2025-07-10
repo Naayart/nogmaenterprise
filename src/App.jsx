@@ -5,6 +5,7 @@ import Contact from "./pages/Contact";
 import Cart from "./pages/Cart";
 import { useState } from "react";
 import NotFound from "./pages/NotFound";
+import ViewProduct from "./pages/ViewProduct";
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -17,6 +18,7 @@ function App() {
     { path: "/contact", element: <Contact /> },
     { path: "/about", element: <About /> },
     { path: "/cart", element: <Cart cart={cart} setCart={setCart} /> },
+    {path: 'view-product', element: <ViewProduct />},
     { path: "*", element: <NotFound /> },
   ]);
 

@@ -13,7 +13,7 @@ export default function Footer() {
             <span className="text-2xl font-bold text-[#D5A20A]">Nogma.H <span className="text-white">Enterprise</span></span>
           </div>
           <p className="text-sm mb-4">
-            Delivering trusted food products like tombrown, shea butter, and peanut butter — while empowering women through practical trainings in wellness and liquid soap making.
+            Delivering trusted food products like tombrown, shea butter, and peanut butter, while empowering women through practical trainings in wellness and liquid soap making.
           </p>
           <div className="flex space-x-4 mt-2">
             <a href="#" aria-label="Facebook"><FaFacebookF className="text-[#D5A20A] hover:text-white" size={20} /></a>
@@ -25,7 +25,7 @@ export default function Footer() {
 
         {/* Shop */}
         <div>
-          <Link to={'/products'} className="font-bold text-lg text-[#D5A20A] mb-3">Products</Link>
+          <Link to={'/view-product'} className="font-bold text-lg text-[#D5A20A] mb-3">Products</Link>
           < ul className="space-y-2">
             <li>Tom brown</li>
             <li>Peanut butter</li>

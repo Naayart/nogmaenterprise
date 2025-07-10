@@ -11,14 +11,11 @@ import liquidSoapImg from "../assets/images/Liquid Soap.png";
 import barSoapImg from "../assets/images/Bar-soap.jpeg";
 import powderedPepperImg from "../assets/images/Powdered pepper.jpeg";
 import watermarkLogo from "../assets/images/logo.jpeg";
+import { Link, useLocation } from "react-router-dom";
+import ProductSlider from "../components/ProductSlider";
 
-const images = [
-  { src: tombrown, alt: "Tom Brown" },
-  { src: sheaButterImg, alt: "Shea Butter" },
-  { src: peanutButterImg, alt: "Peanut Butter" },
-];
-
-const products = [
+// Featured products for the slider
+const featuredProducts = [
   {
     id: 1,
     image: sheaButterImg,
@@ -61,12 +58,27 @@ const products = [
     name: "Powdered Pepper",
     price: "₵12.00",
   },
-
-
+  {
+    id:7,
+    image:tombrown,
+    category:"Food",
+    name: "Tombrown",
+    price: "₵25.00",
+  },
 ];
+
+
+const images = [
+  { src: tombrown, alt: "Tom Brown" },
+  { src: sheaButterImg, alt: "Shea Butter" },
+  { src: peanutButterImg, alt: "Peanut Butter" },
+];
+
+
 
 export default function Home({ addToCart, cart }) {
   const [current, setCurrent] = useState(0);
+  const location = useLocation();
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -75,10 +87,19 @@ export default function Home({ addToCart, cart }) {
     return () => clearInterval(timer);
   }, []);
 
+  useEffect(() => {
+    if (location.state && location.state.scrollTo === "featured-products") {
+      const section = document.getElementById("featured-products");
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [location]);
+
   return (
     <>
     <Navbar cart={cart} />
-      <section className="relative min-h-[70vh] flex flex-col md:flex-row items-center justify-between px-8 py-16 overflow-hidden bg-[#222]">
+      <section className="relative min-h-[70vh] flex flex-col md:flex-row items-center justify-between px-8 py-16 overflow-hidden bg-[#222] pt-20">
         {/* Logo as background */}
         <img
           src={watermarkLogo}
@@ -89,14 +110,14 @@ export default function Home({ addToCart, cart }) {
         {/* Text Content */}
         <div className="max-w-xl z-10">
           <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight drop-shadow">
-            Experience the <span className="text-[#FFD233]">Richness</span> Ghanaian Products
+            Natural Ghanaian Goodness <span className="text-[#FFD233]">From</span> Kitchen to Care!
           </h1>
           <p className="text-lg text-white/90 mb-8 drop-shadow">
-            Naturally healthy and organic products delivered directly to your doorstep. Proudly made in Ghana.
+            Healthy products proudly made in Ghana.
           </p>
           <div className="flex gap-4">
-            <button className="bg-[#FFD233] text-[#222] font-bold px-6 py-3 rounded-md shadow hover:bg-[#e6b800] transition">Shop Now</button>
-            <button className="bg-white/10 border border-white text-white font-bold px-6 py-3 rounded-md hover:bg-white/20 transition">Learn More</button>
+            <Link  to={'/view-product'} className="bg-[#FFD233] text-[#222] font-bold px-6 py-3 rounded-md shadow hover:bg-[#e6b800] transition">Shop Now</Link>
+            <Link to={'/about'} className="bg-white/10 border border-white text-white font-bold px-6 py-3 rounded-md hover:bg-white/20 transition">Learn More</Link>
           </div>
         </div>
         {/* Image Slider */}
@@ -122,15 +143,13 @@ export default function Home({ addToCart, cart }) {
           </div>
         </div>
       </section>
-      {/* Product Cards Section */}
-      <section id="products" className="max-w-7xl mx-auto px-4 py-12">
-        <h2 className="text-2xl font-bold mb-8 text-[#19213a]">Our Products</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-          {products.map((product) => (
-            <ProductCard key={product.id} product={product} addToCart={addToCart} />
-          ))}
-        </div>
+
+      {/* Product Slider Section */}
+      <section id="featured-products" className="max-w-7xl mx-auto px-4 py-12">
+        <h2 className="text-2xl md:text-3xl font-bold mb-6 text-[#19213a] text-center">Featured Products</h2>
+        <ProductSlider products={featuredProducts} />
       </section>
+
       <NewsLetter />
       <Footer />
     </>
