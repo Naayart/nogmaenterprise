@@ -39,10 +39,9 @@ export default function ProductSlider({ products }) {
     return products.slice(start, end);
   };
 
-  // Navigation to View Products page, scroll to product
-  const handleImageClick = (product) => {
-    navigate(`/view-product?highlight=${encodeURIComponent(product.name)}`);
-    // Optionally, you can use a hash or query param to scroll to the product
+  // Navigation to All Products page, scroll to product
+  const handleImageClick = () => {
+    navigate('/all-product');
   };
 
   const handlePrev = () => {

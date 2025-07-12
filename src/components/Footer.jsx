@@ -4,29 +4,30 @@ import { Link } from "react-router";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#046404] text-white px-6 py-12">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10">
+    <footer className="bg-[#046404] text-white px-6 pt-14 pb-6 ">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 border-b border-green-900 pb-10">
         {/* Brand Info */}
-        <div>
-          <div className="flex items-center mb-3">
-            <img src={logo} alt="Nogma.H Enterprise Logo" className="w-10 h-10 rounded mr-3" />
-            <span className="text-2xl font-bold text-[#D5A20A]">Nogma.H <span className="text-white">Enterprise</span></span>
+        <div className="flex flex-col items-center md:items-start text-center md:text-left">
+          <div className="flex items-center mb-4">
+            <img src={logo} alt="Nogma.H Enterprise Logo" className="w-14 h-14 rounded-full shadow-lg mr-3 border-4 border-[#D5A20A] bg-white object-cover" />
+            <span className="text-2xl font-extrabold font-heading text-[#D5A20A] tracking-wide">Nogma.H <span className="text-white">Enterprise</span></span>
           </div>
-          <p className="text-sm mb-4">
-            Delivering trusted food products like tombrown, shea butter, and peanut butter, while empowering women through practical trainings in wellness and liquid soap making.
+          <p className="text-sm text-gray-300 mb-5 max-w-xs">
+            Trusted Ghanaian products: tombrown, shea butter, peanut butter. Empowering women through wellness and soap-making training.
           </p>
           <div className="flex space-x-4 mt-2">
-            <a href="#" aria-label="Facebook"><FaFacebookF className="text-[#D5A20A] hover:text-white" size={20} /></a>
-            <a href="#" aria-label="Instagram"><FaInstagram className="text-[#D5A20A] hover:text-white" size={20} /></a>
-            <a href="#" aria-label="LinkedIn"><FaLinkedinIn className="text-[#D5A20A] hover:text-white" size={20} /></a>
-            <a href="#" aria-label="TikTok"><FaTiktok className="text-[#D5A20A] hover:text-white" size={20} /></a>
+            <a href="#" aria-label="Facebook" className="hover:scale-110 transition-transform"><FaFacebookF className="text-[#D5A20A] hover:text-white" size={24} /></a>
+            <a href="#" aria-label="Instagram" className="hover:scale-110 transition-transform"><FaInstagram className="text-[#D5A20A] hover:text-white" size={24} /></a>
+            <a href="#" aria-label="LinkedIn" className="hover:scale-110 transition-transform"><FaLinkedinIn className="text-[#D5A20A] hover:text-white" size={24} /></a>
+            <a href="#" aria-label="TikTok" className="hover:scale-110 transition-transform"><FaTiktok className="text-[#D5A20A] hover:text-white" size={24} /></a>
           </div>
         </div>
 
         {/* Shop */}
         <div>
-          <Link to={'/view-product'} className="font-bold text-lg text-[#D5A20A] mb-3">Products</Link>
-          < ul className="space-y-2">
+          <h3 className="font-bold text-md uppercase text-[#D5A20A] mb-4 tracking-wider font-heading">Shop</h3>
+          <ul className="space-y-2 text-gray-200">
+            <li><Link to={'/view-product'} className="hover:text-[#FFD233] transition-colors">Products</Link></li>
             <li>Tom brown</li>
             <li>Peanut butter</li>
             <li>Powdered Pepper</li>
@@ -36,11 +37,11 @@ export default function Footer() {
 
         {/* Company */}
         <div>
-          <h3 className="font-bold text-lg text-[#D5A20A] mb-3">Company</h3>
-          <ul className="space-y-2">
-            <li>About Us</li>
+          <h3 className="font-bold text-md uppercase text-[#D5A20A] mb-4 tracking-wider font-heading">Company</h3>
+          <ul className="space-y-2 text-gray-200">
+            <li><Link to={'/about'} className="hover:text-[#FFD233] transition-colors">About Us</Link></li>
             <li>Blog</li>
-            <li>Contact</li>
+            <li><Link to={'/contact'} className="hover:text-[#FFD233] transition-colors">Contact</Link></li>
             <li>Careers</li>
             <li>Wholesale</li>
           </ul>
@@ -48,8 +49,8 @@ export default function Footer() {
 
         {/* Help */}
         <div>
-          <h3 className="font-bold text-lg text-[#D5A20A] mb-3">Help</h3>
-          <ul className="space-y-2">
+          <h3 className="font-bold text-md uppercase text-[#D5A20A] mb-4 tracking-wider font-heading">Help</h3>
+          <ul className="space-y-2 text-gray-200">
             <li>Shipping & Returns</li>
             <li>FAQ</li>
             <li>Privacy Policy</li>
@@ -60,7 +61,7 @@ export default function Footer() {
       </div>
 
       {/* Footer Bottom */}
-      <div className="text-center text-xs text-gray-200 mt-10 border-t border-green-700 pt-4">
+      <div className="text-center text-xs text-gray-400 mt-8 pt-4">
         &copy; {new Date().getFullYear()} Nogma.H Enterprise. All rights reserved.
       </div>
     </footer>

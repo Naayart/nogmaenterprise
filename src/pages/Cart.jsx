@@ -1,5 +1,6 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { Link } from "react-router";
 
 export default function Cart({ cart = [], setCart }) {
   const handleRemove = (index) => {
@@ -20,7 +21,7 @@ export default function Cart({ cart = [], setCart }) {
 
   return (
     <>
-      <Navbar />
+      <Navbar cart={cart} />
       <div className="min-h-screen bg-[#fff] pt-24 px-2 md:px-8">
         <div className="max-w-5xl mx-auto">
           <h1 className="text-4xl font-extrabold text-center mb-2 mt-4">Shopping Cart</h1>
@@ -69,7 +70,7 @@ export default function Cart({ cart = [], setCart }) {
               </ul>
               {/* Cart summary */}
               <div className="flex flex-col md:flex-row justify-between items-center mt-8 gap-6">
-                <button className="px-6 py-3 bg-gray-100 text-gray-700 font-bold rounded uppercase tracking-wider hover:bg-gray-200 w-full md:w-auto mb-2 md:mb-0">Continue Shopping</button>
+                <Link to={'/all-product'} className="px-6 py-3 bg-gray-100 text-gray-700 font-bold rounded uppercase tracking-wider hover:bg-gray-200 w-full md:w-auto mb-2 md:mb-0">Continue Shopping</Link>
                 <div className="bg-gray-50 rounded-lg p-6 w-full md:w-1/3">
                   <div className="font-bold text-lg mb-2">Cart Total</div>
                   <div className="flex justify-between mb-2">

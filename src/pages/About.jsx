@@ -13,7 +13,7 @@ const images = [
   { src: powderedPepperImg, alt: "Powdered Pepper" },
 ];
 
-export default function About() {
+export default function About({ cart }) {
   const [current, setCurrent] = useState(0);
 
   // Auto-slide functionality
@@ -35,7 +35,7 @@ export default function About() {
 
   return (
     <>
-      <Navbar />
+      <Navbar cart={cart} />
 
       {/* Hero Section - Added pt-24 to account for fixed navbar */}
       <div className="bg-gradient-to-br from-[#2D5A27] via-[#4A7C59] to-[#6B8E23] py-20 pt-24">

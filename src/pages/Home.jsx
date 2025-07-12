@@ -109,15 +109,15 @@ export default function Home({ addToCart, cart }) {
         />
         {/* Text Content */}
         <div className="max-w-xl z-10">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight drop-shadow">
+          <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight drop-shadow font-heading">
             Natural Ghanaian Goodness <span className="text-[#FFD233]">From</span> Kitchen to Care!
           </h1>
           <p className="text-lg text-white/90 mb-8 drop-shadow">
             Healthy products proudly made in Ghana.
           </p>
           <div className="flex gap-4">
-            <Link  to={'/view-product'} className="bg-[#FFD233] text-[#222] font-bold px-6 py-3 rounded-md shadow hover:bg-[#e6b800] transition">Shop Now</Link>
-            <Link to={'/about'} className="bg-white/10 border border-white text-white font-bold px-6 py-3 rounded-md hover:bg-white/20 transition">Learn More</Link>
+            <Link  to={'/all-product'} className="bg-[#FFD233] text-[#222] font-bold px-6 py-3 rounded-md shadow hover:bg-[#e6b800] transition font-accent">Shop Now</Link>
+            <Link to={'/about'} className="bg-white/10 border border-white text-white font-bold px-6 py-3 rounded-md hover:bg-white/20 transition font-accent">Learn More</Link>
           </div>
         </div>
         {/* Image Slider */}
@@ -146,7 +146,7 @@ export default function Home({ addToCart, cart }) {
 
       {/* Product Slider Section */}
       <section id="featured-products" className="max-w-7xl mx-auto px-4 py-12">
-        <h2 className="text-2xl md:text-3xl font-bold mb-6 text-[#19213a] text-center">Featured Products</h2>
+        <h2 className="text-2xl md:text-3xl font-bold mb-6 text-[#19213a] text-center font-heading">Featured Products</h2>
         <ProductSlider products={featuredProducts} />
       </section>
 
