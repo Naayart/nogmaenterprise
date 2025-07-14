@@ -1,5 +1,4 @@
 import Navbar from "../components/Navbar";
-import NewsLetter from "../components/NewsLetter";
 import Footer from "../components/Footer";
 import liquidSoapImg from "../assets/images/Liquid Soap.png";
 import barSoapImg from "../assets/images/Bar-soap.jpeg";
@@ -37,60 +36,62 @@ export default function About({ cart }) {
     <>
       <Navbar cart={cart} />
 
-      {/* Hero Section - Added pt-24 to account for fixed navbar */}
-      <div className="bg-gradient-to-br from-[#2D5A27] via-[#4A7C59] to-[#6B8E23] py-20 pt-24">
+      {/* Hero Section */}
+      <div className="bg-gradient-to-br from-[#046404] via-[#2D5A27] to-[#4A7C59] py-24 pt-28">
         <div className="container mx-auto px-4 text-center">
-          <h3 className="text-4xl md:text-5xl font-bold text-white mb-6 drop-shadow-lg">
-            The Rise of Nogma H Enterprise
-          </h3>
-          <p className="text-xl text-[#F5F5DC] font-medium">
-            A Story of Community Impact and Sustainable Growth
+          <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 drop-shadow-lg font-heading">
+            Our Story
+          </h1>
+          <p className="text-xl text-[#F5F5DC] font-medium max-w-3xl mx-auto leading-relaxed">
+            A journey of passion, community impact, and sustainable growth in the heart of Ghana
           </p>
         </div>
       </div>
 
       {/* Main Content Section */}
-      <div className="bg-gradient-to-b from-[#F8F9FA] to-white min-h-screen">
+      <div className="bg-gradient-to-b from-white to-gray-50 min-h-screen">
         <div className="container mx-auto px-4 py-20">
           <div className="flex flex-col lg:flex-row gap-16 items-center">
             {/* Story Content */}
             <div className="flex-1 lg:pr-12">
-              <div className="bg-white rounded-2xl shadow-xl p-8 border-l-4 border-[#D4AF37]">
-                <h1 className="text-4xl font-bold text-[#2D5A27] mb-8">
-                  Our Story
-                </h1>
-                <p className="text-lg leading-relaxed text-[#4A5568]">
-                  In the heart of northern Ghana, a visionary entrepreneur
-                  recognized more than just the basic need for household
-                  products. She saw a path to empowerment and community growth.
-                  Nogma H Enterprise was founded with a passion for creating
-                  high-quality, affordable, and locally produced goods that
-                  support both hygiene and healthy living. What began with small
-                  batches of liquid soap made in her home kitchen quickly gained
-                  traction due to its exceptional quality, affordability, and
-                  refreshing scent. As demand increased, so did her ambition.
-                  Today, she also offers hands-on training in the production of
-                  both liquid and bar soaps, catering to individuals who wish to
-                  learn and start their own ventures. She is available for
-                  personalized, one-on-one sessions designed to fit your
-                  schedule. Just reach out and book her services. We invite you
-                  to support Nogma H Enterprise. Once you experience our
-                  products and services, we're confident you'll be glad you did.
-                </p>
+              <div className="bg-white rounded-3xl shadow-2xl p-10 border-l-8 border-[#D5A20A] relative overflow-hidden">
+                {/* Decorative background element */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#D5A20A]/10 to-transparent rounded-full -translate-y-16 translate-x-16"></div>
+                
+                <h2 className="text-4xl font-bold text-[#046404] mb-8 font-heading">
+                  The Rise of Nogma H Enterprise
+                </h2>
+                <div className="space-y-6 text-lg leading-relaxed text-gray-700">
+                  <p>
+                    In the heart of northern Ghana, a visionary entrepreneur recognized more than just the basic need for household products. She saw a path to empowerment and community growth.
+                  </p>
+                  <p>
+                    <strong className="text-[#046404]">Nogma H Enterprise</strong> was founded with a passion for creating high-quality, affordable, and locally produced goods that support both hygiene and healthy living.
+                  </p>
+                  <p>
+                    What began with small batches of liquid soap made in her home kitchen quickly gained traction due to its exceptional quality, affordability, and refreshing scent. As demand increased, so did her ambition.
+                  </p>
+                  <p>
+                    Today, she also offers hands-on training in the production of both liquid and bar soaps, catering to individuals who wish to learn and start their own ventures. She is available for personalized, one-on-one sessions designed to fit your schedule.
+                  </p>
+                  <p className="text-[#D5A20A] font-semibold">
+                    We invite you to support Nogma H Enterprise. Once you experience our products and services, we're confident you'll be glad you did.
+                  </p>
+                </div>
               </div>
             </div>
 
             {/* Image Carousel */}
             <div className="flex-1 flex justify-center">
               <div className="relative">
-                {/* Gold border frames */}
-                <div className="absolute -top-4 -left-4 w-full h-full rounded-2xl border-4 border-[#D4AF37] z-0 shadow-lg"></div>
-                <div className="absolute -bottom-4 -right-4 w-full h-full rounded-2xl border-4 border-[#B8860B] z-0 shadow-lg"></div>
+                {/* Decorative frames */}
+                <div className="absolute -top-6 -left-6 w-full h-full rounded-3xl border-4 border-[#D5A20A] z-0 shadow-xl"></div>
+                <div className="absolute -bottom-6 -right-6 w-full h-full rounded-3xl border-4 border-[#046404] z-0 shadow-xl"></div>
 
                 {/* Navigation Buttons */}
                 <button
                   onClick={prevSlide}
-                  className="absolute left-2 top-1/2 transform -translate-y-1/2 z-20 bg-white/90 hover:bg-[#D4AF37] hover:text-white rounded-full p-3 shadow-lg transition-all duration-300 border border-[#D4AF37]"
+                  className="absolute left-4 top-1/2 transform -translate-y-1/2 z-20 bg-white/95 hover:bg-[#D5A20A] hover:text-white rounded-full p-4 shadow-lg transition-all duration-300 border-2 border-[#D5A20A]"
                   aria-label="Previous image"
                 >
                   <svg
@@ -110,7 +111,7 @@ export default function About({ cart }) {
 
                 <button
                   onClick={nextSlide}
-                  className="absolute right-2 top-1/2 transform -translate-y-1/2 z-20 bg-white/90 hover:bg-[#D4AF37] hover:text-white rounded-full p-3 shadow-lg transition-all duration-300 border border-[#D4AF37]"
+                  className="absolute right-4 top-1/2 transform -translate-y-1/2 z-20 bg-white/95 hover:bg-[#D5A20A] hover:text-white rounded-full p-4 shadow-lg transition-all duration-300 border-2 border-[#D5A20A]"
                   aria-label="Next image"
                 >
                   <svg
@@ -131,7 +132,7 @@ export default function About({ cart }) {
                 <img
                   src={images[current].src}
                   alt={images[current].alt}
-                  className="relative rounded-2xl shadow-xl w-[320px] md:w-[380px] h-[320px] md:h-[380px] z-10 transition-all duration-700 object-cover border-2 border-white"
+                  className="relative rounded-3xl shadow-2xl w-[350px] md:w-[400px] h-[350px] md:h-[400px] z-10 transition-all duration-700 object-cover border-4 border-white"
                 />
 
                 {/* Carousel Indicators */}
@@ -139,10 +140,10 @@ export default function About({ cart }) {
                   {images.map((img, idx) => (
                     <button
                       key={img.alt}
-                      className={`w-5 h-5 rounded-full transition-all duration-300 border-2 border-[#D4AF37] ${
+                      className={`w-6 h-6 rounded-full transition-all duration-300 border-2 border-[#D5A20A] ${
                         idx === current
-                          ? "bg-[#D4AF37] scale-125 shadow-lg"
-                          : "bg-white/60 hover:bg-white"
+                          ? "bg-[#D5A20A] scale-125 shadow-lg"
+                          : "bg-white/80 hover:bg-white"
                       }`}
                       onClick={() => setCurrent(idx)}
                       aria-label={`Show ${img.alt}`}
@@ -156,101 +157,120 @@ export default function About({ cart }) {
       </div>
 
       {/* Meet The Founder Section */}
-      <section className="bg-[#18212F] py-20 mt-0">
+      <section className="bg-gradient-to-br from-[#046404] via-[#2D5A27] to-[#1a2e05] py-24">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-4">
-            Meet The Founder
-          </h2>
-          <p className="text-lg text-[#F5F5DC] text-center mb-12 max-w-2xl mx-auto">
-            The visionary leader behind Nogma H Enterprise, bringing authentic
-            Ghanaian products and community empowerment to you
-          </p>
-          <div className="flex flex-col md:flex-row items-center md:items-start gap-10 max-w-5xl mx-auto bg-[#101828] rounded-2xl shadow-xl p-6 md:p-10 border-t-8 border-[#D4AF37]">
-            {/* Founder Image */}
-            <div className="w-full md:w-1/3 flex justify-center md:justify-start">
-              <img
-                src={profilePicture}
-                alt="Ms. Helen, Founder of Nogma H Enterprise"
-                className="rounded-xl object-cover border-4 border-[#D4AF37] bg-white shadow-lg w-full h-[400px] md:h-full max-h-[500px] mt-30"
-              />
-            </div>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 font-heading">
+              Meet The Founder
+            </h2>
+            <p className="text-xl text-[#F5F5DC] max-w-3xl mx-auto leading-relaxed">
+              The visionary leader behind Nogma H Enterprise, bringing authentic Ghanaian products and community empowerment to you
+            </p>
+          </div>
+          
+          <div className="max-w-6xl mx-auto bg-white/10 backdrop-blur-sm rounded-3xl shadow-2xl p-8 md:p-12 border border-white/20">
+            <div className="flex flex-col lg:flex-row items-center gap-12">
+              {/* Founder Image */}
+              <div className="w-full lg:w-1/3 flex justify-center">
+                <div className="relative">
+                  <div className="absolute -top-4 -left-4 w-full h-full rounded-3xl border-4 border-[#D5A20A] z-0"></div>
+                  <img
+                    src={profilePicture}
+                    alt="Ms. Helen, Founder of Nogma H Enterprise"
+                    className="relative rounded-3xl object-cover border-4 border-white shadow-2xl w-full h-[450px] max-w-[350px] z-10"
+                  />
+                </div>
+              </div>
 
-            {/* Founder Info */}
-            <div className="flex-1 text-white">
-              <h3 className="text-2xl md:text-3xl font-bold mb-2">
-                Helen Akunyanra
-              </h3>
-              <p className="text-[#D4AF37] font-semibold mb-4">Founder & CEO</p>
-              <p className="text-base md:text-lg text-[#F5F5DC] leading-relaxed">
-                As the visionary founder of Nogma H. Enterprise, Hajia Helen
-                Akunyanra leads a fast-growing Ghanaian brand producing local
-                food and household essentials. Her entrepreneurial journey began
-                in 2019, inspired by a dream and supported by her mentor, Mr.
-                Joseph Payre. She started with Tombrown, powdered pepper, and
-                groundnut paste. In 2021, another dream led her to introduce
-                liquid soap, training over 5,000 people in the Tolon District.
-                Her products have received FDA approval. She was named Best
-                Exhibitor at Farmers’ Day in Watugu (2021). She has received
-                training from Kosmos Innovation Center, TVET Ghana, and the
-                Canadian Youth Programme. She currently manages 7 workers and is
-                building a production space for Tombrown. She works with a board
-                of directors to grow her business. Her goal is to become the
-                leading female entrepreneur in Northern Ghana and expand
-                globally.
-              </p>
+              {/* Founder Info */}
+              <div className="flex-1 text-white">
+                <h3 className="text-3xl md:text-4xl font-bold mb-4 font-heading">
+                  Helen Akunyanra
+                </h3>
+                <p className="text-[#D5A20A] font-semibold text-xl mb-6">Founder & CEO</p>
+                <div className="space-y-4 text-lg leading-relaxed text-[#F5F5DC]">
+                  <p>
+                    As the visionary founder of <strong className="text-[#D5A20A]">Nogma H. Enterprise</strong>, Hajia Helen Akunyanra leads a fast-growing Ghanaian brand producing local food and household essentials.
+                  </p>
+                  <p>
+                    Her entrepreneurial journey began in 2019, inspired by a dream and supported by her mentor, Mr. Joseph Payre. She started with Tombrown, powdered pepper, and groundnut paste.
+                  </p>
+                  <p>
+                    In 2021, another dream led her to introduce liquid soap, training over <strong className="text-[#D5A20A]">5,000 people</strong> in the Tolon District. Her products have received FDA approval.
+                  </p>
+                  <p>
+                    She was named <strong className="text-[#D5A20A]">Best Exhibitor</strong> at Farmers' Day in Watugu (2021). She has received training from Kosmos Innovation Center, TVET Ghana, and the Canadian Youth Programme.
+                  </p>
+                  <p>
+                    She currently manages 7 workers and is building a production space for Tombrown. She works with a board of directors to grow her business. Her goal is to become the <strong className="text-[#D5A20A]">leading female entrepreneur</strong> in Northern Ghana and expand globally.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Our Impact Subsection */}
-      <section className="bg-[#18212F] py-16">
+      {/* Our Impact Section */}
+      <section className="bg-gradient-to-br from-gray-50 to-white py-24">
         <div className="container mx-auto px-4">
-          <h3 className="text-2xl md:text-3xl font-bold text-white text-center mb-10">
-            Our Impact
-          </h3>
-          <div className="flex flex-col md:flex-row gap-8 md:gap-6 justify-center items-stretch">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-[#046404] mb-6 font-heading">
+              Our Impact
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Transforming communities through quality products and empowerment
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Card 1 */}
-            <div className="flex-1 bg-[#232F3E] rounded-2xl shadow-lg p-8 flex flex-col items-center text-center border-t-4 border-[#D4AF37]">
-              <h4 className="text-xl font-bold text-white mb-3">
-                Quality and Healthy Food Products
-              </h4>
-              <p className="text-[#F5F5DC] text-base">
-                Ms. Helen's innovative spirit led her to experiment with peanut
-                butter made from peanut, catering to those who would require
-                them. She is dedicated to producing high-quality, healthy, and
-                affordable products for her community.
+            <div className="bg-white rounded-3xl shadow-xl p-8 border-t-8 border-[#D5A20A] hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+              <div className="w-16 h-16 bg-gradient-to-br from-[#D5A20A] to-[#FFD233] rounded-2xl flex items-center justify-center mb-6 mx-auto">
+                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold text-[#046404] mb-4 text-center font-heading">
+                Quality & Healthy Products
+              </h3>
+              <p className="text-gray-600 text-center leading-relaxed">
+                Ms. Helen's innovative spirit led her to experiment with peanut butter made from peanut, catering to those who would require them. She is dedicated to producing high-quality, healthy, and affordable products for her community.
               </p>
             </div>
+
             {/* Card 2 */}
-            <div className="flex-1 bg-[#232F3E] rounded-2xl shadow-lg p-8 flex flex-col items-center text-center border-t-4 border-[#D4AF37]">
-              <h4 className="text-xl font-bold text-white mb-3">
-                Empowering the Youth and Community
-              </h4>
-              <p className="text-[#F5F5DC] text-base">
-                By mentoring secondary school leavers and exposing them to
-                production processes, Ms. Helen ensures the development of a
-                skilled workforce. She offers hands-on training in soap making
-                and other entrepreneurial skills, inspiring the next generation
-                especially to the women.
+            <div className="bg-white rounded-3xl shadow-xl p-8 border-t-8 border-[#046404] hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+              <div className="w-16 h-16 bg-gradient-to-br from-[#046404] to-[#2D5A27] rounded-2xl flex items-center justify-center mb-6 mx-auto">
+                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold text-[#046404] mb-4 text-center font-heading">
+                Empowering Communities
+              </h3>
+              <p className="text-gray-600 text-center leading-relaxed">
+                By mentoring secondary school leavers and exposing them to production processes, Ms. Helen ensures the development of a skilled workforce. She offers hands-on training in soap making and other entrepreneurial skills, inspiring the next generation especially women.
               </p>
             </div>
+
             {/* Card 3 */}
-            <div className="flex-1 bg-[#232F3E] rounded-2xl shadow-lg p-8 flex flex-col items-center text-center border-t-4 border-[#D4AF37]">
-              <h4 className="text-xl font-bold text-white mb-3">
-                Supporting and Promoting Local Businesses
-              </h4>
-              <p className="text-[#F5F5DC] text-base">
-                Ms. Helen collaborates with other Ghanaian entrepreneurs,
-                promoting local products such as her niche shea butter, powdered
-                pepper, and Ghana-made cleaning products alongside her own. Her
-                work uplifts the local economy and fosters community growth.
+            <div className="bg-white rounded-3xl shadow-xl p-8 border-t-8 border-[#D5A20A] hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+              <div className="w-16 h-16 bg-gradient-to-br from-[#D5A20A] to-[#FFD233] rounded-2xl flex items-center justify-center mb-6 mx-auto">
+                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold text-[#046404] mb-4 text-center font-heading">
+                Supporting Local Business
+              </h3>
+              <p className="text-gray-600 text-center leading-relaxed">
+                Ms. Helen collaborates with other Ghanaian entrepreneurs, promoting local products such as her niche shea butter, powdered pepper, and Ghana-made cleaning products alongside her own. Her work uplifts the local economy and fosters community growth.
               </p>
             </div>
           </div>
         </div>
       </section>
-      <NewsLetter />
       <Footer />
     </>
   );
