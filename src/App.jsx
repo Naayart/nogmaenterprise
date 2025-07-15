@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Cart from "./pages/Cart";
+import Blog from "./pages/Blog";
 import { useState } from "react";
 import NotFound from "./pages/NotFound";
 import ProductDetail from "./pages/ProductDetail";
@@ -29,6 +30,7 @@ function App() {
     { path: "/", element: <Home addToCart={addToCart} cart={cart} /> },
     { path: "/contact", element: <Contact cart={cart} /> },
     { path: "/about", element: <About cart={cart} /> },
+    { path: "/blog", element: <Blog cart={cart} /> },
     { path: "/cart", element: <Cart cart={cart} setCart={setCart} /> },
     { path: "/product-detail", element: <ProductDetail addToCart={addToCart} cart={cart} /> },
     { path: "/all-product", element: <AllProduct cart={cart} /> },

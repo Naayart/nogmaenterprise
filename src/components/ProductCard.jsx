@@ -39,7 +39,7 @@ export default function ProductCard({ product, addToCart }) {
           </span>
           <button
             onClick={handleBuyNow}
-            className="px-6 py-2  bg-[#A424F4] text-white hover:bg-[#C4B4E4] transition-colors duration-200 shadow-sm text-base flex items-center justify-center font-medium font-accent"
+            className="px-6 py-2  bg-[#C18217] text-white hover:bg-[#C4B4E4] transition-colors duration-200 shadow-sm text-base flex items-center justify-center font-medium font-accent"
             aria-label="Add to cart"
           >
             Add to Cart

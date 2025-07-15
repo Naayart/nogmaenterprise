@@ -183,7 +183,7 @@ export default function AllProduct({ cart }){
     <>
       <Navbar cart={cart} />
       {/* Search and Filter Section */}
-      <section className="max-w-7xl mx-auto px-4 pt-4 pb-4">
+      <section className="max-w-7xl mx-auto px-4 pt-4 pb-4 font-Monserrat">
         <div className="w-full flex justify-center">
           <label className="block text-base font-semibold text-[#19213a] mb-2 font-heading text-center">Shop</label>
         </div>

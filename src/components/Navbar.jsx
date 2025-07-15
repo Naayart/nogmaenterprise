@@ -34,7 +34,7 @@ export default function Navbar({ cart }) {
     <nav className="h-20 bg-[#B4E4AC]/80 backdrop-blur-md shadow-lg px-6 py-4 transition-colors duration-300">
       <div className="flex flex-row items-center justify-between h-full">
         {/* Logo + Company Name */}
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-4 font-Open">
           <img src={logo} alt="Logo" className="h-14 w-auto" />
           <Link
             to={"/"}
@@ -63,7 +63,7 @@ export default function Navbar({ cart }) {
         </button>
 
         {/* Navigation Links (Desktop) */}
-        <div className="hidden md:flex flex-row items-center space-x-6 text-lg font-medium">
+        <div className="hidden md:flex flex-row items-center space-x-6 text-lg font-medium font-Roboto">
           {navLinks.map((link) =>
             link.isAnchor ? (
               <a

@@ -61,16 +61,16 @@ export default function Footer() {
                   <h5 className="text-[#D5A20A] font-semibold mb-3">Company</h5>
                   <ul className="space-y-2">
                     <li><Link to="/about" className="text-gray-300 hover:text-[#D5A20A] transition-colors text-sm">Our Story</Link></li>
+                    <li><Link to="/blog" className="text-gray-300 hover:text-[#D5A20A] transition-colors text-sm">Blog</Link></li>
                     <li><Link to="/contact" className="text-gray-300 hover:text-[#D5A20A] transition-colors text-sm">Contact</Link></li>
                     <li><span className="text-gray-300 text-sm">Training</span></li>
-                    <li><span className="text-gray-300 text-sm">Partnerships</span></li>
                   </ul>
                 </div>
               </div>
             </div>
 
             {/* Contact & Social - Right Side */}
-            <div className="lg:col-span-1">
+            <div className="lg:col-span-1 font-Roboto">
               <h4 className="text-xl font-bold text-white mb-6 font-heading">Connect</h4>
               <div className="space-y-4">
                 <div className="flex items-center space-x-3">
@@ -147,7 +147,7 @@ export default function Footer() {
               
               <div className="text-center md:text-right">
                 <p className="text-gray-300 text-sm">
-                  © {new Date().getFullYear()} Nogma.H Enterprise. Made with ❤️ in Ghana
+                  © {new Date().getFullYear()} Nogma.H Enterprise. Made with love in Ghana
                 </p>
                 <p className="text-gray-400 text-xs mt-1">
                   Empowering communities, one product at a time
