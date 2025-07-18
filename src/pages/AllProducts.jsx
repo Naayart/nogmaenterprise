@@ -183,9 +183,9 @@ export default function AllProduct({ cart }){
     <>
       <Navbar cart={cart} />
       {/* Search and Filter Section */}
-      <section className="max-w-7xl mx-auto px-4 pt-4 pb-4 font-Monserrat">
+      <section className="max-w-7xl mx-auto px-4 pt-4 pb-4 font-Monserrat mt-20">
         <div className="w-full flex justify-center">
-          <label className="block text-base font-semibold text-[#19213a] mb-2 font-heading text-center">Shop</label>
+          <label className="block text-base font-semibold text-[#19213a] mb-2 font-heading text-center"></label>
         </div>
         <div className="w-full flex justify-center mb-8">
           <div className="flex flex-col md:flex-row md:items-end gap-4 md:gap-8 items-center">
@@ -236,13 +236,13 @@ export default function AllProduct({ cart }){
       </section>
       {/* Categories Section */}
       <section className="max-w-7xl mx-auto px-4 pt-2">
-        <h2 className="text-2xl font-bold mb-4 text-[#19213a] text-center font-heading">Explore Categories</h2>
+        <h2 className="text-3xl font-bold mb-4 text-[#19213a] text-center font-Playfair italic">Explore Our Categories</h2>
         <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 mb-10 mt-12 ">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => handleCategoryClick(cat)}
-              className={`relative bg-transparent border-none outline-none px-2 py-1 text-lg font-medium transition-colors duration-200 font-accent 
+              className={`relative bg-transparent border-none outline-none px-2 py-1 text-lg  transition-colors duration-200 font-Playfair italic font-semibold
                 ${selectedCategory === cat
                   ? "text-black after:absolute after:left-0 after:right-0 after:-bottom-1 after:h-1 after:bg-[#8BC34A] after:rounded after:content-[''] after:w-full after:mx-auto after:block"
                   : "text-[#222] hover:text-[#F09A1A]"}
@@ -256,7 +256,8 @@ export default function AllProduct({ cart }){
       </section>
       {/* Product Cards Section */}
       <section id="products" className="max-w-7xl mx-auto px-4 pb-12">
-        <h2 className="text-2xl font-bold mb-8 text-[#04542C] font-heading">Our Products</h2>
+        
+        
         {filteredProducts.length === 0 ? (
           <div className="text-center text-gray-500 py-12">No products found.</div>
         ) : (

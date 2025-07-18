@@ -37,12 +37,12 @@ export default function About({ cart }) {
       <Navbar cart={cart} />
 
       {/* Hero Section */}
-      <div className="bg-gradient-to-br from-[#046404] via-[#2D5A27] to-[#4A7C59] py-10 pt-15">
-        <div className="container mx-auto px-4 text-center font-Open">
+      <div className="bg-gradient-to-br from-[#046404] via-[#2D5A27] to-[#4A7C59] py-24 pt-20 mt-15">
+        <div className="container mx-auto px-4 text-center font-Playfair">
           <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 drop-shadow-lg font-heading italic">
             Our Story
           </h1>
-          <p className="text-xl text-[#F5F5DC] font-medium max-w-3xl mx-auto leading-relaxed">
+          <p className="text-2xl text-[#F5F5DC] font-medium max-w-3xl mx-auto leading-relaxed">
             A journey of passion, community impact, and sustainable growth in
             the heart of Ghana
           </p>

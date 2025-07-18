@@ -112,7 +112,7 @@ export default function Contact({ cart }) {
                       Send us a Message
                     </h2>
                     <p className="text-gray-600">
-                      We'd love to hear from you. Fill out the form below and we'll get back to you as soon as possible.
+                      We would love to hear from you. Fill out the form below and we'll get back to you as soon as possible.
                     </p>
                   </div>
 
@@ -134,85 +134,103 @@ export default function Contact({ cart }) {
                   <form ref={form} onSubmit={sendEmail} className="space-y-6">
                     {/* Name Fields - Side by side with icons */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div className="relative">
-                        <div className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400">
-                          <FiUser size={20} />
+                      <div>
+                        <label htmlFor="" className="font-semibold">First Name</label>
+                        <div className="relative">
+                          <div className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none">
+                            <FiUser size={20} />
+                          </div>
+                          <input 
+                            name="user_firstname" 
+                            type="text" 
+                            className="w-full pl-12 pr-4 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#D5A20A] focus:border-transparent outline-none transition-all bg-gray-50 hover:bg-white" 
+                            placeholder="First Name" 
+                            required 
+                          />
                         </div>
-                        <input 
-                          name="user_firstname" 
-                          type="text" 
-                          className="w-full pl-12 pr-4 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#D5A20A] focus:border-transparent outline-none transition-all bg-gray-50 hover:bg-white" 
-                          placeholder="First Name" 
-                          required 
-                        />
                       </div>
-                      <div className="relative">
-                        <div className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400">
-                          <FiUser size={20} />
+                      <div>
+                        <label htmlFor="" className="font-semibold">Last Name</label>
+                        <div className="relative">
+                          <div className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400">
+                            <FiUser size={20} />
+                          </div>
+                          <input 
+                            name="user_lastname" 
+                            type="text" 
+                            className="w-full pl-12 pr-4 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#D5A20A] focus:border-transparent outline-none transition-all bg-gray-50 hover:bg-white" 
+                            placeholder="Last Name" 
+                            required 
+                          />
                         </div>
-                        <input 
-                          name="user_lastname" 
-                          type="text" 
-                          className="w-full pl-12 pr-4 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#D5A20A] focus:border-transparent outline-none transition-all bg-gray-50 hover:bg-white" 
-                          placeholder="Last Name" 
-                          required 
-                        />
                       </div>
                     </div>
 
                     {/* Contact Fields - Side by side with icons */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div className="relative">
-                        <div className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400">
-                          <FiMail size={20} />
+                      <div>
+                        <label htmlFor="" className="font-semibold">Email Address</label>
+                        <div className="relative">
+                          <div className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400">
+                            <FiMail size={20} />
+                          </div>
+                          <input 
+                            name="user_email" 
+                            type="email" 
+                            className="w-full pl-12 pr-4 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#D5A20A] focus:border-transparent outline-none transition-all bg-gray-50 hover:bg-white" 
+                            placeholder="Email Address" 
+                            required 
+                          />
                         </div>
-                        <input 
-                          name="user_email" 
-                          type="email" 
-                          className="w-full pl-12 pr-4 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#D5A20A] focus:border-transparent outline-none transition-all bg-gray-50 hover:bg-white" 
-                          placeholder="Email Address" 
-                          required 
-                        />
                       </div>
-                      <div className="relative">
-                        <div className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400">
-                          <FiPhone size={20} />
+                      <div>
+                        <label htmlFor="" className="font-semibold">Phone Number</label>
+                        <div className="relative">
+                          <div className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400">
+                            <FiPhone size={20} />
+                          </div>
+                          <input 
+                            name="user_phone" 
+                            type="tel" 
+                            className="w-full pl-12 pr-4 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#D5A20A] focus:border-transparent outline-none transition-all bg-gray-50 hover:bg-white" 
+                            placeholder="Phone Number (Optional)" 
+                          />
                         </div>
-                        <input 
-                          name="user_phone" 
-                          type="tel" 
-                          className="w-full pl-12 pr-4 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#D5A20A] focus:border-transparent outline-none transition-all bg-gray-50 hover:bg-white" 
-                          placeholder="Phone Number (Optional)" 
-                        />
                       </div>
                     </div>
 
                     {/* Subject */}
-                    <div className="relative">
-                      <div className="absolute left-4 top-4 text-gray-400">
-                        <FiMessageSquare size={20} />
+                    <div>
+                      <label htmlFor="" className="font-semibold">Subject</label>
+                      <div className="relative">
+                        <div className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400">
+                          <FiMessageSquare size={20} />
+                        </div>
+                        <input 
+                          name="subject" 
+                          type="text" 
+                          className="w-full pl-12 pr-4 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#D5A20A] focus:border-transparent outline-none transition-all bg-gray-50 hover:bg-white" 
+                          placeholder="Subject" 
+                          required 
+                        />
                       </div>
-                      <input 
-                        name="subject" 
-                        type="text" 
-                        className="w-full pl-12 pr-4 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#D5A20A] focus:border-transparent outline-none transition-all bg-gray-50 hover:bg-white" 
-                        placeholder="Subject" 
-                        required 
-                      />
                     </div>
 
                     {/* Message */}
-                    <div className="relative">
-                      <div className="absolute left-4 top-4 text-gray-400">
-                        <FiMessageSquare size={20} />
+                    <div>
+                      <label htmlFor="" className="font-semibold">Message</label>
+                      <div className="relative">
+                        <div className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400">
+                          <FiMessageSquare size={20} />
+                        </div>
+                        <textarea 
+                          name="message" 
+                          className="w-full pl-12 pr-4 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#D5A20A] focus:border-transparent outline-none transition-all bg-gray-50 hover:bg-white resize-none" 
+                          rows={6} 
+                          placeholder="Tell us about your inquiry, questions, or how we can assist you..." 
+                          required 
+                        />
                       </div>
-                      <textarea 
-                        name="message" 
-                        className="w-full pl-12 pr-4 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#D5A20A] focus:border-transparent outline-none transition-all bg-gray-50 hover:bg-white resize-none" 
-                        rows={6} 
-                        placeholder="Tell us about your inquiry, questions, or how we can assist you..." 
-                        required 
-                      />
                     </div>
 
                     {/* Submit Button */}

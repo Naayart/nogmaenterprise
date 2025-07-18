@@ -59,22 +59,19 @@ const featuredProducts = [
     price: "₵12.00",
   },
   {
-    id:7,
-    image:tombrown,
-    category:"Food",
+    id: 7,
+    image: tombrown,
+    category: "Food",
     name: "Tombrown",
     price: "₵25.00",
   },
 ];
-
 
 const images = [
   { src: tombrown, alt: "Tom Brown" },
   { src: sheaButterImg, alt: "Shea Butter" },
   { src: peanutButterImg, alt: "Peanut Butter" },
 ];
-
-
 
 export default function Home({ addToCart, cart }) {
   const [current, setCurrent] = useState(0);
@@ -98,43 +95,67 @@ export default function Home({ addToCart, cart }) {
 
   return (
     <>
-    <Navbar cart={cart} />
-      <section className="relative min-h-[70vh] flex flex-col md:flex-row items-center justify-between px-8 py-16 overflow-hidden bg-[#222] pt-20">
+      <Navbar cart={cart} />
+      <section className="relative min-h-[70vh] flex flex-col md:flex-row items-center justify-between px-8 py-16 overflow-hidden bg-[#588142] pt-20 mt-15">
         {/* Logo as background */}
         <img
           src={watermarkLogo}
           alt="Logo background"
           className="absolute inset-0 m-auto w-[90vw] max-w-5xl opacity-10 pointer-events-none select-none z-0"
-          style={{ left: "50%", top: "50%", transform: "translate(-50%, -50%)" }}
+          style={{
+            left: "50%",
+            top: "50%",
+            transform: "translate(-50%, -50%)",
+          }}
         />
+
         {/* Text Content */}
         <div className="max-w-xl z-10">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight drop-shadow font-heading">
-            Natural Ghanaian Goodness <span className="text-[#FFD233]">From</span> Kitchen to Care!
+          <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight drop-shadow font-Accent">
+            Natural Ghanaian Goodness{" "}
+            <span className="text-[#FFD233]">From</span> Kitchen to Care!
           </h1>
-          <p className="text-lg text-white/90 mb-8 drop-shadow">
+          <p className="text-lg text-white/90 mb-8 drop-shadow font-Accent">
             Healthy products proudly made in Ghana.
           </p>
           <div className="flex gap-4">
-            <Link  to={'/all-product'} className="bg-[#FFD233] text-[#222] font-bold px-6 py-3 rounded-md shadow hover:bg-[#e6b800] transition font-accent">Shop Now</Link>
-            <Link to={'/about'} className="bg-white/10 border border-white text-white font-bold px-6 py-3 rounded-md hover:bg-white/20 transition font-accent">Learn More</Link>
+            <Link
+              to={"/all-product"}
+              className="bg-[#FFD233] text-[#222] font-bold px-6 py-3 rounded shadow hover:bg-[#e6b800] transition font-Montserrat italic"
+            >
+              Shop Now
+            </Link>
+            <Link
+              to={"/about"}
+              className="bg-white/10 border border-white text-white font-bold px-6 py-3 rounded-md hover:bg-white/20 transition font-Montserrat italic"
+            >
+              Learn More
+            </Link>
           </div>
         </div>
+
         {/* Image Slider */}
         <div className="relative mt-10 md:mt-0 md:ml-10">
-          <div className="absolute -top-4 -left-4 w-full h-full rounded-2xl border-8 border-[#FFD233] z-0"></div>
-          <div className="absolute -bottom-4 -right-4 w-full h-full rounded-2xl border-8 border-[#7c0a02] z-0"></div>
+          {/* Softened border frames */}
+          <div className="absolute -top-4 -left-4 w-full h-full rounded-2xl border-4 border-[#FFD233] z-0"></div>
+          <div className="absolute -bottom-4 -right-4 w-full h-full rounded-2xl border-4 border-[#7c0a02] z-0"></div>
+
+          {/* Relaxed transition on image */}
           <img
             src={images[current].src}
             alt={images[current].alt}
-            className="relative rounded-2xl shadow-lg w-[320px] md:w-[380px] z-10 transition-all duration-700 object-cover"
+            className="relative rounded-2xl shadow-xl w-[320px] md:w-[380px] z-10 transition-all duration-1000 ease-in-out opacity-100 object-cover"
           />
+
+          {/* Dots */}
           <div className="flex justify-center mt-4 space-x-2">
             {images.map((img, idx) => (
               <button
                 key={img.alt}
-                className={`w-3 h-3 rounded-full transition-all duration-300 border-2 border-[#FFD233] ${
-                  idx === current ? "bg-[#FFD233] scale-110" : "bg-white/40"
+                className={`w-3 h-3 rounded-full border-2 transition-all duration-300 ease-in-out ${
+                  idx === current
+                    ? "bg-[#FFD233] border-[#FFD233] scale-125 shadow"
+                    : "bg-white/30 border-white/40"
                 }`}
                 onClick={() => setCurrent(idx)}
                 aria-label={`Show ${img.alt}`}
@@ -146,7 +167,9 @@ export default function Home({ addToCart, cart }) {
 
       {/* Product Slider Section */}
       <section id="featured-products" className="max-w-7xl mx-auto px-4 py-12">
-        <h2 className="text-2xl md:text-3xl font-bold mb-6 text-[#19213a] text-center font-heading">Featured Products</h2>
+        <h2 className="text-2xl md:text-3xl font-bold mb-6 text-[#19213a] text-center font-heading">
+          Featured Products
+        </h2>
         <ProductSlider products={featuredProducts} />
       </section>
 

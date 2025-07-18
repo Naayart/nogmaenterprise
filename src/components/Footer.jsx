@@ -27,13 +27,13 @@ export default function Footer() {
                     <span className="text-white text-xs font-bold">✓</span>
                   </div>
                 </div>
-                <div className="ml-4">
+                <div className="ml-4 font-Open">
                   <h3 className="text-2xl font-bold text-white font-heading">Nogma.H</h3>
-                  <p className="text-[#D5A20A] font-semibold">Enterprise</p>
+                  <p className="text-[#D5A20A] font-semibold text-2xl">Enterprise</p>
                 </div>
               </div>
               
-              <div className="space-y-4">
+              <div className="space-y-4 font-Outfit">
                 <p className="text-gray-300 leading-relaxed">
                   "From a dream in northern Ghana to empowering thousands. Every product tells a story of community, quality, and hope."
                 </p>
@@ -45,10 +45,10 @@ export default function Footer() {
             </div>
 
             {/* Quick Links - Center */}
-            <div className="lg:col-span-1">
+            <div className="lg:col-span-1 font-Roboto">
               <h4 className="text-xl font-bold text-white mb-6 font-heading">Explore</h4>
               <div className="grid grid-cols-2 gap-4">
-                <div>
+                <div className="leading-relaxed">
                   <h5 className="text-[#D5A20A] font-semibold mb-3">Products</h5>
                   <ul className="space-y-2">
                     <li><Link to="/all-product" className="text-gray-300 hover:text-[#D5A20A] transition-colors text-sm">All Products</Link></li>
@@ -59,7 +59,7 @@ export default function Footer() {
                 </div>
                 <div>
                   <h5 className="text-[#D5A20A] font-semibold mb-3">Company</h5>
-                  <ul className="space-y-2">
+                  <ul className="space-y-2 leading-relaxed">
                     <li><Link to="/about" className="text-gray-300 hover:text-[#D5A20A] transition-colors text-sm">Our Story</Link></li>
                     <li><Link to="/blog" className="text-gray-300 hover:text-[#D5A20A] transition-colors text-sm">Blog</Link></li>
                     <li><Link to="/contact" className="text-gray-300 hover:text-[#D5A20A] transition-colors text-sm">Contact</Link></li>
@@ -70,12 +70,12 @@ export default function Footer() {
             </div>
 
             {/* Contact & Social - Right Side */}
-            <div className="lg:col-span-1 font-Roboto">
-              <h4 className="text-xl font-bold text-white mb-6 font-heading">Connect</h4>
-              <div className="space-y-4">
-                <div className="flex items-center space-x-3">
+            <div className="lg:col-span-1 font-Outfit">
+              <h4 className="text-xl font-bold text-white mb-6">Connect</h4>
+              <div className="space-y-4 font-Outfit">
+                <div className="flex items-center space-x-3 ">
                   <div className="w-10 h-10 bg-[#D5A20A] rounded-full flex items-center justify-center">
-                    <FiMapPin className="text-white" />
+                    <FiMapPin className="text-white f" />
                   </div>
                   <div>
                     <a href="https://maps.google.com/?q=Tamale,Ghana" target="_blank" rel="noopener noreferrer" className="text-white font-semibold hover:text-[#D5A20A] transition-colors cursor-pointer">Tamale, Ghana</a>

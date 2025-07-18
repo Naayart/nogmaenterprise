@@ -18,7 +18,7 @@ export default function Blog({ cart }) {
       date: "2024-01-15",
       category: "Product Stories",
       readTime: "5 min read",
-      image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      image: "https://media.istockphoto.com/id/2176675162/photo/shea-nuts.webp?a=1&b=1&s=612x612&w=0&k=20&c=8rT7Vz0Tu7cNNV79hSSYtqOyNN3JgkZsUtTPG8K5TTg=",
       tags: ["Shea Butter", "Traditional Methods", "Ghana"]
     },
     {
@@ -30,7 +30,7 @@ export default function Blog({ cart }) {
       date: "2024-01-10",
       category: "Community Impact",
       readTime: "7 min read",
-      image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      image: "https://images.unsplash.com/photo-1509100226070-1744f3cd5642?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHNvYXAlMjBtYWtpbmclMjB3aXRoJTIwYSUyMGJsYWNrJTIwd29tZW58ZW58MHx8MHx8fDA%3D",
       tags: ["Training", "Women Empowerment", "Entrepreneurship"]
     },
     {
@@ -42,7 +42,7 @@ export default function Blog({ cart }) {
       date: "2024-01-05",
       category: "Health & Wellness",
       readTime: "4 min read",
-      image: "https://images.unsplash.com/photo-1626094309830-abbb0c99da4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      image: "https://cdn.pixabay.com/photo/2024/07/01/04/15/ai-generated-8864296_960_720.png",
       tags: ["Nutrition", "Groundnut Paste", "Healthy Living"]
     },
     {
@@ -78,7 +78,7 @@ export default function Blog({ cart }) {
       date: "2023-12-15",
       category: "Product Stories",
       readTime: "5 min read",
-      image: "https://images.unsplash.com/photo-1494859802809-d069c3b71a8a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      image: "https://africangoodsmarket.shop/cdn/shop/files/koko2_c92a9392-de8c-4686-a61c-e62b72d381c9.png?v=1713884341&width=1946",
       tags: ["Tom Brown", "Breakfast", "Traditional Food"]
     }
   ];
@@ -104,12 +104,12 @@ export default function Blog({ cart }) {
       <Navbar cart={cart} />
 
       {/* Hero Section */}
-      <div className="bg-gradient-to-br from-[#046404] via-[#2D5A27] to-[#4A7C59] py-24 pt-28">
+      <div className="bg-gradient-to-br from-[#046404] via-[#2D5A27] to-[#4A7C59] py-24 pt-28 mt-15">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 drop-shadow-lg font-heading">
+          <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 drop-shadow-lg font-Playfair mt-5">
             Our Blog
           </h1>
-          <p className="text-xl text-[#F5F5DC] font-medium max-w-3xl mx-auto leading-relaxed">
+          <p className="text-2xl text-[#F5F5DC] font-medium max-w-3xl mx-auto leading-relaxed font-Playfair">
             Stories of empowerment, community impact, and the journey of Nogma.H Enterprise
           </p>
         </div>

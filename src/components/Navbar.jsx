@@ -2,10 +2,11 @@ import logo from "../assets/images/logo.jpeg";
 import { Link, NavLink, useNavigate, useLocation } from "react-router-dom";
 import { ShoppingCart } from "lucide-react";
 import { FiMenu, FiX } from "react-icons/fi";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Navbar({ cart }) {
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -17,7 +18,14 @@ export default function Navbar({ cart }) {
     { to: "/blog", label: "Blog" },
   ];
 
-  // Smooth scroll to featured products
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const handleProductsClick = (e) => {
     e.preventDefault();
     if (location.pathname === "/") {
@@ -31,7 +39,10 @@ export default function Navbar({ cart }) {
   };
 
   return (
-    <nav className="h-20 bg-[#B4E4AC]/80 backdrop-blur-md shadow-lg px-6 py-4 transition-colors duration-300">
+    <nav
+      className="h-15 fixed top-0 left-0 right-0 z-50 px-6 py-4 bg-white/10 backdrop-blur-md shadow transition-all duration-300"
+
+    >
       <div className="flex flex-row items-center justify-between h-full">
         {/* Logo + Company Name */}
         <div className="flex items-center space-x-4 font-Open">
@@ -47,7 +58,7 @@ export default function Navbar({ cart }) {
                 <span className="text-[#D5A20A]">.</span>H
               </span>
             </div>
-            <span className="text-[#D5A20A] text-1xl tracking-wide">
+            <span className="text-[#D5A20A] text-xl tracking-wide">
               Enterprise
             </span>
           </Link>
@@ -63,14 +74,13 @@ export default function Navbar({ cart }) {
         </button>
 
         {/* Navigation Links (Desktop) */}
-        <div className="hidden md:flex flex-row items-center space-x-6 text-lg font-medium font-Roboto">
+        <div className="hidden md:flex flex-row items-center space-x-6 text-lg font-semibold font-Outfit italic">
           {navLinks.map((link) =>
             link.isAnchor ? (
               <a
                 key={link.to}
                 href={link.to}
                 className="text-gray-600 hover:text-[#9CC40C] transition-colors duration-200"
-                aria-label={link.label}
               >
                 {link.label}
               </a>
@@ -80,7 +90,6 @@ export default function Navbar({ cart }) {
                 href="#featured-products"
                 onClick={handleProductsClick}
                 className="text-gray-600 hover:text-[#9CC40C] transition-colors duration-200"
-                aria-label={link.label}
               >
                 {link.label}
               </a>
@@ -93,7 +102,6 @@ export default function Navbar({ cart }) {
                     ? "text-[#9CC40C] font-semibold"
                     : "text-gray-600 hover:text-[#9CC40C] transition-colors duration-200"
                 }
-                aria-label={link.label}
               >
                 {link.label}
               </NavLink>
@@ -101,7 +109,7 @@ export default function Navbar({ cart }) {
           )}
         </div>
 
-        {/* Auth + Cart (Desktop) */}
+        {/* Cart (Desktop) */}
         <div className="hidden md:flex flex-row items-center space-x-5">
           <button
             className="relative cursor-pointer"
@@ -118,33 +126,28 @@ export default function Navbar({ cart }) {
         </div>
       </div>
 
-      {/* Side Drawer (Mobile) */}
+      {/* Mobile Drawer */}
       {drawerOpen && (
         <>
-          {/* Overlay */}
           <div
             className="fixed inset-0 bg-black bg-opacity-40 z-40"
             onClick={() => setDrawerOpen(false)}
-            aria-label="Close menu overlay"
           />
-          {/* Drawer */}
           <div className="fixed top-0 left-0 h-full w-64 bg-[#B4E4AC] shadow-lg z-50 flex flex-col p-6 animate-slide-in">
             <button
               className="self-end mb-6 text-[#046404] focus:outline-none"
-              aria-label="Close menu"
               onClick={() => setDrawerOpen(false)}
             >
               <FiX size={28} />
             </button>
-            <nav aria-label="Mobile navigation">
+            <nav>
               <ul className="flex flex-col space-y-6 text-lg font-medium">
                 {navLinks.map((link) => (
                   <li key={link.to}>
                     {link.isAnchor ? (
                       <a
                         href={link.to}
-                        className="text-gray-600 hover:text-blue-600 transition-colors duration-200"
-                        aria-label={link.label}
+                        className="text-gray-600 hover:text-blue-600"
                         onClick={() => setDrawerOpen(false)}
                       >
                         {link.label}
@@ -155,9 +158,8 @@ export default function Navbar({ cart }) {
                         className={({ isActive }) =>
                           isActive
                             ? "text-blue-600 font-semibold"
-                            : "text-gray-600 hover:text-blue-600 transition-colors duration-200"
+                            : "text-gray-600 hover:text-blue-600"
                         }
-                        aria-label={link.label}
                         onClick={() => setDrawerOpen(false)}
                       >
                         {link.label}
@@ -166,28 +168,28 @@ export default function Navbar({ cart }) {
                   </li>
                 ))}
               </ul>
+              <div className="mt-10 flex flex-col space-y-4">
+                <button
+                  className="relative cursor-pointer"
+                  onClick={() => {
+                    setDrawerOpen(false);
+                    navigate("/cart");
+                  }}
+                >
+                  <ShoppingCart />
+                  {cart && cart.length > 0 && (
+                    <span className="absolute -top-2 -right-2 bg-[#D4AF37] text-white text-xs font-bold rounded-full px-2 py-0.5">
+                      {cart.length}
+                    </span>
+                  )}
+                </button>
+              </div>
             </nav>
-            <div className="mt-10 flex flex-col space-y-4">
-              <button
-                className="relative cursor-pointer"
-                onClick={() => {
-                  setDrawerOpen(false);
-                  navigate("/cart");
-                }}
-                aria-label="View cart"
-              >
-                <ShoppingCart />
-                {cart && cart.length > 0 && (
-                  <span className="absolute -top-2 -right-2 bg-[#D4AF37] text-white text-xs font-bold rounded-full px-2 py-0.5">
-                    {cart.length}
-                  </span>
-                )}
-              </button>
-            </div>
           </div>
         </>
       )}
-      {/* Drawer animation */}
+
+      {/* Animation */}
       <style>{`
         @keyframes slide-in {
           from { transform: translateX(-100%); }

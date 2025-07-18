@@ -4,6 +4,9 @@
 
 @theme {
   --font-Open: 'Open Sans', 'sans-serif';
-  --font-Roboto: 'Roboto';
-  --font-Monserrat: 'Monserrat', 'sans-serif';
+  --font-Roboto: 'Roboto', 'sans-serif';
+  --font-Montserrat: 'Montserrat', 'sans-serif';
+  --font-Playfair: 'Playfair Display', 'serif';
+  --font-Accent: 'Prompt', sans-serif;
+  --font-Outfit: 'Outfit', sans-serif;
 }
