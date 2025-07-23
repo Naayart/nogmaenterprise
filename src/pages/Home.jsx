@@ -6,7 +6,7 @@ import ProductCard from "../components/ProductCard";
 import tombrown from "../assets/images/Tom brown.png";
 import sheaButterImg from "../assets/images/Sheabutter.png";
 import peanutImg from "../assets/images/Peanut-1.png";
-import peanutButterImg from "../assets/images/Groundnut paste.png";
+import peanutButterImg from "../assets/images/Groundnut Paste.png";
 import liquidSoapImg from "../assets/images/Liquid Soap.png";
 import barSoapImg from "../assets/images/Bar-soap.jpeg";
 import powderedPepperImg from "../assets/images/Powdered pepper.jpeg";
