@@ -7,7 +7,7 @@ import sheaButterB from "../assets/images/Sheabutter-Big size.jpg";
 import sheaButterS from "../assets/images/Sheabutter-Small.jpg";
 import sheaButterM from "../assets/images/Sheabutter-Medium.jpg";
 import peanutImg from "../assets/images/Peanut-1.png";
-import peanutButterImg from "../assets/images/Groundnut paste.png";
+import peanutButterImg from "../assets/images/Groundnut Paste.png";
 import peanutButterM from "../assets/images/Peanut Butter-Medium.jpg";
 import peanutButterS from "../assets/images/Peanut Butter-Small.jpg";
 import liquidSoapImg from "../assets/images/Liquid Soap.png";
