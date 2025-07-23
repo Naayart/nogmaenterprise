@@ -4,7 +4,7 @@ import liquidSoapImg from "../assets/images/Liquid Soap.png";
 import barSoapImg from "../assets/images/Bar-soap.jpeg";
 import powderedPepperImg from "../assets/images/Powdered pepper.jpeg";
 import { useState, useEffect } from "react";
-import profilePicture from "../assets/images/Profile picture.jpeg";
+import profilePicture from "../assets/images/Profile Picture.jpeg";
 
 const images = [
   { src: liquidSoapImg, alt: "Liquid Soap" },
