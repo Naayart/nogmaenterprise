@@ -9,6 +9,7 @@ import NotFound from "./pages/NotFound";
 import ProductDetail from "./pages/ProductDetail";
 import AllProduct from "./pages/AllProducts";
 import CartNotification from "./components/CartNotification";
+import BlogDetail from "./pages/BlogDetail";
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -31,6 +32,7 @@ function App() {
     { path: "/contact", element: <Contact cart={cart} /> },
     { path: "/about", element: <About cart={cart} /> },
     { path: "/blog", element: <Blog cart={cart} /> },
+    { path: "/blog/:id", element: <BlogDetail cart={cart} /> },
     { path: "/cart", element: <Cart cart={cart} setCart={setCart} /> },
     { path: "/product-detail", element: <ProductDetail addToCart={addToCart} cart={cart} /> },
     { path: "/all-product", element: <AllProduct cart={cart} /> },

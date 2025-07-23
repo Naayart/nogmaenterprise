@@ -2,13 +2,9 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { useState } from "react";
 import { FiCalendar, FiUser, FiTag, FiArrowRight, FiSearch } from "react-icons/fi";
+import BlogCard from "../components/BlogCard";
 
-export default function Blog({ cart }) {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("All");
-
-  // Sample blog data
-  const blogPosts = [
+export const blogPosts = [
     {
       id: 1,
       title: "The Journey of Shea Butter: From Tree to Your Home",
@@ -83,6 +79,15 @@ export default function Blog({ cart }) {
     }
   ];
 
+export const formatDate = (dateString) => {
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  return new Date(dateString).toLocaleDateString('en-US', options);
+};
+
+export default function Blog({ cart }) {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("All");
+
   const categories = ["All", "Product Stories", "Community Impact", "Health & Wellness", "Company Story", "Sustainability"];
 
   // Filter posts based on search term and category
@@ -93,11 +98,6 @@ export default function Blog({ cart }) {
     const matchesCategory = selectedCategory === "All" || post.category === selectedCategory;
     return matchesSearch && matchesCategory;
   });
-
-  const formatDate = (dateString) => {
-    const options = { year: 'numeric', month: 'long', day: 'numeric' };
-    return new Date(dateString).toLocaleDateString('en-US', options);
-  };
 
   return (
     <>
@@ -159,67 +159,7 @@ export default function Blog({ cart }) {
           {/* Blog Posts Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredPosts.map((post) => (
-              <article key={post.id} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
-                {/* Post Image */}
-                <div className="relative h-48 overflow-hidden">
-                  <img
-                    src={post.image}
-                    alt={post.title}
-                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
-                  />
-                  <div className="absolute top-4 left-4">
-                    <span className="bg-[#D5A20A] text-white px-3 py-1 rounded-full text-xs font-semibold">
-                      {post.category}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Post Content */}
-                <div className="p-6">
-                  {/* Meta Information */}
-                  <div className="flex items-center justify-between text-sm text-gray-500 mb-3">
-                    <div className="flex items-center space-x-4">
-                      <div className="flex items-center space-x-1">
-                        <FiUser size={14} />
-                        <span>{post.author}</span>
-                      </div>
-                      <div className="flex items-center space-x-1">
-                        <FiCalendar size={14} />
-                        <span>{formatDate(post.date)}</span>
-                      </div>
-                    </div>
-                    <span className="text-[#D5A20A] font-medium">{post.readTime}</span>
-                  </div>
-
-                  {/* Title */}
-                  <h3 className="text-xl font-bold text-[#046404] mb-3 line-clamp-2 hover:text-[#D5A20A] transition-colors">
-                    {post.title}
-                  </h3>
-
-                  {/* Excerpt */}
-                  <p className="text-gray-600 mb-4 line-clamp-3 leading-relaxed">
-                    {post.excerpt}
-                  </p>
-
-                  {/* Tags */}
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {post.tags.map((tag, index) => (
-                      <span
-                        key={index}
-                        className="bg-gray-100 text-gray-600 px-2 py-1 rounded-md text-xs font-medium"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* Read More Button */}
-                  <button className="flex items-center space-x-2 text-[#D5A20A] font-semibold hover:text-[#046404] transition-colors group">
-                    <span>Read More</span>
-                    <FiArrowRight size={16} className="transform group-hover:translate-x-1 transition-transform" />
-                  </button>
-                </div>
-              </article>
+              <BlogCard key={post.id} post={post} formatDate={formatDate} />
             ))}
           </div>
 
