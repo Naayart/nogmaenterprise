@@ -42,7 +42,7 @@ export default function Contact({ cart }) {
       <Navbar cart={cart} />
 
       {/* Hero Section */}
-      <div className="bg-gradient-to-br from-[#046404] via-[#2D5A27] to-[#4A7C59] py-24 pt-28 relative overflow-hidden font-Roboto">
+      <div className="bg-gradient-to-br from-[#046404] via-[#2D5A27] to-[#4A7C59] py-24 pt-28 relative overflow-hidden font-Roboto mt-15">
         {/* Animated background elements */}
         <div className="absolute inset-0">
           <div className="absolute top-20 left-10 w-20 h-20 bg-[#D5A20A]/20 rounded-full animate-pulse"></div>
@@ -103,7 +103,7 @@ export default function Contact({ cart }) {
                 <div className="absolute -top-8 -left-8 w-32 h-32 bg-gradient-to-br from-[#D5A20A]/20 to-transparent rounded-full blur-xl"></div>
                 <div className="absolute -bottom-8 -right-8 w-40 h-40 bg-gradient-to-br from-[#046404]/20 to-transparent rounded-full blur-xl"></div>
                 
-                <div className="bg-white rounded-3xl shadow-2xl p-8 md:p-12 relative z-10 border border-gray-100">
+                <div className="bg-white rounded-3xl shadow-xl p-8 md:p-12 relative z-10 border border-gray-100">
                   <div className="text-center mb-8">
                     <div className="w-16 h-16 bg-gradient-to-br from-[#D5A20A] to-[#B8860B] rounded-full flex items-center justify-center mx-auto mb-4">
                       <FiMessageSquare className="text-white" size={28} />

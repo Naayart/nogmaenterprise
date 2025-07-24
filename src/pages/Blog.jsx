@@ -176,27 +176,8 @@ export default function Blog({ cart }) {
             </div>
           )}
 
-          {/* Newsletter Signup */}
-          <div className="mt-20">
-            <div className="bg-gradient-to-r from-[#046404] to-[#2D5A27] rounded-3xl shadow-2xl p-8 md:p-12 text-center">
-              <h3 className="text-3xl font-bold text-white mb-4 font-heading">
-                Stay Updated
-              </h3>
-              <p className="text-[#F5F5DC] mb-6 max-w-2xl mx-auto">
-                Subscribe to our newsletter to receive the latest stories, product updates, and community impact news directly in your inbox.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="flex-1 px-4 py-3 rounded-lg border-0 focus:ring-2 focus:ring-[#D5A20A] outline-none"
-                />
-                <button className="bg-[#D5A20A] text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-[#046404] transition-all duration-300 transform hover:scale-105">
-                  Subscribe
-                </button>
-              </div>
-            </div>
-          </div>
+          
+         
         </div>
       </div>
 

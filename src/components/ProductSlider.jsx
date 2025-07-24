@@ -78,13 +78,7 @@ export default function ProductSlider({ products }) {
                     </span>
                   )}
                 </div>
-                <button
-                  onClick={() => navigate("/all-product")}
-                  className="flex items-center gap-2 px-5 py-2 rounded-full bg-yellow-400 text-green-900 font-semibold shadow hover:bg-yellow-500 hover:scale-105 transition-all duration-200 mt-2"
-                  aria-label="View all products"
-                >
-                  <FiEye /> View All
-                </button>
+                
               </div>
             </div>
           ))}
