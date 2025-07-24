@@ -2,19 +2,20 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import NewsLetter from "../components/NewsLetter";
 import { useState, useEffect } from "react";
-import ProductCard from "../components/ProductCard";
+import ProductSlider from "../components/ProductSlider";
+import TestimonialSection from "../components/TestimonialSection";
 import tombrown from "../assets/images/Tom brown.png";
 import sheaButterImg from "../assets/images/Sheabutter.png";
-import peanutImg from "../assets/images/Peanut-1.png";
+import sheaButterImgM from "../assets/images/Sheabutter-Medium.jpg";
 import peanutButterImg from "../assets/images/Groundnut Paste.png";
+import peanutImg from "../assets/images/Peanut-1.png"; // or the correct filename
 import liquidSoapImg from "../assets/images/Liquid Soap.png";
 import barSoapImg from "../assets/images/Bar-soap.jpeg";
-import powderedPepperImg from "../assets/images/Powdered pepper.jpeg";
+import powderedPepperImg from "../assets/images/Powdered Pepper.jpeg";
 import watermarkLogo from "../assets/images/logo.jpeg";
 import { Link, useLocation } from "react-router-dom";
-import ProductSlider from "../components/ProductSlider";
 
-// Featured products for the slider
+
 const featuredProducts = [
   {
     id: 1,
@@ -86,10 +87,9 @@ const featuredProducts = [
     discount: 17,
     rating: 4,
   },
-  // Additional products for a richer slider
   {
     id: 8,
-    image: sheaButterImg,
+    image: sheaButterImgM,
     category: "Wellness",
     name: "Sheabutter - Large",
     price: "₵35.00",
@@ -138,7 +138,6 @@ const featuredProducts = [
     rating: 3,
   },
 ];
-
 const images = [
   { src: tombrown, alt: "Tom Brown" },
   { src: sheaButterImg, alt: "Shea Butter" },
@@ -148,28 +147,23 @@ const images = [
 export default function Home({ addToCart, cart }) {
   const [current, setCurrent] = useState(0);
   const location = useLocation();
-
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % images.length);
-    }, 3000);
+    const timer = setInterval(
+      () => setCurrent((prev) => (prev + 1) % images.length),
+      3000
+    );
     return () => clearInterval(timer);
   }, []);
-
   useEffect(() => {
     if (location.state && location.state.scrollTo === "featured-products") {
       const section = document.getElementById("featured-products");
-      if (section) {
-        section.scrollIntoView({ behavior: "smooth" });
-      }
+      if (section) section.scrollIntoView({ behavior: "smooth" });
     }
   }, [location]);
-
   return (
     <>
       <Navbar cart={cart} />
-      <section className="relative min-h-[70vh] flex flex-col md:flex-row items-center justify-between px-8 py-16 overflow-hidden bg-[#588142] pt-20 mt-15">
-        {/* Logo as background */}
+      <section className="relative min-h-[70vh] flex flex-col md:flex-row items-center justify-between px-8 py-16 overflow-hidden bg-green-700 pt-20 mt-15">
         <img
           src={watermarkLogo}
           alt="Logo background"
@@ -180,53 +174,43 @@ export default function Home({ addToCart, cart }) {
             transform: "translate(-50%, -50%)",
           }}
         />
-
-        {/* Text Content */}
         <div className="max-w-xl z-10">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight drop-shadow font-Accent">
+          <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight font-Accent">
             Natural Ghanaian Goodness{" "}
-            <span className="text-[#FFD233]">From</span> Kitchen to Care!
+            <span className="text-yellow-400">From</span> Kitchen to Care!
           </h1>
-          <p className="text-lg text-white/90 mb-8 drop-shadow font-Accent">
+          <p className="text-lg text-white mb-8 font-Accent">
             Healthy products proudly made in Ghana.
           </p>
           <div className="flex gap-4">
             <Link
-              to={"/all-product"}
-              className="bg-[#FFD233] text-[#222] font-bold px-6 py-3 rounded shadow hover:bg-[#e6b800] transition font-Montserrat italic"
+              to="/all-product"
+              className="bg-yellow-400 text-green-900 font-bold px-6 py-3 rounded shadow hover:bg-yellow-500 transition font-Montserrat italic"
             >
               Shop Now
             </Link>
             <Link
-              to={"/about"}
-              className="bg-white/10 border border-white text-white font-bold px-6 py-3 rounded-md hover:bg-white/20 transition font-Montserrat italic"
+              to="/about"
+              className="bg-white border border-green-700 text-green-700 font-bold px-6 py-3 rounded-md hover:bg-green-50 transition font-Montserrat italic"
             >
               Learn More
             </Link>
           </div>
         </div>
-
-        {/* Image Slider */}
         <div className="relative mt-10 md:mt-0 md:ml-10">
-          {/* Softened border frames */}
-          <div className="absolute -top-4 -left-4 w-full h-full rounded-2xl border-4 border-[#FFD233] z-0"></div>
-          <div className="absolute -bottom-4 -right-4 w-full h-full rounded-2xl border-4 border-[#7c0a02] z-0"></div>
-
-          {/* Relaxed transition on image */}
+          <div className="absolute -top-4 -left-4 w-full h-full rounded-2xl border-4 border-yellow-400 z-0"></div>
           <img
             src={images[current].src}
             alt={images[current].alt}
-            className="relative rounded-2xl shadow-xl w-[320px] md:w-[380px] z-10 transition-all duration-1000 ease-in-out opacity-100 object-cover"
+            className="relative rounded-2xl shadow-xl w-[320px] md:w-[380px] z-10 transition-all duration-1000 object-cover"
           />
-
-          {/* Dots */}
           <div className="flex justify-center mt-4 space-x-2">
             {images.map((img, idx) => (
               <button
                 key={img.alt}
-                className={`w-3 h-3 rounded-full border-2 transition-all duration-300 ease-in-out ${
+                className={`w-3 h-3 rounded-full border-2 transition-all duration-300 ${
                   idx === current
-                    ? "bg-[#FFD233] border-[#FFD233] scale-125 shadow"
+                    ? "bg-yellow-400 border-yellow-400 scale-125 shadow"
                     : "bg-white/30 border-white/40"
                 }`}
                 onClick={() => setCurrent(idx)}
@@ -236,16 +220,14 @@ export default function Home({ addToCart, cart }) {
           </div>
         </div>
       </section>
-
-      {/* Product Slider Section */}
       <section id="featured-products" className="max-w-7xl mx-auto px-4 py-12">
-        <h2 className="text-2xl md:text-3xl font-bold mb-6 text-[#19213a] text-center font-heading">
+        <h2 className="text-2xl md:text-3xl font-bold mb-6 text-green-700 text-center font-heading">
           Featured Products
         </h2>
         <ProductSlider products={featuredProducts} />
       </section>
-
       <NewsLetter />
+      <TestimonialSection />
       <Footer />
     </>
   );

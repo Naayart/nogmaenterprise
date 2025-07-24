@@ -50,7 +50,7 @@ export const blogPosts = [
       date: "2023-12-28",
       category: "Company Story",
       readTime: "8 min read",
-      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      image: "https://images.unsplash.com/photo-1655720357872-ce227e4164ba?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YWZyaWNhbiUyMHdvbWVuJTIwaW4lMjBhJTIwbWVldGluZ3xlbnwwfHwwfHx8MA%3D%3D",
       tags: ["Entrepreneurship", "Success Story", "Community"]
     },
     {
@@ -62,7 +62,7 @@ export const blogPosts = [
       date: "2023-12-20",
       category: "Sustainability",
       readTime: "6 min read",
-      image: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      image: "https://images.unsplash.com/photo-1585962485475-e411a40a1a6b?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       tags: ["Sustainability", "Environment", "Green Business"]
     },
     {
