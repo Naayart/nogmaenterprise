@@ -14,6 +14,7 @@ import barSoapImg from "../assets/images/Bar-soap.jpeg";
 import powderedPepperImg from "../assets/images/Powdered Pepper.jpeg";
 import watermarkLogo from "../assets/images/logo.jpeg";
 import { Link, useLocation } from "react-router-dom";
+import CategorySection from "../components/CategorySection";
 
 
 const featuredProducts = [
@@ -163,11 +164,11 @@ export default function Home({ addToCart, cart }) {
   return (
     <>
       <Navbar cart={cart} />
-      <section className="relative min-h-[70vh] flex flex-col md:flex-row items-center justify-between px-8 py-16 overflow-hidden bg-green-700 pt-20 mt-15">
+      <section className="relative min-h-[70vh] flex flex-col md:flex-row items-center justify-between px-8 py-16 overflow-hidden  pt-20 mt-15">
         <img
           src={watermarkLogo}
           alt="Logo background"
-          className="absolute inset-0 m-auto w-[90vw] max-w-5xl opacity-10 pointer-events-none select-none z-0"
+          className="absolute inset-0 m-auto w-[90vw] max-w-5xl opacity-10 pointer-events-none select-none z-0 mt-15"
           style={{
             left: "50%",
             top: "50%",
@@ -175,7 +176,7 @@ export default function Home({ addToCart, cart }) {
           }}
         />
         <div className="max-w-xl z-10">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight font-Accent">
+          <h1 className="text-4xl md:text-5xl font-extrabold text-black mb-6 leading-tight font-Accent">
             Natural Ghanaian Goodness{" "}
             <span className="text-yellow-400">From</span> Kitchen to Care!
           </h1>
@@ -220,14 +221,22 @@ export default function Home({ addToCart, cart }) {
           </div>
         </div>
       </section>
-      <section id="featured-products" className="max-w-7xl mx-auto px-4 py-12">
-        <h2 className="text-2xl md:text-3xl font-bold mb-6 text-green-700 text-center font-heading">
-          Featured Products
-        </h2>
-        <ProductSlider products={featuredProducts} />
+      <CategorySection />
+      <section
+        id="featured-products"
+        className="max-w-7xl mx-auto px-4 py-12 bg"
+      >
+        <div className="flex flex-col md:flex-row items-center justify-between mb-6 ">
+          <h2 className="text-2xl md:text-3xl font-bold text-green-700 font-heading text-center md:text-left">
+            Featured Products
+          </h2>
+          <Link to="/all-product" className="text-green-700 hover:text-green-900">View All Products</Link>
+        </div>
+        <p>Discover top picks for you</p>
+        <ProductSlider products={featuredProducts.slice(0, 4)} />
       </section>
-      <NewsLetter />
       <TestimonialSection />
+       <NewsLetter />
       <Footer />
     </>
   );

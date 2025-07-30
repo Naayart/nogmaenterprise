@@ -27,29 +27,46 @@ export default function About({ cart }) {
       <Navbar cart={cart} />
 
       {/* Hero Section */}
-      <div className="relative bg-[#046404] py-24 px-6 text-white text-center font-Playfair mt-15">
+      <div className="relative bg-[#046404] py-24 px-4 md:px-8 text-white text-center font-Playfair overflow-hidden mt-15">
+        {/* Decorative Gold Accent */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[120vw] h-40 bg-gradient-to-r from-yellow-400/30 via-yellow-300/20 to-yellow-400/30 blur-2xl opacity-60 pointer-events-none" />
+
         {/* Headline */}
-        <h1 className="text-5xl md:text-6xl font-bold italic drop-shadow-lg mb-4">
-          Crafting Natural Products. Empowering Local Skills.
+        <h1 className="text-4xl md:text-6xl font-bold italic drop-shadow-xl mb-6 tracking-tight">
+          <span className="bg-gradient-to-r from-yellow-400 via-white to-yellow-400 bg-clip-text text-transparent">
+            Crafting Natural Products.
+          </span>
+          <br />
+          <span className="text-white">Empowering Local Skills.</span>
         </h1>
 
         {/* Subheading */}
-        <p className="text-xl md:text-2xl text-[#F5F5DC] max-w-3xl mx-auto leading-relaxed mb-10">
+        <p className="text-lg md:text-2xl text-[#F5F5DC] max-w-2xl mx-auto leading-relaxed mb-10 font-medium">
           From handmade soap to peanut butter, to powdered pepper, every product
-          carries a story and every training empowers a life. This is Nogma H. Enterprise.
+          carries a story and every training empowers a life.
+          <br />
+          <span className="text-yellow-400 font-bold">
+            This is Nogma H. Enterprise.
+          </span>
         </p>
 
-        {/* Rotating Product Image */}
-        <div className="mx-auto w-[250px] h-[250px] md:w-[350px] md:h-[350px] rounded-3xl overflow-hidden shadow-xl border-4 border-white transition-all duration-700 mb-8">
+        {/* Rotating Product Image with Gold Glow */}
+        <div className="mx-auto w-[220px] h-[220px] md:w-[320px] md:h-[320px] rounded-3xl overflow-hidden shadow-2xl border-4 border-white mb-8 relative group transition-all duration-700">
+          <div
+            className="absolute inset-0 rounded-3xl pointer-events-none group-hover:scale-105 transition-transform duration-500"
+            style={{
+              boxShadow: "0 0 40px 10px #FFD70055",
+            }}
+          />
           <img
             src={images[current].src}
             alt={images[current].alt}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
           />
         </div>
 
-        {/* Optional Call-to-Action */}
-        <button className="bg-white text-[#046404] px-6 py-3 text-lg font-semibold rounded-full shadow-md hover:bg-[#f0f0f0] transition">
+        {/* Call-to-Action */}
+        <button className="bg-gradient-to-r from-yellow-400 to-yellow-500 text-[#046404] px-8 py-3 text-lg font-bold rounded-full shadow-lg hover:from-white hover:to-yellow-200 hover:text-green-800 transition-colors duration-200 border-2 border-yellow-400">
           Learn More About Our Journey
         </button>
       </div>

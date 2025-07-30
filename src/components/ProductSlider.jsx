@@ -1,64 +1,86 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { FiChevronLeft, FiChevronRight, FiEye } from "react-icons/fi";
+import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
 export default function ProductSlider({ products }) {
   const [current, setCurrent] = useState(0);
-  const slidesToShow =
-    window.innerWidth < 640 ? 1 : window.innerWidth < 1024 ? 2 : 3;
   const navigate = useNavigate();
-  const CARD_WIDTH = 270 + 32;
+
+  // Responsive slides to show
+  const getSlidesToShow = () => {
+    if (window.innerWidth < 640) return 1;
+    if (window.innerWidth < 1024) return 2;
+    return 3;
+  };
+  const [slidesToShow, setSlidesToShow] = useState(getSlidesToShow());
+
+  React.useEffect(() => {
+    const handleResize = () => setSlidesToShow(getSlidesToShow());
+    window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const CARD_WIDTH = 270 + 24;
   const maxIndex = products.length - slidesToShow;
   const safeCurrent = Math.max(
     0,
     Math.min(current, maxIndex >= 0 ? maxIndex : 0)
   );
+
   return (
-    <div className="relative w-full overflow-x-hidden">
-      <div className="flex items-center justify-center gap-6">
+    <div className="relative w-full bg-white py-6">
+      <div className="flex items-center justify-center gap-2">
+        {/* Left Arrow
         <button
           onClick={() => setCurrent((prev) => Math.max(prev - 1, 0))}
-          className="p-3 rounded-full bg-green-700 shadow-lg hover:scale-110 transition absolute left-0 top-1/2 -translate-y-1/2 z-10 border-4 border-white"
+          className="p-2 rounded-full bg-green-700 shadow-lg hover:scale-110 transition border-4 border-white disabled:opacity-40 absolute left-2 top-1/2 -translate-y-1/2 z-10"
           aria-label="Previous products"
           disabled={safeCurrent === 0}
         >
           <FiChevronLeft className="text-white text-2xl" />
-        </button>
+        </button> */}
+
+        {/* Slider */}
         <div
-          className="flex gap-8 w-full justify-start transition-transform duration-500"
-          style={{ transform: `translateX(-${safeCurrent * CARD_WIDTH}px)` }}
+          className="flex gap-6 w-full overflow-x-auto scrollbar-hide scroll-smooth px-8"
+          style={{
+            transform: `translateX(-${safeCurrent * CARD_WIDTH}px)`,
+            transition: "transform 0.5s ease-in-out",
+          }}
         >
           {products.map((product, idx) => (
             <div
               key={product.id}
-              className={`relative flex flex-col items-center justify-between min-w-[210px] max-w-[270px] flex-1 cursor-pointer rounded-3xl transition-all duration-400 group ${
+              className={`flex flex-col items-center bg-white rounded-3xl shadow-lg min-w-[220px] max-w-[270px] flex-1 mx-2 transition-all duration-300 group border-2 hover:shadow-2xl hover:scale-105${
                 idx === safeCurrent + Math.floor(slidesToShow / 2)
-                  ? "scale-105 shadow-2xl z-20 bg-white border-2 border-yellow-400"
-                  : "scale-95 opacity-80 z-10 bg-white border"
-              }`}
-              onClick={() => navigate("/all-product")}
+                  ? "border-transparent scale-105 z-20"
+                  : "border-transparent opacity-90"
+              } `}
             >
-              <div className="w-full flex items-center justify-center pt-8 pb-4 px-4 z-10">
+              {/* Product Image */}
+              <div className="w-full flex items-center justify-center pt-6 pb-3 px-4">
                 <img
                   src={product.image}
                   alt={product.name}
-                  className="object-contain w-full h-40 md:h-48 lg:h-56 transition-transform duration-300 group-hover:scale-105 drop-shadow-xl"
+                  className="object-contain w-full h-36 md:h-44 lg:h-52 rounded-xl bg-white group-hover:scale-105 transition-transform duration-300 drop-shadow"
                 />
               </div>
-              <div className="w-full px-6 pb-6 flex flex-col items-center z-10">
+              {/* Product Info */}
+              <div className="w-full px-5 pb-5 flex flex-col items-center">
                 <div className="text-xs text-green-700 mb-1 uppercase tracking-wide font-semibold font-accent">
                   {product.category}
                 </div>
                 <div className="font-bold text-lg text-green-900 text-center truncate font-heading mb-1">
                   {product.name}
                 </div>
-                <div className="flex items-center mb-1">
+                {/* Rating */}
+                <div className="flex items-center mb-2">
                   {[...Array(5)].map((_, i) => (
                     <svg
                       key={i}
-                      className={`w-4 h-4 ${
+                      className={`w-5 h-5 ${
                         i < (product.rating || 0)
-                          ? "text-yellow-400"
+                          ? "text-yellow-500"
                           : "text-gray-300"
                       }`}
                       fill="currentColor"
@@ -68,7 +90,8 @@ export default function ProductSlider({ products }) {
                     </svg>
                   ))}
                 </div>
-                <div className="flex items-center space-x-2 mb-2">
+                {/* Price */}
+                <div className="flex items-center space-x-2 mb-3">
                   <span className="text-green-700 font-bold text-xl">
                     {product.price}
                   </span>
@@ -78,23 +101,34 @@ export default function ProductSlider({ products }) {
                     </span>
                   )}
                 </div>
-                
+                {/* Add to Cart Button */}
+                <button
+                  className="w-full py-2 mt-1 rounded-full bg-green-700 text-white font-semibold shadow hover:bg-yellow-500 hover:text-green-900 transition-colors duration-200"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    // Add your add-to-cart logic here
+                  }}
+                >
+                      Add to Cart
+                </button>
               </div>
             </div>
           ))}
         </div>
-        <button
+
+        {/* Right Arrow */}
+        {/* <button
           onClick={() =>
             setCurrent((prev) =>
               Math.min(prev + 1, maxIndex >= 0 ? maxIndex : 0)
             )
           }
-          className="p-3 rounded-full bg-green-700 shadow-lg hover:scale-110 transition absolute right-0 top-1/2 -translate-y-1/2 z-10 border-4 border-white"
+          className="p-2 rounded-full bg-green-700 shadow-lg hover:scale-110 transition border-4 border-white disabled:opacity-40 absolute right-2 top-1/2 -translate-y-1/2 z-10"
           aria-label="Next products"
           disabled={safeCurrent === maxIndex || products.length <= slidesToShow}
         >
-          <FiChevronRight className="text-white text-2xl" />
-        </button>
+          
+        </button> */}
       </div>
     </div>
   );
