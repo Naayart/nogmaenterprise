@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import CategoryCard from "./CategoryCard";
 import LiquidSoap from "../assets/images/Liquid Soap.png";
@@ -19,6 +19,25 @@ export default function CategorySection() {
       });
     }
   };
+
+  useEffect(() => {
+  const container = scrollRef.current;
+  if (!container) return;
+
+  const interval = setInterval(() => {
+    const maxScrollLeft = container.scrollWidth - container.clientWidth;
+
+    // If it's at (or near) the end, scroll back to start
+    if (Math.ceil(container.scrollLeft) >= maxScrollLeft) {
+      container.scrollTo({ left: 0, behavior: "smooth" });
+    } else {
+      container.scrollBy({ left: 300, behavior: "smooth" });
+    }
+  }, 3000); // every 3 seconds
+
+  return () => clearInterval(interval);
+}, []);
+
 
   const categories = [
     { id: 1, image: LiquidSoap, title: "Liquid Soap" },
