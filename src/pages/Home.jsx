@@ -6,139 +6,14 @@ import ProductSlider from "../components/ProductSlider";
 import TestimonialSection from "../components/TestimonialSection";
 import tombrown from "../assets/images/Tom brown.png";
 import sheaButterImg from "../assets/images/Sheabutter.png";
-import sheaButterImgM from "../assets/images/Sheabutter-Medium.jpg";
 import peanutButterImg from "../assets/images/Groundnut Paste.png";
-import peanutImg from "../assets/images/Peanut-1.png"; // or the correct filename
-import liquidSoapImg from "../assets/images/Liquid Soap.png";
-import barSoapImg from "../assets/images/Bar-soap.jpeg";
-import powderedPepperImg from "../assets/images/Powdered Pepper.jpeg";
 import watermarkLogo from "../assets/images/logo.jpeg";
 import { Link, useLocation } from "react-router-dom";
 import CategorySection from "../components/CategorySection";
+import FeaturedProductSection from "../components/FeaturedProductSection";
 
 
-const featuredProducts = [
-  {
-    id: 1,
-    image: sheaButterImg,
-    category: "Wellness",
-    name: "Sheabutter",
-    price: "₵20.00",
-    oldPrice: "₵25.00",
-    discount: 20,
-    rating: 4,
-  },
-  {
-    id: 2,
-    image: peanutButterImg,
-    category: "Food",
-    name: "Groundnut paste",
-    price: "₵10.00",
-    oldPrice: "₵12.00",
-    discount: 17,
-    rating: 5,
-  },
-  {
-    id: 3,
-    image: peanutImg,
-    category: "Food",
-    name: "Peanut",
-    price: "₵25.00",
-    oldPrice: "₵30.00",
-    discount: 17,
-    rating: 4,
-  },
-  {
-    id: 4,
-    image: liquidSoapImg,
-    category: "Wellness",
-    name: "Liquid Soap",
-    price: "₵15.00",
-    oldPrice: "₵18.00",
-    discount: 17,
-    rating: 4,
-  },
-  {
-    id: 5,
-    image: barSoapImg,
-    category: "Wellness",
-    name: "Bar Soap",
-    price: "₵8.00",
-    oldPrice: "₵10.00",
-    discount: 20,
-    rating: 3,
-  },
-  {
-    id: 6,
-    image: powderedPepperImg,
-    category: "Food",
-    name: "Powdered Pepper",
-    price: "₵12.00",
-    oldPrice: "₵15.00",
-    discount: 20,
-    rating: 5,
-  },
-  {
-    id: 7,
-    image: tombrown,
-    category: "Food",
-    name: "Tombrown",
-    price: "₵25.00",
-    oldPrice: "₵30.00",
-    discount: 17,
-    rating: 4,
-  },
-  {
-    id: 8,
-    image: sheaButterImgM,
-    category: "Wellness",
-    name: "Sheabutter - Large",
-    price: "₵35.00",
-    oldPrice: "₵40.00",
-    discount: 13,
-    rating: 5,
-  },
-  {
-    id: 9,
-    image: peanutButterImg,
-    category: "Food",
-    name: "Groundnut paste - Family Pack",
-    price: "₵18.00",
-    oldPrice: "₵22.00",
-    discount: 18,
-    rating: 4,
-  },
-  {
-    id: 10,
-    image: barSoapImg,
-    category: "Wellness",
-    name: "Bar Soap - Scented",
-    price: "₵10.00",
-    oldPrice: "₵13.00",
-    discount: 23,
-    rating: 5,
-  },
-  {
-    id: 11,
-    image: powderedPepperImg,
-    category: "Food",
-    name: "Powdered Pepper - Hot",
-    price: "₵14.00",
-    oldPrice: "₵17.00",
-    discount: 18,
-    rating: 4,
-  },
-  {
-    id: 12,
-    image: tombrown,
-    category: "Food",
-    name: "Tombrown - Small Pack",
-    price: "₵12.00",
-    oldPrice: "₵15.00",
-    discount: 20,
-    rating: 3,
-  },
-];
+
 const images = [
   { src: tombrown, alt: "Tom Brown" },
   { src: sheaButterImg, alt: "Shea Butter" },
@@ -161,6 +36,7 @@ export default function Home({ addToCart, cart }) {
       if (section) section.scrollIntoView({ behavior: "smooth" });
     }
   }, [location]);
+  
   return (
     <>
       <Navbar cart={cart} />
@@ -180,7 +56,7 @@ export default function Home({ addToCart, cart }) {
             Natural Ghanaian Goodness{" "}
             <span className="text-yellow-400">From</span> Kitchen to Care!
           </h1>
-          <p className="text-lg text-white mb-8 font-Accent">
+          <p className="text-lg text-gray-600 mb-8 font-Accent">
             Healthy products proudly made in Ghana.
           </p>
           <div className="flex gap-4">
@@ -222,19 +98,7 @@ export default function Home({ addToCart, cart }) {
         </div>
       </section>
       <CategorySection />
-      <section
-        id="featured-products"
-        className="max-w-7xl mx-auto px-4 py-12 bg"
-      >
-        <div className="flex flex-col md:flex-row items-center justify-between mb-6 ">
-          <h2 className="text-2xl md:text-3xl font-bold text-green-700 font-heading text-center md:text-left">
-            Featured Products
-          </h2>
-          <Link to="/all-product" className="text-green-700 hover:text-green-900">View All Products</Link>
-        </div>
-        <p>Discover top picks for you</p>
-        <ProductSlider products={featuredProducts.slice(0, 4)} />
-      </section>
+      <FeaturedProductSection addToCart={addToCart} />
       <TestimonialSection />
        <NewsLetter />
       <Footer />

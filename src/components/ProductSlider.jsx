@@ -51,10 +51,10 @@ export default function ProductSlider({ products }) {
           {products.map((product, idx) => (
             <div
               key={product.id}
-              className={`flex flex-col items-center bg-white rounded-3xl shadow-lg min-w-[220px] max-w-[270px] flex-1 mx-2 transition-all duration-300 group border-2 hover:shadow-2xl hover:scale-105${
+              className={`flex flex-col items-center bg-white rounded-3xl shadow-lg min-w-[220px] max-w-[270px] flex-1 mx-2 transition-all duration-300 group border-l-neutral hover:shadow-2xl hover:scale-105${
                 idx === safeCurrent + Math.floor(slidesToShow / 2)
-                  ? "border-transparent scale-105 z-20"
-                  : "border-transparent opacity-90"
+                  // ? "border-transparent scale-105 z-20"
+                  // : "border-transparent opacity-90"
               } `}
             >
               {/* Product Image */}
@@ -103,7 +103,7 @@ export default function ProductSlider({ products }) {
                 </div>
                 {/* Add to Cart Button */}
                 <button
-                  className="w-full py-2 mt-1 rounded-full bg-green-700 text-white font-semibold shadow hover:bg-yellow-500 hover:text-green-900 transition-colors duration-200"
+                  className="w-[60%] py-2 mt-1 rounded-full bg-green-700 text-white font-semibold shadow hover:bg-yellow-500 hover:text-green-900 transition-colors duration-200"
                   onClick={(e) => {
                     e.stopPropagation();
                     // Add your add-to-cart logic here

@@ -74,7 +74,7 @@ export default function Navbar({ cart }) {
         </button>
 
         {/* Navigation Links (Desktop) */}
-        <div className="hidden md:flex flex-row items-center space-x-6 text-lg font-semibold font-Outfit italic">
+        <div className="hidden md:flex flex-row items-center space-x-6 text-lg font-semibold font-Outfit ">
           {navLinks.map((link) =>
             link.isAnchor ? (
               <a

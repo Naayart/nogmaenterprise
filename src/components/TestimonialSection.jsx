@@ -25,10 +25,10 @@ const testimonials = [
 export default function TestimonialSection() {
   return (
     <section className="bg-white py-12 px-4 text-center">
-      <div className="text-green-700 text-3xl font-bold mb-8 tracking-wide">
+      <div className="text-4xl md:text-5xl font-bold text-green-700 font-heading mb-2">
         What Our Customers Say
       </div>
-      <div className="flex flex-wrap justify-center gap-6">
+      <div className="flex flex-wrap justify-center gap-6 mt-15">
         {testimonials.map((t, i) => (
           <TestimonialCard key={i} {...t} />
         ))}

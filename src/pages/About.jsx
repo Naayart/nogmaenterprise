@@ -74,8 +74,9 @@ export default function About({ cart }) {
       {/* Main Content Section */}
       <div className="bg-white min-h-screen py-20 px-4">
         <div className="container mx-auto flex flex-col lg:flex-row gap-16 items-center">
-          <div className="flex-1 lg:pr-12">
-            <div className="bg-[#68BC44] rounded-2xl shadow-2xl p-10 relative overflow-hidden font-Open">
+          <div className="flex-1 lg:pr-12"> 
+            {/* bg-[#68BC44] rounded-2xl shadow-2xl */}
+            <div className="p-10 relative overflow-hidden font-Open">
               <h2 className="text-4xl font-bold text-[#046404] mb-6 text-left font-heading">
                 The Rise of Nogma H Enterprise
               </h2>
