@@ -69,14 +69,14 @@ export default function Cart({ cart = [], setCart }) {
                 })}
               </ul>
               {/* Cart summary */}
-              <div className="flex flex-col md:flex-row justify-between items-center mt-8 gap-6">
-                <Link to={'/all-product'} className="px-6 py-3 bg-gray-100 text-gray-700 font-bold rounded uppercase tracking-wider hover:bg-gray-200 w-full md:w-auto mb-2 md:mb-0">Continue Shopping</Link>
-                <div className="bg-gray-50 rounded-lg p-6 w-full md:w-1/3">
+              <div className="flex flex-col md:flex-row justify-between items-center mt-8 gap-6 ">
+                <Link to={'/all-product'} className="px-6 py-3 bg-gray-100 text-gray-700 font-bold rounded uppercase tracking-wider hover:bg-gray-200 w-full md:w-auto mb-2 mt-20 md:mb-0">Continue Shopping</Link>
+                <div className="bg-gray-50 rounded-lg p-6 w-full md:w-1/3 ml-7">
                   <div className="font-bold text-lg mb-2">Cart Total</div>
-                  <div className="flex justify-between mb-2">
+                  {/* <div className="flex justify-between mb-2">
                     <span>Subtotal</span>
                     <span className="font-bold text-red-600">₵{total.toFixed(2)}</span>
-                  </div>
+                  </div> */}
                   <div className="flex justify-between mb-4">
                     <span>Total</span>
                     <span className="font-bold text-red-600">₵{total.toFixed(2)}</span>

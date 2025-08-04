@@ -2,7 +2,6 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import NewsLetter from "../components/NewsLetter";
 import { useState, useEffect } from "react";
-import ProductSlider from "../components/ProductSlider";
 import TestimonialSection from "../components/TestimonialSection";
 import tombrown from "../assets/images/Tom brown.png";
 import sheaButterImg from "../assets/images/Sheabutter.png";

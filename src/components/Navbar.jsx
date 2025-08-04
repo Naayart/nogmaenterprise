@@ -14,8 +14,9 @@ export default function Navbar({ cart }) {
     { to: "/", label: "Home" },
     { to: "/about", label: "About" },
     { to: "/#products", label: "Products", isProducts: true },
-    { to: "/contact", label: "Contact" },
     { to: "/blog", label: "Blog" },
+    { to: "/contact", label: "Contact" },
+    
   ];
 
   useEffect(() => {

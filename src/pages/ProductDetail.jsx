@@ -177,13 +177,13 @@ export default function ProductDetail({ addToCart, cart }) {
   return (
     <>
       <Navbar cart={cart} />
-      <div className="min-h-screen bg-gradient-to-r from-green-700 to-yellow-600 pt-24 px-4">
+      <div className="min-h-screen bg-white pt-24 px-4">
         <div className="max-w-6xl mx-auto py-8">
           {/* Breadcrumb */}
           <div className="mb-8">
             <button 
               onClick={() => navigate('/all-product')}
-              className="text-[#cad8ca] hover:text-[#ecf0ec] font-medium flex items-center gap-2"
+              className="text-[#0b0c0b] hover:text-[#ecf0ec] font-medium flex items-center gap-2"
             >
               ← Back to Products
             </button>

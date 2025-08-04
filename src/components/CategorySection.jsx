@@ -1,6 +1,8 @@
 import { useRef, useEffect } from "react";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
+import { Link } from "react-router-dom"; // ✅ Import Link
 import CategoryCard from "./CategoryCard";
+
 import LiquidSoap from "../assets/images/Liquid Soap.png";
 import BarSoap from "../assets/images/Bar-soap.jpeg";
 import PowderedPepper from "../assets/images/Powdered pepper.jpeg";
@@ -21,31 +23,29 @@ export default function CategorySection() {
   };
 
   useEffect(() => {
-  const container = scrollRef.current;
-  if (!container) return;
+    const container = scrollRef.current;
+    if (!container) return;
 
-  const interval = setInterval(() => {
-    const maxScrollLeft = container.scrollWidth - container.clientWidth;
+    const interval = setInterval(() => {
+      const maxScrollLeft = container.scrollWidth - container.clientWidth;
 
-    // If it's at (or near) the end, scroll back to start
-    if (Math.ceil(container.scrollLeft) >= maxScrollLeft) {
-      container.scrollTo({ left: 0, behavior: "smooth" });
-    } else {
-      container.scrollBy({ left: 300, behavior: "smooth" });
-    }
-  }, 3000); // every 3 seconds
+      if (Math.ceil(container.scrollLeft) >= maxScrollLeft) {
+        container.scrollTo({ left: 0, behavior: "smooth" });
+      } else {
+        container.scrollBy({ left: 300, behavior: "smooth" });
+      }
+    }, 3000);
 
-  return () => clearInterval(interval);
-}, []);
-
+    return () => clearInterval(interval);
+  }, []);
 
   const categories = [
-    { id: 1, image: LiquidSoap, title: "Liquid Soap" },
-    { id: 2, image: BarSoap, title: "Bar Soap" },
-    { id: 3, image: PowderedPepper, title: "Powdered Pepper" },
-    { id: 4, image: GroundnutPaste, title: "Groundnut Paste" },
-    { id: 5, image: TomBrown, title: "TomBrown" },
-    { id: 6, image: SheaButter, title: "SheaButter" },
+    { id: 1, image: LiquidSoap, title: "Wellness" },
+    { id: 2, image: BarSoap, title: "Wellness" },
+    { id: 3, image: PowderedPepper, title: "Food" },
+    { id: 4, image: GroundnutPaste, title: "Food" },
+    { id: 5, image: TomBrown, title: "Food" },
+    { id: 6, image: SheaButter, title: "Care" },
   ];
 
   return (
@@ -81,11 +81,16 @@ export default function CategorySection() {
           className="flex overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-4 gap-8 px-4 lg:justify-center"
         >
           {categories.map((category) => (
-            <CategoryCard
+            <Link
               key={category.id}
-              imageSrc={category.image}
-              title={category.title}
-            />
+              to={`/all-product?category=${encodeURIComponent(category.title)}`} // ✅ Link to AllProduct with category param
+              className="snap-start shrink-0"
+            >
+              <CategoryCard
+                imageSrc={category.image}
+                title={category.title}
+              />
+            </Link>
           ))}
         </div>
       </div>
