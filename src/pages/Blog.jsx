@@ -143,7 +143,7 @@ export default function Blog({ cart }) {
       <div className="bg-[url(https://cdn.pixabay.com/photo/2021/08/30/18/40/paprika-6586748_960_720.jpg)] bg-cover bg-center bg-no-repeat py-24 pt-28 mt-15 relative">
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="container mx-auto px-4 text-center relative z-10">
-          <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 drop-shadow-lg font-Playfair mt-5">
+          <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 drop-shadow-lg mt-5">
             Our Blog
           </h1>
           <p className="text-2xl text-[#F5F5DC] font-medium max-w-3xl mx-auto leading-relaxed font-Playfair">

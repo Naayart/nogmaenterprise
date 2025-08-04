@@ -35,18 +35,21 @@ export default function About({ cart }) {
           {/* Left Content */}
           <div className="lg:w-1/2 text-center lg:text-left">
             {/* Headline */}
-            <h1 className="text-4xl md:text-6xl font-bold  font-Accent  drop-shadow-xl mb-6 tracking-tight"> 
+            <h1 className="text-4xl md:text-6xl font-bold  drop-shadow-xl mb-6 tracking-tight">
               <span className="bg-gradient-to-r text-black bg-clip-text ">
                 Crafting Natural Products.
               </span>
-              <span className="text-yellow-400 font-extrabold text-4xl">Empowering </span>
+              <span className="text-yellow-400 font-extrabold text-4xl">
+                Empowering{" "}
+              </span>
+              <br/>
               <span className=" text-black">Local Skills.</span>
             </h1>
 
             {/* Subheading */}
-            <p className="text-lg text-gray-600 mb-8 font-Accent">
-              From handmade soap to peanut butter, to powdered pepper, every product
-              carries a story and every training empowers a life.
+            <p className="text-lg text-gray-600 mb-8">
+              From handmade soap to peanut butter, to powdered pepper, every
+              product carries a story and every training empowers a life.
               <br />
               <span className="text-green-400 font-bold text-2xl">
                 This is Nogma H. Enterprise.
@@ -88,7 +91,7 @@ export default function About({ cart }) {
 
             {/* Content */}
             <div className="relative z-10 p-8 md:p-16 max-w-4xl mx-auto">
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 font-heading">
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
                 The Rise of Nogma H Enterprise
               </h2>
               <p className="text-lg md:text-xl text-gray-200 mb-4 italic">
@@ -107,7 +110,7 @@ export default function About({ cart }) {
       {/* Meet The Founder */}
       <section className=" py-24 text-black px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 font-heading">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Meet The Founder
           </h2>
           <p className="text-xl text-[#0f0f0d] max-w-3xl mx-auto leading-relaxed">
@@ -126,7 +129,7 @@ export default function About({ cart }) {
               />
             </div>
             <div className="flex-1 text-[#1b1b19]">
-              <h3 className="text-3xl md:text-4xl font-bold mb-4 font-heading">
+              <h3 className="text-3xl md:text-4xl font-bold mb-4 ">
                 Helen Akunyanra
               </h3>
               <p className="text-yellow-400 font-semibold text-xl mb-6">
@@ -170,7 +173,7 @@ export default function About({ cart }) {
       {/* Our Impact */}
       <section className="bg-white py-24 px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-[#046404] mb-6 font-heading">
+          <h2 className="text-4xl md:text-5xl font-bold text-[#046404] mb-6">
             Our Impact
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -225,7 +228,7 @@ export default function About({ cart }) {
                   />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold text-[#046404] mb-4 text-center font-heading">
+              <h3 className="text-2xl font-bold text-[#046404] mb-4 text-center">
                 {card.title}
               </h3>
               <p className="text-gray-600 text-center leading-relaxed">

@@ -185,7 +185,7 @@ export default function AllProduct({ cart }){
       {/* Search and Filter Section */}
       <section className="max-w-7xl mx-auto px-4 pt-4 pb-4 font-Monserrat mt-20">
         <div className="w-full flex justify-center">
-          <label className="block text-base font-semibold text-[#19213a] mb-2 font-heading text-center"></label>
+          <label className="block text-base font-semibold text-[#19213a] mb-2  text-center"></label>
         </div>
         <div className="w-full flex justify-center mb-8">
           <div className="flex flex-col md:flex-row md:items-end gap-4 md:gap-8 items-center">
@@ -236,7 +236,7 @@ export default function AllProduct({ cart }){
       </section>
       {/* Categories Section */}
       <section className="max-w-7xl mx-auto px-4 pt-2">
-        <h2 className="text-3xl font-bold mb-4 text-[#010613] text-center font-Playfair">Explore Our Categories</h2>
+        <h2 className="text-3xl font-bold mb-4 text-[#010613] text-center">Explore Our Categories</h2>
         <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 mb-10 mt-12 ">
           {categories.map((cat) => (
             <button

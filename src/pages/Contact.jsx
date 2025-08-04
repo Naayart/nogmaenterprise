@@ -42,7 +42,7 @@ export default function Contact({ cart }) {
       <Navbar cart={cart} />
 
       {/* Hero Section */}
-      <div className="bg-gradient-to-br from-[#046404] via-[#2D5A27] to-[#4A7C59] py-24 pt-28 relative overflow-hidden font-Roboto mt-15">
+      <div className="bg-gradient-to-br from-[#046404] via-[#2D5A27] to-[#4A7C59] py-24 pt-28 relative overflow-hidden mt-15">
         {/* Animated background elements */}
         <div className="absolute inset-0">
           <div className="absolute top-20 left-10 w-20 h-20 bg-[#D5A20A]/20 rounded-full animate-pulse"></div>
@@ -51,7 +51,7 @@ export default function Contact({ cart }) {
         </div>
         
         <div className="container mx-auto px-4 text-center relative z-10">
-          <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 drop-shadow-lg font-heading">
+          <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 drop-shadow-lg">
             Let's Connect
           </h1>
           <p className="text-xl text-[#F5F5DC] font-medium max-w-3xl mx-auto leading-relaxed">
@@ -108,7 +108,7 @@ export default function Contact({ cart }) {
                     <div className="w-16 h-16 bg-gradient-to-br from-[#D5A20A] to-[#B8860B] rounded-full flex items-center justify-center mx-auto mb-4">
                       <FiMessageSquare className="text-white" size={28} />
                     </div>
-                    <h2 className="text-3xl font-bold text-[#046404] mb-2 font-heading">
+                    <h2 className="text-3xl font-bold text-[#046404] mb-2">
                       Send us a Message
                     </h2>
                     <p className="text-gray-600">
