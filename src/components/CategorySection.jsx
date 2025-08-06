@@ -84,7 +84,7 @@ export default function CategorySection() {
             <Link
               key={category.id}
               to={`/all-product?category=${encodeURIComponent(category.title)}`} // ✅ Link to AllProduct with category param
-              className="snap-start shrink-0"
+              className="snap-start shrink-0 "
             >
               <CategoryCard
                 imageSrc={category.image}

@@ -36,7 +36,7 @@ export default function ProductSlider({ products }) {
 
             {/* Product Info */}
             <div className="w-full px-5 pb-5 flex flex-col items-center">
-              <div className="text-xs text-green-700 mb-1 uppercase tracking-wide font-semibold font-accent opacity-30">
+              <div className="text-xs text-green-700 mb-1 uppercase tracking-wide font-semibold font-accent opacity-70">
                 {product.category}
               </div>
               <div className="font-bold text-lg text-black text-center truncate font-heading mb-1">

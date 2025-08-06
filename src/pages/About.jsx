@@ -25,85 +25,25 @@ export default function About({ cart }) {
   return (
     <>
       <Navbar cart={cart} />
-
       {/* Hero Section */}
-      <div className="relative bg-white py-24 px-4 md:px-8 text-black font-Playfair overflow-hidden mt-15 ">
-        {/* Decorative Gold Accent */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[120vw] h-40 bg-gradient-to-r  blur-2xl opacity-60 pointer-events-none" />
+      <div className="relative bg-cover bg-center bg-no-repeat min-h-[500px] flex items-center justify-center text-center bg-[url(https://media.istockphoto.com/id/1142656815/photo/african-woman-mashing-cassava-flour-in-wooden-pod.jpg?s=1024x1024&w=is&k=20&c=hYur-dldEtSOSrBo88_A0wF8bOk6qcwBYf1W-jDK91c=)] mt-15 py-24 px-4">
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/60"></div>
 
-        <div className="container mx-auto flex flex-col-reverse lg:flex-row items-center gap-12">
-          {/* Left Content */}
-          <div className="lg:w-1/2 text-center lg:text-left">
-            {/* Headline */}
-            <h1 className="text-4xl md:text-6xl font-bold  drop-shadow-xl mb-6 tracking-tight">
-              <span className="bg-gradient-to-r text-black bg-clip-text ">
-                Crafting Natural Products.
-              </span>
-              <span className="text-yellow-400 font-extrabold text-4xl">
-                Empowering{" "}
-              </span>
-              <br/>
-              <span className=" text-black">Local Skills.</span>
-            </h1>
-
-            {/* Subheading */}
-            <p className="text-lg text-gray-600 mb-8">
-              From handmade soap to peanut butter, to powdered pepper, every
-              product carries a story and every training empowers a life.
-              <br />
-              <span className="text-green-400 font-bold text-2xl">
-                This is Nogma H. Enterprise.
-              </span>
-            </p>
-
-            {/* Call-to-Action */}
-            {/* <button className="bg-gradient-to-r from-yellow-400 to-yellow-500 text-[#046404] px-8 py-3 text-lg font-bold rounded-full shadow-lg hover:from-white hover:to-yellow-200 hover:text-green-800 transition-colors duration-200 border-2 border-yellow-400">
-              Learn More About Our Journey
-            </button> */}
-          </div>
-
-          {/* Right Content: Image */}
-          <div className="lg:w-1/2 flex justify-center lg:justify-end">
-            {/* Rotating Product Image with Gold Glow */}
-            <div className="w-[280px] h-[280px] md:w-[400px] md:h-[400px] rounded-3xl overflow-hidden shadow-2xl border-4 border-white relative group transition-all duration-700">
-              <div
-                className="absolute inset-0 rounded-3xl pointer-events-none group-hover:scale-105 transition-transform duration-500"
-                style={{
-                  boxShadow: "0 0 40px 10px #FFD70055",
-                }}
-              />
-              <img
-                src={images[current].src}
-                alt={images[current].alt}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Main Content Section */}
-      <div className="bg-white py-20 px-4">
-        <div className="container mx-auto">
-          <div className="relative overflow-hidden bg-cover  min-h-[500px] flex items-center justify-center text-center bg-[url(https://media.istockphoto.com/id/1142656815/photo/african-woman-mashing-cassava-flour-in-wooden-pod.jpg?s=1024x1024&w=is&k=20&c=hYur-dldEtSOSrBo88_A0wF8bOk6qcwBYf1W-jDK91c=)] font-Open">
-            {/* Overlay */}
-            <div className="absolute inset-0 bg-black/60"></div>
-
-            {/* Content */}
-            <div className="relative z-10 p-8 md:p-16 max-w-4xl mx-auto">
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                The Rise of Nogma H Enterprise
-              </h2>
-              <p className="text-lg md:text-xl text-gray-200 mb-4 italic">
-                From a dream in Northern Ghana to empowering thousands, Nogma.H
-                Enterprise is a story of vision, community, and hope...
-              </p>
-              <p className="text-base md:text-lg text-yellow-300 font-semibold italic">
-                Support Nogma.H Enterprise: every product and service is a step
-                toward a brighter future for all.
-              </p>
-            </div>
-          </div>
+        {/* Content */}
+        <div className="relative z-10 p-6 md:p-12 max-w-4xl mx-auto">
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight drop-shadow-md">
+            The Rise of Nogma H Enterprise
+          </h1>
+          <p className="text-lg md:text-xl text-gray-200 mb-4  leading-relaxed drop-shadow">
+            From a dream in Northern Ghana to empowering thousands, Nogma.H
+            Enterprise is a story of vision, community, and hope... Crafting
+            Natural Products and Empowering Local Skills.
+          </p>
+          <p className="text-base md:text-lg text-yellow-300 font-semibold italic">
+            Support Nogma.H Enterprise: every product and service is a step
+            toward a brighter future for all.
+          </p>
         </div>
       </div>
 
@@ -169,7 +109,6 @@ export default function About({ cart }) {
           </div>
         </div>
       </section>
-
       {/* Our Impact */}
       <section className="bg-white py-24 px-4">
         <div className="text-center mb-16">
