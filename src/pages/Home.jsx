@@ -53,7 +53,7 @@ export default function Home({ addToCart, cart }) {
         <div className="max-w-xl z-10">
           <h1 className="text-4xl md:text-5xl font-extrabold text-black mb-6 leading-tight ">
             Natural Ghanaian Goodness{" "}
-            <span className="text-yellow-400">From</span> Kitchen to Care!
+            <span id="access" className="text-yellow-400">From</span> Kitchen to Care!
           </h1>
           <p className="text-lg text-gray-600 mb-8 ">
             Healthy products proudly made in Ghana.

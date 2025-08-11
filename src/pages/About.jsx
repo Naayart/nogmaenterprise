@@ -35,7 +35,7 @@ export default function About({ cart }) {
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight drop-shadow-md">
             The Rise of Nogma H Enterprise
           </h1>
-          <p className="text-lg md:text-xl text-gray-200 mb-4  leading-relaxed drop-shadow">
+          <p id="access" className="text-lg md:text-xl text-gray-200 mb-4  leading-relaxed drop-shadow ">
             From a dream in Northern Ghana to empowering thousands, Nogma.H
             Enterprise is a story of vision, community, and hope... Crafting
             Natural Products and Empowering Local Skills.

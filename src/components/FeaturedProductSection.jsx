@@ -139,7 +139,7 @@ export default function FeaturedProductSection() {
         <h2 className="text-4xl md:text-5xl font-bold text-green-700 font-heading mb-2">
           Featured Products
         </h2>
-        <p className="text-lg text-gray-600 mb-4">
+        <p  id="special-text" className="text-lg text-gray-600 mb-4">
           Discover our top picks just for you, our products are authentic, high
           quality, and proudly made in Ghana.
         </p>

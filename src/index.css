@@ -31,6 +31,16 @@ span {
   font-family: 'Prompt', sans-serif;
 }
 
+#special-text {
+  font-style:bold, italic;
+  font-family: 'Playfair Display', serif;
+  color: #141618; /* Darker shade for better visibility */
+}
+
+#access {
+  font-style:bold, italic;
+  font-family: 'Playfair Display', serif;
+}
 
 /* Add this somewhere globally */
 .scrollbar-hide::-webkit-scrollbar {

@@ -135,7 +135,9 @@ function parsePrice(priceStr) {
   return parseFloat(priceStr.replace(/[^\d.]/g, ""));
 }
 
-export default function AllProduct({ cart }){
+export default function AllProduct({ cart: initialCart = [], setCart }) {
+  // If setCart is not passed, manage cart locally (for demo)
+  const [cart, updateCart] = useState(initialCart);
   const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
   const categoryParam = searchParams.get("category");
@@ -177,6 +179,24 @@ export default function AllProduct({ cart }){
     } else {
       setSearchParams({ category: cat });
     }
+  };
+
+  // Add to Cart handler
+  const handleAddToCart = (product) => {
+    // Check if already in cart
+    const exists = cart.find((item) => item.id === product.id);
+    let newCart;
+    if (exists) {
+      newCart = cart.map((item) =>
+        item.id === product.id
+          ? { ...item, qty: (item.qty || 1) + 1 }
+          : item
+      );
+    } else {
+      newCart = [...cart, { ...product, qty: 1 }];
+    }
+    updateCart(newCart);
+    if (setCart) setCart(newCart); // If parent manages cart
   };
 
   return (
@@ -256,14 +276,16 @@ export default function AllProduct({ cart }){
       </section>
       {/* Product Cards Section */}
       <section id="products" className="max-w-7xl mx-auto px-4 pb-12">
-        
-        
         {filteredProducts.length === 0 ? (
           <div className="text-center text-gray-500 py-12">No products found.</div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
             {filteredProducts.map((product) => (
-              <ProductCard key={product.id} product={product} addToCart={() => {}} />
+              <ProductCard
+                key={product.id}
+                product={product}
+                addToCart={() => handleAddToCart(product)} // <-- Pass handler
+              />
             ))}
           </div>
         )}

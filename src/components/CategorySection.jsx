@@ -55,7 +55,7 @@ export default function CategorySection() {
           <h2 className="text-4xl md:text-5xl font-bold text-[#046404] mb-4 font-heading">
             Explore Our Categories
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <p id="special-text" className="text-lg text-gray-600 max-w-3xl mx-auto">
             Discover our wide range of authentic Ghanaian products carefully
             selected for quality and taste.
           </p>
