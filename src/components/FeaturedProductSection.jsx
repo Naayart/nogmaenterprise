@@ -7,7 +7,7 @@ import peanutButterImg from "../assets/images/Groundnut Paste.png";
 import peanutImg from "../assets/images/Peanut-1.png"; // or the correct filename
 import liquidSoapImg from "../assets/images/Liquid Soap.png";
 import barSoapImg from "../assets/images/Bar-soap.jpeg";
-import powderedPepperImg from "../assets/images/Powdered Pepper.jpeg";
+import powderedPepperImg from "../assets/images/Powdered pepper.jpeg";
 
 export default function FeaturedProductSection() {
   const featuredProducts = [
