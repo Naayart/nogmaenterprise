@@ -1,24 +1,24 @@
 import React from "react";
 import TestimonialCard from "./TestimonialCard";
-import profilePic from "../assets/images/Profile Picture.jpeg";
-import peanutPic from "../assets/images/Peanut.jpeg";
-import sheaPic from "../assets/images/Sheabutter.png";
+import Leticia from "../assets/images/Leticia-Saaka.png";
+import Lena from "../assets/images/Lena-Sewu.jpeg";
+import Barrister from "../assets/images/Barrister-Deborah.jpeg";
 
 const testimonials = [
   {
     message: "Nogma's products are top-notch! My skin has never felt better.",
-    author: "Helen A.",
-    image: profilePic,
+    author: "Leticia Saaka.",
+    image: Leticia,
   },
   {
     message: "Fast delivery and excellent customer service. Highly recommend!",
-    author: "Kwame B.",
-    image: peanutPic,
+    author: "Lena Sewu.",
+    image: Lena,
   },
   {
     message: "I love the natural ingredients. Will buy again!",
-    author: "Ama S.",
-    image: sheaPic,
+    author: "Barrister Deborah.",
+    image: Barrister,
   },
 ];
 
