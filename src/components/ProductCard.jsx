@@ -25,13 +25,29 @@ export default function ProductCard({ product, addToCart }) {
         />
       </div>
       <div className="p-5 flex-1 flex flex-col justify-between">
-        <div>
-          {/*  <div className="text-xs text-gray-400 mb-1 uppercase tracking-wide font-medium font-Montserrat">
+        <div className="w-full px-5 pb-2 flex flex-col items-center">
+           <div className="text-xs text-green-700 mb-1 uppercase tracking-wide font-semibold font-accent opacity-70">
             {product.category}
-          </div> */}
+          </div>
           <div className="font-bold text-lg text-[#19213a] text-center truncate font-Outfit">
             {product.name}
           </div>
+        </div>
+
+        {/* Rating */}
+        <div className="flex items-center mb-2 justify-center w-full ">
+          {[...Array(5)].map((_, i) => (
+            <svg
+              key={i}
+              className={`w-5 h-5 ${
+                i < (product.rating || 0) ? "text-yellow-500" : "text-gray-300"
+              }`}
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <polygon points="10,1 12.59,7.36 19.51,7.36 13.97,11.63 16.56,17.99 10,13.72 3.44,17.99 6.03,11.63 0.49,7.36 7.41,7.36" />
+            </svg>
+          ))}
         </div>
         <div className="flex flex-col items-center justify-center mt-2 gap-2">
           <span className="text-green-700 font-bold ">{product.price}</span>

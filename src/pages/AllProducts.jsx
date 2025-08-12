@@ -25,6 +25,7 @@ const products = [
     category: "Care",
     name: "Shea Butter 10kg",
     price: "₵250.00",
+    rating: 3.5,
   },
 
    {
@@ -33,6 +34,7 @@ const products = [
     category: "Care",
     name: "Shea Butter 400g",
     price: "₵40.00",
+    rating: 5,
   },
    {
     id: 3,
@@ -40,6 +42,7 @@ const products = [
     category: "Care",
     name: "Shea Butter 1kg",
     price: "₵65.00",
+    rating: 4,
   },
   {
     id: 4,
@@ -47,6 +50,7 @@ const products = [
     category: "Food",
     name: "Groundnut Paste 10kg ",
     price: "₵400.00",
+    rating: 5,
   },
 
   {
@@ -55,6 +59,7 @@ const products = [
     category: "Food",
     name: "Groundnut Paste 1kg",
     price: "₵60.00",
+    rating: 4,
   }, 
 
    {
@@ -63,6 +68,7 @@ const products = [
     category: "Food",
     name: "Groundnut Paste 0.6kg",
     price: "₵30.00",
+    rating: 5,
   }, 
 
   {
@@ -71,6 +77,7 @@ const products = [
     category: "Food",
     name: "Peanut 500g",
     price: "₵25.00",
+    rating: 5,
   },
   {
     id: 8,
@@ -78,6 +85,7 @@ const products = [
     category: "Wellness",
     name: "Liquid Soap 65liters",
     price: "₵60.00",
+    rating: 4,
   },
   {
     id: 8,
@@ -85,6 +93,7 @@ const products = [
     category: "Wellness",
     name: "Liquid Soap 2liters",
     price: "₵25.00",
+    rating: 4,
   },
   {
     id: 9,
@@ -92,6 +101,7 @@ const products = [
     category: "Wellness",
     name: "Bar Soap",
     price: "₵8.00",
+    rating: 3.5,
   },
   {
     id: 10,
@@ -99,6 +109,7 @@ const products = [
     category: "Food",
     name: "Powdered Pepper 100g",
     price: "₵20.00",
+    rating: 4,
   },
    {
     id: 11,
@@ -106,6 +117,7 @@ const products = [
     category: "Food",
     name: "Powdered Pepper 600g",
     price: "₵60.00",
+    rating: 5,
   },
   {
     id:12,
@@ -113,6 +125,7 @@ const products = [
     category:"Food",
     name: "Tom Brown 1.3kg",
     price: "₵70.00",
+    rating: 4,
   },
 
   {
@@ -121,6 +134,7 @@ const products = [
     category:"Food",
     name: "Tom Brown 0.9kg",
     price: "₵25.00",
+    rating: 4,
   },
 ];
 
