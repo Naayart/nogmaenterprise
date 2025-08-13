@@ -25,7 +25,7 @@ export default function ProductSlider({ products }) {
             key={product.id}
             className="flex-shrink-0 flex flex-col items-center bg-white rounded-3xl shadow-lg w-[220px] md:w-[250px] lg:w-[270px] transition-all duration-300 group hover:shadow-2xl hover:scale-105"
           >
-            {/* Product Image */} {/* bg-white*/}
+            {/* Product Image */} 
             <div className="w-full flex items-center justify-center pt-6 pb-3 px-4">
               <img
                 src={product.image}

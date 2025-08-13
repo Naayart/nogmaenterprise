@@ -4,6 +4,10 @@ import Leticia from "../assets/images/Leticia-Saaka.png";
 import Lena from "../assets/images/Lena-Sewu.jpeg";
 import Barrister from "../assets/images/Barrister-Deborah.jpeg";
 
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+import "swiper/css";
+
 const testimonials = [
   {
     message: "Nogma's products are top-notch! My skin has never felt better.",
@@ -20,19 +24,51 @@ const testimonials = [
     author: "Barrister Deborah.",
     image: Barrister,
   },
+  {
+    message: "Beautiful packaging and fantastic results!",
+    author: "Ama Nti.",
+    image: Lena,
+  },
+  {
+    message: "Great value for money, will recommend to friends!",
+    author: "Kofi Mensah.",
+    image: Leticia,
+  },
 ];
 
 export default function TestimonialSection() {
   return (
     <section className="bg-white py-12 px-4 text-center">
-      <div className="text-4xl md:text-5xl font-bold text-green-700 font-heading mb-2">
-        What Our Customers Say
+      <div className="text-center mb-6">
+        <h2 className="text-4xl md:text-5xl font-bold text-green-700 mb-2">
+          What Our Customers Say
+          <p id="access" className="text-lg text-gray-600 mb-4">
+            Read what people say about our products.
+          </p>
+        </h2>
       </div>
-      <div className="flex flex-wrap justify-center gap-6 mt-15">
+
+      <Swiper
+        modules={[Autoplay]}
+        spaceBetween={20}
+        slidesPerView={1}
+        autoplay={{
+          delay: 3000,
+          disableOnInteraction: false,
+        }}
+        breakpoints={{
+          640: { slidesPerView: 2 },
+          1024: { slidesPerView: 3 },
+        }}
+        loop
+        className="pb-8"
+      >
         {testimonials.map((t, i) => (
-          <TestimonialCard key={i} {...t} />
+          <SwiperSlide key={i}>
+            <TestimonialCard {...t} index={i} />
+          </SwiperSlide>
         ))}
-      </div>
+      </Swiper>
     </section>
   );
-} 
+}
