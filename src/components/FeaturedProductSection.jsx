@@ -147,7 +147,7 @@ export default function FeaturedProductSection() {
           <Link
             to="/all-product"
             className="inline-flex items-center gap-2 text-green-700 font-semibold text-lg
-      bg-gradient-to-r from-green-500 to-green-700 bg-clip-text text-transparent
+      bg-gradient-to-r from-green-500 to-green-700 bg-clip-text 
       transition-all duration-300 transform hover:scale-105 hover:rotate-1 hover:from-yellow-400 hover:to-green-800 group"
           >
             View All Products

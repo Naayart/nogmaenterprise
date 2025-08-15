@@ -24,7 +24,7 @@ export default function ProductSlider({ products }) {
           <div
             key={product.id}
             className={`flex-shrink-0 flex flex-col items-center bg-white rounded-3xl shadow-lg w-[220px] md:w-[250px] lg:w-[270px]
-              transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl motion-safe:animate-fadeIn`}
+              transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl motion-safe:animate-fadeIn`}
             style={{ animationDelay: `${index * 100}ms` }}
           >
             {/* Product Image */}

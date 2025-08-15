@@ -134,7 +134,10 @@ const products = [
 ];
 
 // Derive unique categories
-const categories = ["All", ...Array.from(new Set(products.map((p) => p.category)))];
+const categories = [
+  "All",
+  ...Array.from(new Set(products.map((p) => p.category))),
+];
 
 function parsePrice(priceStr) {
   return parseFloat(priceStr.replace(/[^\d.]/g, ""));
@@ -149,6 +152,7 @@ export default function AllProduct({ cart: initialCart = [], setCart }) {
   const [searchTerm, setSearchTerm] = useState("");
   const [minPrice, setMinPrice] = useState("");
   const [maxPrice, setMaxPrice] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (categoryParam && categories.includes(categoryParam)) {
@@ -159,7 +163,8 @@ export default function AllProduct({ cart: initialCart = [], setCart }) {
   }, [categoryParam]);
 
   const filteredProducts = products.filter((p) => {
-    const categoryMatch = selectedCategory === "All" || p.category === selectedCategory;
+    const categoryMatch =
+      selectedCategory === "All" || p.category === selectedCategory;
     const nameMatch = p.name.toLowerCase().includes(searchTerm.toLowerCase());
     const price = parsePrice(p.price);
     const min = minPrice ? parseFloat(minPrice) : 0;
@@ -169,11 +174,15 @@ export default function AllProduct({ cart: initialCart = [], setCart }) {
   });
 
   const handleCategoryClick = (cat) => {
-    if (cat === "All") {
-      setSearchParams({});
-    } else {
-      setSearchParams({ category: cat });
-    }
+    setLoading(true); // Start loading
+    setTimeout(() => {
+      if (cat === "All") {
+        setSearchParams({});
+      } else {
+        setSearchParams({ category: cat });
+      }
+      setLoading(false); // End loading after simulated fetch
+    }, 700); // 700ms delay for effect
   };
 
   const handleAddToCart = (product) => {
@@ -198,10 +207,16 @@ export default function AllProduct({ cart: initialCart = [], setCart }) {
       {/* Toast matching ProductDetail style */}
       {toast?.visible && (
         <div className="fixed top-24 right-6 bg-white border border-gray-300 shadow-lg rounded-lg p-4 flex items-center gap-3 z-50 animate-slide-in">
-          <img src={toast.product.image} alt={toast.product.name} className="w-14 h-14 object-cover rounded" />
+          <img
+            src={toast.product.image}
+            alt={toast.product.name}
+            className="w-14 h-14 object-cover rounded"
+          />
           <div>
             <p className="font-semibold text-gray-800">{toast.product.name}</p>
-            <p className="text-green-700 font-bold">{toast.product.price} added to cart</p>
+            <p className="text-green-700 font-bold">
+              {toast.product.price} added to cart
+            </p>
           </div>
         </div>
       )}
@@ -227,7 +242,9 @@ export default function AllProduct({ cart: initialCart = [], setCart }) {
 
             <div className="flex gap-2 items-end">
               <div>
-                <label className="block text-sm font-semibold mb-1">Min Price</label>
+                <label className="block text-sm font-semibold mb-1">
+                  Min Price
+                </label>
                 <input
                   type="number"
                   min="0"
@@ -239,7 +256,9 @@ export default function AllProduct({ cart: initialCart = [], setCart }) {
               </div>
               <span className="text-gray-500 font-bold mb-2">-</span>
               <div>
-                <label className="block text-sm font-semibold mb-1">Max Price</label>
+                <label className="block text-sm font-semibold mb-1">
+                  Max Price
+                </label>
                 <input
                   type="number"
                   min="0"
@@ -256,7 +275,9 @@ export default function AllProduct({ cart: initialCart = [], setCart }) {
 
       {/* Categories */}
       <section className="max-w-7xl mx-auto px-4 pt-2">
-        <h2 className="text-3xl font-bold mb-4 text-center">Explore Our Categories</h2>
+        <h2 className="text-3xl font-bold mb-4 text-center">
+          Explore Our Categories
+        </h2>
         <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 mb-10 mt-12">
           {categories.map((cat) => (
             <button
@@ -269,6 +290,7 @@ export default function AllProduct({ cart: initialCart = [], setCart }) {
                     : "text-[#222] hover:text-[#F09A1A]"
                 }`}
               style={{ minWidth: "60px" }}
+              disabled={loading}
             >
               {cat}
             </button>
@@ -278,8 +300,17 @@ export default function AllProduct({ cart: initialCart = [], setCart }) {
 
       {/* Product Cards */}
       <section id="products" className="max-w-7xl mx-auto px-4 pb-12">
-        {filteredProducts.length === 0 ? (
-          <div className="text-center text-gray-500 py-12">No products found.</div>
+        {loading ? (
+          <div className="flex justify-center items-center py-24">
+            <div className="animate-spin rounded-full h-12 w-12 border-t-4 border-b-4 border-[#8BC34A]"></div>
+            <span className="ml-4 text-lg font-semibold text-[#046404]">
+              Loading products...
+            </span>
+          </div>
+        ) : filteredProducts.length === 0 ? (
+          <div className="text-center text-gray-500 py-12">
+            No products found.
+          </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
             {filteredProducts.map((product) => (
