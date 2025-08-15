@@ -15,7 +15,7 @@ import barSoapImg from "../assets/images/Bar-soap.jpeg";
 import powderedPepperS from "../assets/images/Pepper -Small.jpg";
 import powderedPepperB from "../assets/images/Pepper- BigSize.jpg";
 import { useState, useEffect } from "react";
-import { useSearchParams, useNavigate } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import { FiSearch } from "react-icons/fi";
 
 const products = [
@@ -27,8 +27,7 @@ const products = [
     price: "₵250.00",
     rating: 3.5,
   },
-
-   {
+  {
     id: 2,
     image: sheaButterS,
     category: "Care",
@@ -36,7 +35,7 @@ const products = [
     price: "₵40.00",
     rating: 5,
   },
-   {
+  {
     id: 3,
     image: sheaButterM,
     category: "Care",
@@ -48,11 +47,10 @@ const products = [
     id: 4,
     image: peanutButterImg,
     category: "Food",
-    name: "Groundnut Paste 10kg ",
+    name: "Groundnut Paste 10kg",
     price: "₵400.00",
     rating: 5,
   },
-
   {
     id: 5,
     image: peanutButterM,
@@ -60,17 +58,15 @@ const products = [
     name: "Groundnut Paste 1kg",
     price: "₵60.00",
     rating: 4,
-  }, 
-
-   {
+  },
+  {
     id: 6,
     image: peanutButterS,
     category: "Food",
     name: "Groundnut Paste 0.6kg",
     price: "₵30.00",
     rating: 5,
-  }, 
-
+  },
   {
     id: 7,
     image: peanutImg,
@@ -88,7 +84,7 @@ const products = [
     rating: 4,
   },
   {
-    id: 8,
+    id: 9,
     image: liquidSoapImg,
     category: "Wellness",
     name: "Liquid Soap 2liters",
@@ -96,7 +92,7 @@ const products = [
     rating: 4,
   },
   {
-    id: 9,
+    id: 10,
     image: barSoapImg,
     category: "Wellness",
     name: "Bar Soap",
@@ -104,15 +100,15 @@ const products = [
     rating: 3.5,
   },
   {
-    id: 10,
+    id: 11,
     image: powderedPepperS,
     category: "Food",
     name: "Powdered Pepper 100g",
     price: "₵20.00",
     rating: 4,
   },
-   {
-    id: 11,
+  {
+    id: 12,
     image: powderedPepperB,
     category: "Food",
     name: "Powdered Pepper 600g",
@@ -120,49 +116,40 @@ const products = [
     rating: 5,
   },
   {
-    id:12,
-    image:tombrownsingle,
-    category:"Food",
+    id: 13,
+    image: tombrownsingle,
+    category: "Food",
     name: "Tom Brown 1.3kg",
     price: "₵70.00",
     rating: 4,
   },
-
   {
-    id:13,
-    image:tombrowncontainer,
-    category:"Food",
+    id: 14,
+    image: tombrowncontainer,
+    category: "Food",
     name: "Tom Brown 0.9kg",
     price: "₵25.00",
     rating: 4,
   },
 ];
 
-// Derive unique categories from products
-const categories = [
-  "All",
-  ...Array.from(new Set(products.map((p) => p.category)))
-];
+// Derive unique categories
+const categories = ["All", ...Array.from(new Set(products.map((p) => p.category)))];
 
 function parsePrice(priceStr) {
-  // Remove non-numeric characters and parse as float
   return parseFloat(priceStr.replace(/[^\d.]/g, ""));
 }
 
 export default function AllProduct({ cart: initialCart = [], setCart }) {
-  // If setCart is not passed, manage cart locally (for demo)
   const [cart, updateCart] = useState(initialCart);
+  const [toast, setToast] = useState(null); // toast object { product, visible }
   const [searchParams, setSearchParams] = useSearchParams();
-  const navigate = useNavigate();
   const categoryParam = searchParams.get("category");
   const [selectedCategory, setSelectedCategory] = useState("All");
-
-  // Search and filter state
   const [searchTerm, setSearchTerm] = useState("");
   const [minPrice, setMinPrice] = useState("");
   const [maxPrice, setMaxPrice] = useState("");
 
-  // Sync selectedCategory with URL param
   useEffect(() => {
     if (categoryParam && categories.includes(categoryParam)) {
       setSelectedCategory(categoryParam);
@@ -171,14 +158,9 @@ export default function AllProduct({ cart: initialCart = [], setCart }) {
     }
   }, [categoryParam]);
 
-  // Filter products by selected category, search, and price
   const filteredProducts = products.filter((p) => {
-    // Category filter
-    const categoryMatch =
-      selectedCategory === "All" || p.category === selectedCategory;
-    // Search filter
+    const categoryMatch = selectedCategory === "All" || p.category === selectedCategory;
     const nameMatch = p.name.toLowerCase().includes(searchTerm.toLowerCase());
-    // Price filter
     const price = parsePrice(p.price);
     const min = minPrice ? parseFloat(minPrice) : 0;
     const max = maxPrice ? parseFloat(maxPrice) : Infinity;
@@ -186,7 +168,6 @@ export default function AllProduct({ cart: initialCart = [], setCart }) {
     return categoryMatch && nameMatch && priceMatch;
   });
 
-  // Handle category click: update URL
   const handleCategoryClick = (cat) => {
     if (cat === "All") {
       setSearchParams({});
@@ -195,35 +176,40 @@ export default function AllProduct({ cart: initialCart = [], setCart }) {
     }
   };
 
-  // Add to Cart handler
   const handleAddToCart = (product) => {
-    // Check if already in cart
     const exists = cart.find((item) => item.id === product.id);
-    let newCart;
-    if (exists) {
-      newCart = cart.map((item) =>
-        item.id === product.id
-          ? { ...item, qty: (item.qty || 1) + 1 }
-          : item
-      );
-    } else {
-      newCart = [...cart, { ...product, qty: 1 }];
-    }
+    const newCart = exists
+      ? cart.map((item) =>
+          item.id === product.id ? { ...item, qty: (item.qty || 1) + 1 } : item
+        )
+      : [...cart, { ...product, qty: 1 }];
     updateCart(newCart);
-    if (setCart) setCart(newCart); // If parent manages cart
+    if (setCart) setCart(newCart);
+
+    // Set toast object for ProductDetail style
+    setToast({ product, visible: true });
+    setTimeout(() => setToast(null), 2000); // Hide after 2s
   };
 
   return (
     <>
       <Navbar cart={cart} />
-      {/* Search and Filter Section */}
-      <section className="max-w-7xl mx-auto px-4 pt-4 pb-4 font-Monserrat mt-20">
-        <div className="w-full flex justify-center">
-          <label className="block text-base font-semibold text-[#19213a] mb-2  text-center"></label>
+
+      {/* Toast matching ProductDetail style */}
+      {toast?.visible && (
+        <div className="fixed top-24 right-6 bg-white border border-gray-300 shadow-lg rounded-lg p-4 flex items-center gap-3 z-50 animate-slide-in">
+          <img src={toast.product.image} alt={toast.product.name} className="w-14 h-14 object-cover rounded" />
+          <div>
+            <p className="font-semibold text-gray-800">{toast.product.name}</p>
+            <p className="text-green-700 font-bold">{toast.product.price} added to cart</p>
+          </div>
         </div>
+      )}
+
+      {/* Search and Filter */}
+      <section className="max-w-7xl mx-auto px-4 pt-4 pb-4 font-Monserrat mt-20">
         <div className="w-full flex justify-center mb-8">
           <div className="flex flex-col md:flex-row md:items-end gap-4 md:gap-8 items-center">
-            {/* Search */}
             <div className="flex justify-center">
               <div className="relative">
                 <span className="absolute left-2 top-1/2 -translate-y-1/2 text-gray-400">
@@ -233,62 +219,64 @@ export default function AllProduct({ cart: initialCart = [], setCart }) {
                   type="text"
                   placeholder="Search by name or keyword..."
                   value={searchTerm}
-                  onChange={e => setSearchTerm(e.target.value)}
+                  onChange={(e) => setSearchTerm(e.target.value)}
                   className="w-full pl-9 pr-3 py-1.5 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#9CC40C] text-sm max-w-xs"
-                  style={{ minWidth: '0', width: '220px' }}
                 />
               </div>
             </div>
-            {/* Price Filter */}
+
             <div className="flex gap-2 items-end">
               <div>
-                <label className="block text-sm font-semibold text-[#19213a] mb-1 font-Prompt">Min Price</label>
+                <label className="block text-sm font-semibold mb-1">Min Price</label>
                 <input
                   type="number"
                   min="0"
                   placeholder="₵ Min"
                   value={minPrice}
-                  onChange={e => setMinPrice(e.target.value)}
-                  className="w-24 px-3 pr-3 py-1 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#9CC40C]"
+                  onChange={(e) => setMinPrice(e.target.value)}
+                  className="w-24 px-3 py-1 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#9CC40C]"
                 />
               </div>
               <span className="text-gray-500 font-bold mb-2">-</span>
               <div>
-                <label className="block text-sm font-semibold text-[#19213a] mb-1 font-Prompt">Max Price</label>
+                <label className="block text-sm font-semibold mb-1">Max Price</label>
                 <input
                   type="number"
                   min="0"
                   placeholder="₵ Max"
                   value={maxPrice}
-                  onChange={e => setMaxPrice(e.target.value)}
-                  className="w-24 px-3 pr-3 py-1 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#9CC40C]"
+                  onChange={(e) => setMaxPrice(e.target.value)}
+                  className="w-24 px-3 py-1 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#9CC40C]"
                 />
               </div>
             </div>
           </div>
         </div>
       </section>
-      {/* Categories Section */}
+
+      {/* Categories */}
       <section className="max-w-7xl mx-auto px-4 pt-2">
-        <h2 className="text-3xl font-bold mb-4 text-[#010613] text-center">Explore Our Categories</h2>
-        <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 mb-10 mt-12 ">
+        <h2 className="text-3xl font-bold mb-4 text-center">Explore Our Categories</h2>
+        <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 mb-10 mt-12">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => handleCategoryClick(cat)}
-              className={`relative bg-transparent border-none outline-none px-2 py-1 text-lg  transition-colors duration-200 font-Playfair italic font-semibold hover:cursor-pointer
-                ${selectedCategory === cat
-                  ? "text-black after:absolute after:left-0 after:right-0 after:-bottom-1 after:h-1 after:bg-[#8BC34A] after:rounded after:content-[''] after:w-full after:mx-auto after:block hover:cursor-pointer"
-                  : "text-[#222] hover:text-[#F09A1A] hover:cursor-pointer"}
-              `}
-              style={{ minWidth: '60px' }}
+              className={`relative bg-transparent border-none outline-none px-2 py-1 text-lg font-Playfair italic font-semibold hover:cursor-pointer
+                ${
+                  selectedCategory === cat
+                    ? "text-black after:absolute after:left-0 after:right-0 after:-bottom-1 after:h-1 after:bg-[#8BC34A] after:rounded after:content-[''] after:w-full after:mx-auto"
+                    : "text-[#222] hover:text-[#F09A1A]"
+                }`}
+              style={{ minWidth: "60px" }}
             >
               {cat}
             </button>
           ))}
         </div>
       </section>
-      {/* Product Cards Section */}
+
+      {/* Product Cards */}
       <section id="products" className="max-w-7xl mx-auto px-4 pb-12">
         {filteredProducts.length === 0 ? (
           <div className="text-center text-gray-500 py-12">No products found.</div>
@@ -298,12 +286,13 @@ export default function AllProduct({ cart: initialCart = [], setCart }) {
               <ProductCard
                 key={product.id}
                 product={product}
-                addToCart={() => handleAddToCart(product)} // <-- Pass handler
+                addToCart={() => handleAddToCart(product)}
               />
             ))}
           </div>
         )}
       </section>
+
       <Footer />
     </>
   );

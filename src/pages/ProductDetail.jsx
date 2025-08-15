@@ -2,7 +2,6 @@ import { useSearchParams, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { useState } from "react";
-
 // Import all product images
 import tombrownsingle from "../assets/images/Tombrown-Single.jpg";
 import tombrowncontainer from "../assets/images/Tom brown Small Container.jpg";

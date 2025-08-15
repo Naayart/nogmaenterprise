@@ -4,7 +4,7 @@ import tombrown from "../assets/images/Tom brown.png";
 import sheaButterImg from "../assets/images/Sheabutter.png";
 import sheaButterImgM from "../assets/images/Sheabutter-Medium.jpg";
 import peanutButterImg from "../assets/images/Groundnut Paste.png";
-import peanutImg from "../assets/images/Peanut-1.png"; 
+import peanutImg from "../assets/images/Peanut-1.png";
 import liquidSoapImg from "../assets/images/Liquid Soap.png";
 import barSoapImg from "../assets/images/Bar-soap.jpeg";
 import powderedPepperImg from "../assets/images/Powdered pepper.jpeg";
@@ -139,17 +139,19 @@ export default function FeaturedProductSection() {
         <h2 className="text-4xl md:text-5xl font-bold text-green-700 font-heading mb-2">
           Featured Products
         </h2>
-        <p  id="special-text" className="text-lg text-gray-600 mb-4">
+        <p id="special-text" className="text-lg text-gray-600 mb-4">
           Discover our top picks just for you, our products are authentic, high
           quality, and proudly made in Ghana.
         </p>
         <div className="text-right max-w-7xl mx-auto">
           <Link
             to="/all-product"
-            className="inline-flex items-center gap-2 text-green-700 hover:text-green-900 text-lg font-semibold"
+            className="inline-flex items-center gap-2 text-green-700 font-semibold text-lg
+      bg-gradient-to-r from-green-500 to-green-700 bg-clip-text text-transparent
+      transition-all duration-300 transform hover:scale-105 hover:rotate-1 hover:from-yellow-400 hover:to-green-800 group"
           >
             View All Products
-            <span className="inline-block transform transition-transform group-hover:translate-x-1">
+            <span className="inline-block transform transition-transform animate-wiggle">
               →
             </span>
           </Link>

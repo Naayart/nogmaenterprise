@@ -38,47 +38,38 @@ export default function CategorySection() {
         </div>
 
         {/* Swiper Carousel */}
-        <div className="relative">
-          {/* Navigation Buttons */}
-          {/* <div className="absolute left-0 top-1/2 -translate-y-1/2 z-10 cursor-pointer bg-[#D5A20A] text-white p-2 rounded-full shadow-md swiper-button-prev">
-            <FiChevronLeft size={24} />
-          </div>
-          <div className="absolute right-0 top-1/2 -translate-y-1/2 z-10 cursor-pointer bg-[#D5A20A] text-white p-2 rounded-full shadow-md swiper-button-next">
-            <FiChevronRight size={24} />
-          </div> */}
-
-   <Swiper
-  modules={[Autoplay, Navigation]}
-  spaceBetween={20}
-  slidesPerView="auto"
-  autoplay={{
-    delay: 2500,
-    disableOnInteraction: false,
-  }}
-  loop={true}
-  navigation={{
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  }}
-  speed={800} // smoother slide speed
->
-  {categories.map((category, index) => (
-    <SwiperSlide key={category.id} className="!w-72">
-      <Link
-        to={`/all-product?category=${encodeURIComponent(category.title)}`}
-      >
-        <CategoryCard
-          imageSrc={category.image}
-          title={category.title}
-          delay={index * 100}
-        />
-      </Link>
-    </SwiperSlide>
-  ))}
-</Swiper>
-
-
-
+        <div className="relative">         
+          <Swiper
+            modules={[Autoplay, Navigation]}
+            spaceBetween={20}
+            slidesPerView="auto"
+            autoplay={{
+              delay: 2500,
+              disableOnInteraction: false,
+            }}
+            loop={true}
+            navigation={{
+              nextEl: ".swiper-button-next",
+              prevEl: ".swiper-button-prev",
+            }}
+            speed={800} // smoother slide speed
+          >
+            {categories.map((category, index) => (
+              <SwiperSlide key={category.id} className="!w-72">
+                <Link
+                  to={`/all-product?category=${encodeURIComponent(
+                    category.title
+                  )}`}
+                >
+                  <CategoryCard
+                    imageSrc={category.image}
+                    title={category.title}
+                    delay={index * 100}
+                  />
+                </Link>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
       </div>
     </section>
