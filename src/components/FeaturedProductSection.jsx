@@ -1,5 +1,8 @@
 import ProductSlider from "./ProductSlider";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import {ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import tombrown from "../assets/images/Tom brown.png";
 import sheaButterImg from "../assets/images/Sheabutter.png";
 import sheaButterImgM from "../assets/images/Sheabutter-Medium.jpg";
@@ -9,7 +12,8 @@ import liquidSoapImg from "../assets/images/Liquid Soap.png";
 import barSoapImg from "../assets/images/Bar-soap.jpeg";
 import powderedPepperImg from "../assets/images/Powdered pepper.jpeg";
 
-export default function FeaturedProductSection() {
+export default function FeaturedProductSection({cart, setCart}) {
+
   const featuredProducts = [
     {
       id: 1,
@@ -133,8 +137,45 @@ export default function FeaturedProductSection() {
     },
   ];
 
+  const handleAddToCart = (product) => {
+    const exists = cart.find((item) => item.id === product.id);
+    let newCart;
+    if (exists) {
+      newCart = cart.map((item) =>
+        item.id === product.id
+          ? { ...item, qty: (item.qty || 1) + 1 }
+          : item
+      );
+    } else {
+      newCart = [...cart, { ...product, qty: 1 }];
+    }
+    setCart(newCart);
+    // Optionally show a toast here 
+    toast.success(
+      <div className="flex items-center gap-2">
+        <img src={product.image} alt={product.name} className="w-8 h-8 rounded object-cover" />
+        <span>
+          <b>{product.name}</b> added to cart!
+        </span>
+      </div>,
+      {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      }
+    );
+  };
+
+
   return (
     <section id="featured-products" className="max-w-7xl mx-auto px-4 py-12 bg">
+      <ToastContainer />
+      {/* Section Heading */}
       <div className="text-center mb-6">
         <h2 className="text-4xl md:text-5xl font-bold text-green-700 font-heading mb-2">
           Featured Products
@@ -158,7 +199,7 @@ export default function FeaturedProductSection() {
         </div>
       </div>
       <div>
-        <ProductSlider products={featuredProducts.slice(0, 4)} />
+        <ProductSlider products={featuredProducts.slice(0, 4)} addToCart={handleAddToCart} />
       </div>
     </section>
   );

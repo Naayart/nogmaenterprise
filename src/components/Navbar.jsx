@@ -120,7 +120,8 @@ export default function Navbar({ cart }) {
             <ShoppingCart />
             {cart && cart.length > 0 && (
               <span className="absolute -top-2 -right-2 bg-[#D4AF37] text-white text-xs font-bold rounded-full px-2 py-0.5">
-                {cart.length}
+                {/* Display total items in cart */}
+                {cart.reduce((sum, item) => sum + (item.qty || 1), 0)}
               </span>
             )}
           </button>
@@ -180,7 +181,7 @@ export default function Navbar({ cart }) {
                   <ShoppingCart />
                   {cart && cart.length > 0 && (
                     <span className="absolute -top-2 -right-2 bg-[#D4AF37] text-white text-xs font-bold rounded-full px-2 py-0.5">
-                      {cart.length}
+                      {cart.reduce((sum, item) => sum + (item.qty || 1), 0)}
                     </span>
                   )}
                 </button>

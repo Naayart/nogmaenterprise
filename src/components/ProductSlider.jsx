@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function ProductSlider({ products }) {
+export default function ProductSlider({ products, addToCart }) {
   const [slidesToShow, setSlidesToShow] = useState(getSlidesToShow());
   const navigate = useNavigate();
 
@@ -77,7 +77,7 @@ export default function ProductSlider({ products }) {
                   hover:bg-yellow-500 hover:text-green-900 hover:scale-105 transition-all duration-200"
                 onClick={(e) => {
                   e.stopPropagation();
-                  // Add your add-to-cart logic here
+                  addToCart(product)// <-- Call addToCart with product
                 }}
               >
                 Add to Cart
