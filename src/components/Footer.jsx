@@ -1,7 +1,7 @@
-import { FaFacebookF, FaInstagram, FaLinkedinIn, FaTiktok } from "react-icons/fa";
-import { FiMapPin, FiPhone, FiMail } from "react-icons/fi";
+import { FaFacebookF, FaInstagram, FaWhatsapp, FaTiktok } from "react-icons/fa";
+import { FiMapPin, FiPhone, FiMail,  } from "react-icons/fi";
 import logo from "../assets/images/logo.jpeg";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
@@ -25,7 +25,7 @@ export default function Footer() {
                 </div>
                 <div className="ml-4 font-Open">
                   <h3 className="text-2xl font-bold text-white font-heading">Nogma.H</h3>
-                  <p className="text-yellow-400 font-semibold text-2xl">Enterprise</p>
+                  <p className="text-yellow-400 font-semibold text-2xl" id="access">Enterprise</p>
                 </div>
               </div>
               <div className="space-y-4 font-Outfit">
@@ -61,7 +61,7 @@ export default function Footer() {
                 </div>
               </div>
             </div>
-            <div className="lg:col-span-1 font-Outfit">
+            <div className="lg:col-span-1 font-Outfit ">
               <h4 className="text-xl font-bold text-white mb-6">Connect</h4>
               <div className="space-y-4 font-Outfit">
                 <div className="flex items-center space-x-3 ">
@@ -93,10 +93,10 @@ export default function Footer() {
                 </div>
               </div>
               <div className="flex space-x-4 mt-4">
-                <a href="#" className="w-10 h-10 bg-yellow-400 rounded-full flex items-center justify-center hover:bg-white hover:text-green-700 transition-all duration-300 transform hover:scale-110"><FaFacebookF size={16} /></a>
-                <a href="#" className="w-10 h-10 bg-yellow-400 rounded-full flex items-center justify-center hover:bg-white hover:text-green-700 transition-all duration-300 transform hover:scale-110"><FaInstagram size={16} /></a>
-                <a href="#" className="w-10 h-10 bg-yellow-400 rounded-full flex items-center justify-center hover:bg-white hover:text-green-700 transition-all duration-300 transform hover:scale-110"><FaLinkedinIn size={16} /></a>
-                <a href="#" className="w-10 h-10 bg-yellow-400 rounded-full flex items-center justify-center hover:bg-white hover:text-green-700 transition-all duration-300 transform hover:scale-110"><FaTiktok size={16} /></a>
+                <a href="https://www.facebook.com/nogmahenterprise" className="w-10 h-10 bg-yellow-400 rounded-full flex items-center justify-center hover:bg-white hover:text-green-700 transition-all duration-300 transform hover:scale-110"><FaFacebookF size={16} /></a>
+                <a href="https://www.instagram.com/helenakunyara?igsh=MXN5NG1pOWgxaHFuMw==" className="w-10 h-10 bg-yellow-400 rounded-full flex items-center justify-center hover:bg-white hover:text-green-700 transition-all duration-300 transform hover:scale-110"><FaInstagram size={16} /></a>
+                <a href="https://wa.me/233505944839" className="w-10 h-10 bg-yellow-400 rounded-full flex items-center justify-center hover:bg-white hover:text-green-700 transition-all duration-300 transform hover:scale-110"><FaWhatsapp size={16} /></a>
+                {/* <a href="#" className="w-10 h-10 bg-yellow-400 rounded-full flex items-center justify-center hover:bg-white hover:text-green-700 transition-all duration-300 transform hover:scale-110"><FaTiktok size={16} /></a> */}
               </div>
             </div>
           </div>
@@ -121,18 +121,18 @@ export default function Footer() {
               <div className="flex items-center space-x-6 mb-4 md:mb-0">
                 <span className="text-gray-300 text-sm">Follow our journey:</span>
                 <div className="flex space-x-4">
-                  <a href="#" className="w-10 h-10 bg-yellow-400 rounded-full flex items-center justify-center hover:bg-white hover:text-green-700 transition-all duration-300 transform hover:scale-110">
+                  <a href="https://www.facebook.com/nogmahenterprise" className="w-10 h-10 bg-yellow-400 rounded-full flex items-center justify-center hover:bg-white hover:text-green-700 transition-all duration-300 transform hover:scale-110">
                     <FaFacebookF size={16} />
                   </a>
-                  <a href="#" className="w-10 h-10 bg-yellow-400 rounded-full flex items-center justify-center hover:bg-white hover:text-green-700 transition-all duration-300 transform hover:scale-110">
+                  <a href="https://www.instagram.com/helenakunyara?igsh=MXN5NG1pOWgxaHFuMw==" className="w-10 h-10 bg-yellow-400 rounded-full flex items-center justify-center hover:bg-white hover:text-green-700 transition-all duration-300 transform hover:scale-110">
                     <FaInstagram size={16} />
                   </a>
-                  <a href="#" className="w-10 h-10 bg-yellow-400 rounded-full flex items-center justify-center hover:bg-white hover:text-green-700 transition-all duration-300 transform hover:scale-110">
-                    <FaLinkedinIn size={16} />
+                  <a href="https://wa.me/233505944839" className="w-10 h-10 bg-yellow-400 rounded-full flex items-center justify-center hover:bg-white hover:text-green-700 transition-all duration-300 transform hover:scale-110">
+                    <FaWhatsapp size={16} />
                   </a>
-                  <a href="#" className="w-10 h-10 bg-yellow-400 rounded-full flex items-center justify-center hover:bg-white hover:text-green-700 transition-all duration-300 transform hover:scale-110">
+                  {/* <a href="#" className="w-10 h-10 bg-yellow-400 rounded-full flex items-center justify-center hover:bg-white hover:text-green-700 transition-all duration-300 transform hover:scale-110">
                     <FaTiktok size={16} />
-                  </a>
+                  </a> */}
                 </div>
               </div>
               <div className="text-center md:text-right">
