@@ -3,7 +3,7 @@ import TestimonialCard from "./TestimonialCard";
 import Leticia from "../assets/images/Leticia-Saaka.png";
 import Lena from "../assets/images/Lena-Sewu.jpeg";
 import Barrister from "../assets/images/Barrister-Deborah.jpeg";
-
+import Kwesi from "../assets/images/Mr. Kwesi.png"
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
@@ -31,15 +31,15 @@ const testimonials = [
   },
   {
     message: "Great value for money, will recommend to friends!",
-    author: "Kofi Mensah.",
-    image: Leticia,
+    author: "Mr. Kwesi.",
+    image: Kwesi,
   },
 ];
 
 export default function TestimonialSection() {
   return (
-    <section className="bg-white py-12 px-4 text-center">
-      <div className="text-center mb-6">
+    <section className="bg-white py-12 px-4 text-center mb-5">
+      <div className="text-center mb-8">
         <h2 className="text-4xl md:text-5xl font-bold text-green-700 mb-2">
           What Our Customers Say
           <p id="access" className="text-lg text-gray-600 mb-4">

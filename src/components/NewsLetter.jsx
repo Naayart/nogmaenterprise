@@ -21,8 +21,8 @@ useEffect(() => {
   return (
     <div className="px-6 py-15 text-center space-y-6">
       <h2 className="text-black space-x-3 text-4xl md:text-5xl font-bold font-heading mb-2">
-        <span id="special-text">Join</span>
-        <span id="special-text">Our</span>
+        <span id="acess" className="text-green-700">Join</span>
+        <span id="access">Our</span>
         <span className="text-yellow-400" id="access">Newsletter</span>
       </h2>
 

@@ -1,10 +1,10 @@
 import ProductSlider from "./ProductSlider";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import {ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import tombrown from "../assets/images/Tom brown.png";
-import sheaButterImg from "../assets/images/Sheabutter.png";
+import sheaButterB from "../assets/images/Sheabutter-Big size.jpg";
 import sheaButterImgM from "../assets/images/Sheabutter-Medium.jpg";
 import peanutButterImg from "../assets/images/Groundnut Paste.png";
 import peanutImg from "../assets/images/Peanut-1.png";
@@ -17,11 +17,11 @@ export default function FeaturedProductSection({cart, setCart}) {
   const featuredProducts = [
     {
       id: 1,
-      image: sheaButterImg,
-      category: "Wellness",
+      image: sheaButterB,
+      category: "Care",
       name: "Sheabutter",
-      price: "₵20.00",
-      oldPrice: "₵25.00",
+      price: "₵200.00",
+      oldPrice: "₵250.00",
       discount: 20,
       rating: 4,
     },
@@ -30,8 +30,8 @@ export default function FeaturedProductSection({cart, setCart}) {
       image: peanutButterImg,
       category: "Food",
       name: "Groundnut paste",
-      price: "₵10.00",
-      oldPrice: "₵12.00",
+      price: "₵400.00",
+      oldPrice: "₵420.00",
       discount: 17,
       rating: 5,
     },
@@ -49,9 +49,9 @@ export default function FeaturedProductSection({cart, setCart}) {
       id: 4,
       image: liquidSoapImg,
       category: "Wellness",
-      name: "Liquid Soap",
-      price: "₵15.00",
-      oldPrice: "₵18.00",
+      name: "Liquid Soap 65liters",
+      price: "₵65.00",
+      oldPrice: "₵70.00",
       discount: 17,
       rating: 4,
     },
@@ -137,6 +137,9 @@ export default function FeaturedProductSection({cart, setCart}) {
     },
   ];
 
+  const navigate = useNavigate();
+
+
   const handleAddToCart = (product) => {
     const exists = cart.find((item) => item.id === product.id);
     let newCart;
@@ -171,6 +174,10 @@ export default function FeaturedProductSection({cart, setCart}) {
     );
   };
 
+   const handleProductClick = (product) => {
+    navigate(`/product-detail/${product.id}`, { state: { product } });
+  };
+
 
   return (
     <section id="featured-products" className="max-w-7xl mx-auto px-4 py-12 bg">
@@ -199,7 +206,9 @@ export default function FeaturedProductSection({cart, setCart}) {
         </div>
       </div>
       <div>
-        <ProductSlider products={featuredProducts.slice(0, 4)} addToCart={handleAddToCart} />
+        <ProductSlider products={featuredProducts.slice(0, 4)} addToCart={handleAddToCart} 
+        onProductClick={handleProductClick}/>
+        
       </div>
     </section>
   );

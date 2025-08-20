@@ -12,28 +12,18 @@
   --font-Outfit: 'Outfit', sans-serif;
 }
 
-h1 {
+h1, h2, h3, h4 {
   font-family: 'Playfair Display', serif;
 }
-h2 {
-  font-family: 'Playfair Display', serif;
-}
-h3 {
-  font-family: 'Playfair Display', serif;
-}
-p {
+
+p, a {
   font-family: 'Roboto', sans-serif;
 }
 span {
   font-family: 'Monstserrat', sans-serif;
 }
-a {
-  font-family: 'Roboto', sans-serif;
-}
-/* .accent {
-  font-family: 'Prompt', sans-serif;
-} */
 
+/* Custom styles for specific elements */
 #special-text {
   font-style:bold, italic;
   font-family: 'Playfair Display', serif;
@@ -53,4 +43,13 @@ a {
 .scrollbar-hide {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;     /* Firefox */
+}
+
+/* Animation for fade-in effect */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+.animate-fadeIn {
+  animation-name: fadeIn;
 }

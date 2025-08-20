@@ -1,4 +1,4 @@
-import { useSearchParams, useNavigate } from "react-router-dom";
+import { useSearchParams, useNavigate, useParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { useState } from "react";
@@ -23,7 +23,7 @@ const products = [
     image: sheaButterB,
     category: "Care",
     name: "Shea Butter 10kg",
-    price: "₵250.00",
+    price: "₵200.00",
     description: "Pure, natural shea butter sourced from Ghana. Perfect for skin care, hair treatment, and cosmetic use. Rich in vitamins A and E, providing deep moisturization and healing properties."
   },
   {
@@ -133,12 +133,13 @@ const products = [
 ];
 
 export default function ProductDetail({ addToCart, cart }) {
+  const {id: paramId} = useParams();
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   const [quantity, setQuantity] = useState(1);
 
   // Get product ID from URL query parameter
-  const productId = searchParams.get("id");
+  const productId = paramId || searchParams.get("id");
   const product = products.find(p => p.id === parseInt(productId));
 
   if (!product) {

@@ -3,15 +3,16 @@ import React from "react";
 export default function TestimonialCard({ message, author, image, index }) {
   return (
     <div
-      className={`
-        bg-white/70 backdrop-blur-md border border-green-500/50 rounded-2xl 
-        p-6 m-2 shadow-lg shadow-green-500/10 text-green-800
-        max-w-xs min-h-[200px] flex flex-col items-center
-        transform transition duration-300 ease-in-out
-        hover:-translate-y-2 hover:shadow-green-500/30 hover:border-green-500
-      `}
+      className="bg-white rounded-3xl shadow-lg p-8 flex flex-col items-center text-center border-t-4 border-green-400
+        transition-all duration-500 hover:scale-105 hover:shadow-2xl
+        animate-fadeIn"
+      style={{
+        animationDelay: `${index * 150}ms`,
+        animationDuration: "800ms",
+        animationFillMode: "both",
+      }}
     >
-      {image && (
+      
         <img
           src={image}
           alt={author}
@@ -20,9 +21,9 @@ export default function TestimonialCard({ message, author, image, index }) {
             transition-transform duration-300 ease-in-out hover:scale-110 hover:rotate-3
           "
         />
-      )}
-      <div className="italic text-green-700 text-center leading-relaxed">{message}</div>
-      <div className="mt-4 font-bold text-yellow-500">{author}</div>
+      
+      <p className="italic text-green-700 text-center leading-relaxed">{message}</p>
+      <h4 className="mt-4 font-bold text-yellow-500">{author}</h4>
     </div>
   );
 }

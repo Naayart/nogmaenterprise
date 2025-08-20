@@ -1,4 +1,4 @@
-import { FaFacebookF, FaInstagram, FaWhatsapp, FaTiktok } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaWhatsapp} from "react-icons/fa";
 import { FiMapPin, FiPhone, FiMail,  } from "react-icons/fi";
 import logo from "../assets/images/logo.jpeg";
 import { Link } from "react-router-dom";

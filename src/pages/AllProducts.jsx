@@ -24,8 +24,8 @@ const products = [
     image: sheaButterB,
     category: "Care",
     name: "Shea Butter 10kg",
-    price: "₵250.00",
-    rating: 3.5,
+    price: "₵200.00",
+    rating: 4,
   },
   {
     id: 2,

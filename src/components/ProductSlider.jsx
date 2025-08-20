@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function ProductSlider({ products, addToCart }) {
+export default function ProductSlider({ products, addToCart, onProductClick }) {
   const [slidesToShow, setSlidesToShow] = useState(getSlidesToShow());
   const navigate = useNavigate();
 
@@ -16,6 +16,9 @@ export default function ProductSlider({ products, addToCart }) {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+  // const handleProductClick = (product) => {
+  //   navigate(`/product-detail/${product.id}`, { state: { product } });
+  // };
 
   return (
     <div className="relative w-full bg-white py-6 overflow-x-auto scrollbar-hide">
@@ -26,6 +29,7 @@ export default function ProductSlider({ products, addToCart }) {
             className={`flex-shrink-0 flex flex-col items-center bg-white rounded-3xl shadow-lg w-[220px] md:w-[250px] lg:w-[270px]
               transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl motion-safe:animate-fadeIn`}
             style={{ animationDelay: `${index * 100}ms` }}
+           onClick={() => onProductClick && onProductClick(product)}
           >
             {/* Product Image */}
             <div className="w-full flex items-center justify-center pt-6 pb-3 px-4">
