@@ -1,5 +1,4 @@
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+import CartNotification from "../components/CartNotification";
 import ProductCard from "../components/ProductCard";
 import tombrownsingle from "../assets/images/Tombrown-Single.jpg";
 import tombrowncontainer from "../assets/images/Tom brown Small Container.jpg";
@@ -195,29 +194,21 @@ export default function AllProduct({ cart: initialCart = [], setCart }) {
     updateCart(newCart);
     if (setCart) setCart(newCart);
 
-    // Set toast object for ProductDetail style
-    setToast({ product, visible: true });
-    setTimeout(() => setToast(null), 2000); // Hide after 2s
+    // Show your CartNotification
+    setNotificationMsg(`${product.name} (${product.price}) added to cart`);
+    setNotification(true);
   };
+
+  const [notification, setNotification] = useState(false);
+  const [notificationMsg, setNotificationMsg] = useState("");
 
   return (
     <>
-      {/* Toast matching ProductDetail style */}
-      {toast?.visible && (
-        <div className="fixed top-24 right-6 bg-white border border-gray-300 shadow-lg rounded-lg p-4 flex items-center gap-3 z-50 animate-slide-in">
-          <img
-            src={toast.product.image}
-            alt={toast.product.name}
-            className="w-14 h-14 object-cover rounded"
-          />
-          <div>
-            <p className="font-semibold text-gray-800">{toast.product.name}</p>
-            <p className="text-green-700 font-bold">
-              {toast.product.price} added to cart
-            </p>
-          </div>
-        </div>
-      )}
+      <CartNotification
+        show={notification}
+        message={notificationMsg}
+        onClose={() => setNotification(false)}
+      />
 
       {/* Search and Filter */}
       <section className="max-w-7xl mx-auto px-4 pt-4 pb-4 font-Monserrat mt-20">
