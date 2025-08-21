@@ -1,7 +1,21 @@
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
-import { FiMail, FiPhone, FiMapPin, FiSend, FiCheckCircle, FiMessageCircle, FiUser, FiMessageSquare } from "react-icons/fi";
-import { FaWhatsapp, FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import {
+  FiMail,
+  FiPhone,
+  FiMapPin,
+  FiSend,
+  FiCheckCircle,
+  FiMessageCircle,
+  FiUser,
+  FiMessageSquare,
+} from "react-icons/fi";
+import {
+  FaWhatsapp,
+  FaFacebookF,
+  FaInstagram,
+  FaLinkedinIn,
+} from "react-icons/fa";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
@@ -9,7 +23,7 @@ export default function Contact({ cart }) {
   const form = useRef();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
-  const [activeTab, setActiveTab] = useState('contact');
+  const [activeTab, setActiveTab] = useState("contact");
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -18,18 +32,18 @@ export default function Contact({ cart }) {
 
     emailjs
       .sendForm(
-        "service_xztmj7q",    // 🔁 Replace with your EmailJS Service ID
-        "template_yf4lk67",   // 🔁 Replace with your EmailJS Template ID
+        "service_xztmj7q", // 🔁 Replace with your EmailJS Service ID
+        "template_yf4lk67", // 🔁 Replace with your EmailJS Template ID
         form.current,
-        "1BZlt3DgCz3Hay6Rw"     // 🔁 Replace with your EmailJS Public Key
+        "1BZlt3DgCz3Hay6Rw" // 🔁 Replace with your EmailJS Public Key
       )
       .then(() => {
-        setSubmitStatus('success');
+        setSubmitStatus("success");
         form.current.reset();
         setTimeout(() => setSubmitStatus(null), 5000);
       })
       .catch(() => {
-        setSubmitStatus('error');
+        setSubmitStatus("error");
         setTimeout(() => setSubmitStatus(null), 5000);
       })
       .finally(() => {
@@ -39,8 +53,6 @@ export default function Contact({ cart }) {
 
   return (
     <>
-      <Navbar cart={cart} />
-
       {/* Hero Section */}
       {/* https://images.unsplash.com/photo-1580494412804-90550d4638a1?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D */}
       <div className="bg-gradient-to-br from-[#046404] via-[#2D5A27] to-[#4A7C59] py-24 pt-28 relative overflow-hidden mt-15">
@@ -50,7 +62,7 @@ export default function Contact({ cart }) {
           <div className="absolute top-40 right-20 w-16 h-16 bg-[#D5A20A]/15 rounded-full animate-pulse delay-1000"></div>
           <div className="absolute bottom-20 left-1/4 w-12 h-12 bg-[#D5A20A]/25 rounded-full animate-pulse delay-500"></div>
         </div>
-        
+
         <div className="container mx-auto px-4 text-center relative z-10">
           <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 drop-shadow-lg">
             Let's Connect
@@ -64,28 +76,27 @@ export default function Contact({ cart }) {
       {/* Main Content Section */}
       <div className="bg-gradient-to-b from-white to-gray-50 min-h-screen py-20">
         <div className="container mx-auto px-4">
-          
           {/* Tab Navigation */}
           <div className="flex justify-center mb-12">
             <div className="bg-white rounded-full p-2 shadow-lg border border-gray-100">
               <div className="flex space-x-2">
                 <button
-                  onClick={() => setActiveTab('contact')}
+                  onClick={() => setActiveTab("contact")}
                   className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 flex items-center space-x-2 ${
-                    activeTab === 'contact'
-                      ? 'bg-[#D5A20A] text-white shadow-lg transform scale-105'
-                      : 'text-gray-600 hover:text-[#046404] hover:bg-gray-50'
+                    activeTab === "contact"
+                      ? "bg-[#D5A20A] text-white shadow-lg transform scale-105"
+                      : "text-gray-600 hover:text-[#046404] hover:bg-gray-50"
                   }`}
                 >
                   <FiMessageCircle size={18} />
                   <span>Contact Form</span>
                 </button>
                 <button
-                  onClick={() => setActiveTab('direct')}
+                  onClick={() => setActiveTab("direct")}
                   className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 flex items-center space-x-2 ${
-                    activeTab === 'direct'
-                      ? 'bg-[#D5A20A] text-white shadow-lg transform scale-105'
-                      : 'text-gray-600 hover:text-[#046404] hover:bg-gray-50'
+                    activeTab === "direct"
+                      ? "bg-[#D5A20A] text-white shadow-lg transform scale-105"
+                      : "text-gray-600 hover:text-[#046404] hover:bg-gray-50"
                   }`}
                 >
                   <FiUser size={18} />
@@ -96,14 +107,14 @@ export default function Contact({ cart }) {
           </div>
 
           {/* Contact Form Tab */}
-          {activeTab === 'contact' && (
+          {activeTab === "contact" && (
             <div className="max-w-4xl mx-auto">
               {/* Floating Contact Form */}
               <div className="relative">
                 {/* Background decorative elements */}
                 <div className="absolute -top-8 -left-8 w-32 h-32 bg-gradient-to-br from-[#D5A20A]/20 to-transparent rounded-full blur-xl"></div>
                 <div className="absolute -bottom-8 -right-8 w-40 h-40 bg-gradient-to-br from-[#046404]/20 to-transparent rounded-full blur-xl"></div>
-                
+
                 <div className="bg-white rounded-3xl shadow-xl p-8 md:p-12 relative z-10 border border-gray-100">
                   <div className="text-center mb-8">
                     <div className="w-16 h-16 bg-gradient-to-br from-[#D5A20A] to-[#B8860B] rounded-full flex items-center justify-center mx-auto mb-4">
@@ -113,22 +124,28 @@ export default function Contact({ cart }) {
                       Send us a Message
                     </h2>
                     <p className="text-gray-600">
-                      We would love to hear from you. Fill out the form below and we'll get back to you as soon as possible.
+                      We would love to hear from you. Fill out the form below
+                      and we'll get back to you as soon as possible.
                     </p>
                   </div>
 
                   {/* Success/Error Messages */}
-                  {submitStatus === 'success' && (
+                  {submitStatus === "success" && (
                     <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-xl flex items-center space-x-3">
                       <FiCheckCircle className="text-green-500" size={20} />
-                      <span className="text-green-700 font-medium">Message sent successfully! We'll get back to you soon.</span>
+                      <span className="text-green-700 font-medium">
+                        Message sent successfully! We'll get back to you soon.
+                      </span>
                     </div>
                   )}
-                  
-                  {submitStatus === 'error' && (
+
+                  {submitStatus === "error" && (
                     <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-xl flex items-center space-x-3">
                       <FiCheckCircle className="text-red-500" size={20} />
-                      <span className="text-red-700 font-medium">Something went wrong. Please try again or contact us directly.</span>
+                      <span className="text-red-700 font-medium">
+                        Something went wrong. Please try again or contact us
+                        directly.
+                      </span>
                     </div>
                   )}
 
@@ -136,32 +153,36 @@ export default function Contact({ cart }) {
                     {/* Name Fields - Side by side with icons */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
-                        <label htmlFor="" className="font-semibold">First Name</label>
+                        <label htmlFor="" className="font-semibold">
+                          First Name
+                        </label>
                         <div className="relative">
                           <div className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none">
                             <FiUser size={20} />
                           </div>
-                          <input 
-                            name="user_firstname" 
-                            type="text" 
-                            className="w-full pl-12 pr-4 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#D5A20A] focus:border-transparent outline-none transition-all bg-gray-50 hover:bg-white" 
-                            placeholder="First Name" 
-                            required 
+                          <input
+                            name="user_firstname"
+                            type="text"
+                            className="w-full pl-12 pr-4 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#D5A20A] focus:border-transparent outline-none transition-all bg-gray-50 hover:bg-white"
+                            placeholder="First Name"
+                            required
                           />
                         </div>
                       </div>
                       <div>
-                        <label htmlFor="" className="font-semibold">Last Name</label>
+                        <label htmlFor="" className="font-semibold">
+                          Last Name
+                        </label>
                         <div className="relative">
                           <div className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400">
                             <FiUser size={20} />
                           </div>
-                          <input 
-                            name="user_lastname" 
-                            type="text" 
-                            className="w-full pl-12 pr-4 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#D5A20A] focus:border-transparent outline-none transition-all bg-gray-50 hover:bg-white" 
-                            placeholder="Last Name" 
-                            required 
+                          <input
+                            name="user_lastname"
+                            type="text"
+                            className="w-full pl-12 pr-4 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#D5A20A] focus:border-transparent outline-none transition-all bg-gray-50 hover:bg-white"
+                            placeholder="Last Name"
+                            required
                           />
                         </div>
                       </div>
@@ -170,31 +191,35 @@ export default function Contact({ cart }) {
                     {/* Contact Fields - Side by side with icons */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
-                        <label htmlFor="" className="font-semibold">Email Address</label>
+                        <label htmlFor="" className="font-semibold">
+                          Email Address
+                        </label>
                         <div className="relative">
                           <div className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400">
                             <FiMail size={20} />
                           </div>
-                          <input 
-                            name="user_email" 
-                            type="email" 
-                            className="w-full pl-12 pr-4 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#D5A20A] focus:border-transparent outline-none transition-all bg-gray-50 hover:bg-white" 
-                            placeholder="Email Address" 
-                            required 
+                          <input
+                            name="user_email"
+                            type="email"
+                            className="w-full pl-12 pr-4 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#D5A20A] focus:border-transparent outline-none transition-all bg-gray-50 hover:bg-white"
+                            placeholder="Email Address"
+                            required
                           />
                         </div>
                       </div>
                       <div>
-                        <label htmlFor="" className="font-semibold">Phone Number</label>
+                        <label htmlFor="" className="font-semibold">
+                          Phone Number
+                        </label>
                         <div className="relative">
                           <div className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400">
                             <FiPhone size={20} />
                           </div>
-                          <input 
-                            name="user_phone" 
-                            type="tel" 
-                            className="w-full pl-12 pr-4 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#D5A20A] focus:border-transparent outline-none transition-all bg-gray-50 hover:bg-white" 
-                            placeholder="Phone Number (Optional)" 
+                          <input
+                            name="user_phone"
+                            type="tel"
+                            className="w-full pl-12 pr-4 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#D5A20A] focus:border-transparent outline-none transition-all bg-gray-50 hover:bg-white"
+                            placeholder="Phone Number (Optional)"
                           />
                         </div>
                       </div>
@@ -202,41 +227,45 @@ export default function Contact({ cart }) {
 
                     {/* Subject */}
                     <div>
-                      <label htmlFor="" className="font-semibold">Subject</label>
+                      <label htmlFor="" className="font-semibold">
+                        Subject
+                      </label>
                       <div className="relative">
                         <div className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400">
                           <FiMessageSquare size={20} />
                         </div>
-                        <input 
-                          name="subject" 
-                          type="text" 
-                          className="w-full pl-12 pr-4 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#D5A20A] focus:border-transparent outline-none transition-all bg-gray-50 hover:bg-white" 
-                          placeholder="Subject" 
-                          required 
+                        <input
+                          name="subject"
+                          type="text"
+                          className="w-full pl-12 pr-4 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#D5A20A] focus:border-transparent outline-none transition-all bg-gray-50 hover:bg-white"
+                          placeholder="Subject"
+                          required
                         />
                       </div>
                     </div>
 
                     {/* Message */}
                     <div>
-                      <label htmlFor="" className="font-semibold">Message</label>
+                      <label htmlFor="" className="font-semibold">
+                        Message
+                      </label>
                       <div className="relative">
                         <div className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400">
                           <FiMessageSquare size={20} />
                         </div>
-                        <textarea 
-                          name="message" 
-                          className="w-full pl-12 pr-4 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#D5A20A] focus:border-transparent outline-none transition-all bg-gray-50 hover:bg-white resize-none" 
-                          rows={6} 
-                          placeholder="Tell us about your inquiry, questions, or how we can assist you..." 
-                          required 
+                        <textarea
+                          name="message"
+                          className="w-full pl-12 pr-4 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#D5A20A] focus:border-transparent outline-none transition-all bg-gray-50 hover:bg-white resize-none"
+                          rows={6}
+                          placeholder="Tell us about your inquiry, questions, or how we can assist you..."
+                          required
                         />
                       </div>
                     </div>
 
                     {/* Submit Button */}
-                    <button 
-                      type="submit" 
+                    <button
+                      type="submit"
                       disabled={isSubmitting}
                       className="w-full bg-gradient-to-r from-[#D5A20A] to-[#B8860B] text-white font-bold py-4 px-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
                     >
@@ -259,10 +288,9 @@ export default function Contact({ cart }) {
           )}
 
           {/* Direct Contact Tab */}
-          {activeTab === 'direct' && (
+          {activeTab === "direct" && (
             <div className="max-w-6xl mx-auto">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                
                 {/* Email Card */}
                 <div className="group relative">
                   <div className="absolute inset-0 bg-gradient-to-br from-[#D5A20A] to-[#B8860B] rounded-2xl transform group-hover:scale-105 transition-transform duration-300"></div>
@@ -270,17 +298,21 @@ export default function Contact({ cart }) {
                     <div className="w-16 h-16 bg-[#D5A20A] rounded-full flex items-center justify-center mb-6 group-hover:bg-[#046404] transition-colors duration-300">
                       <FiMail className="text-white" size={28} />
                     </div>
-                    <h3 className="text-xl font-bold text-[#046404] mb-3">Email Us</h3>
-                    <p className="text-gray-600 mb-4">Send us an email and we'll respond within 24 hours</p>
-                    <a 
-                      href="mailto:akunyarahelenakunyara@gmail.com" 
+                    <h3 className="text-xl font-bold text-[#046404] mb-3">
+                      Email Us
+                    </h3>
+                    <p className="text-gray-600 mb-4">
+                      Send us an email and we'll respond within 24 hours
+                    </p>
+                    <a
+                      href="mailto:akunyarahelenakunyara@gmail.com"
                       className="inline-flex items-center space-x-2 text-[#D5A20A] font-semibold hover:text-[#046404] transition-colors"
                     >
                       <span>Send Email</span>
                       <FiSend size={16} />
                     </a>
-              </div>
-            </div>
+                  </div>
+                </div>
 
                 {/* Phone Card */}
                 <div className="group relative">
@@ -289,24 +321,28 @@ export default function Contact({ cart }) {
                     <div className="w-16 h-16 bg-[#046404] rounded-full flex items-center justify-center mb-6 group-hover:bg-[#D5A20A] transition-colors duration-300">
                       <FiPhone className="text-white" size={28} />
                     </div>
-                    <h3 className="text-xl font-bold text-[#046404] mb-3">Call Us</h3>
-                    <p className="text-gray-600 mb-4">Speak directly with our team</p>
+                    <h3 className="text-xl font-bold text-[#046404] mb-3">
+                      Call Us
+                    </h3>
+                    <p className="text-gray-600 mb-4">
+                      Speak directly with our team
+                    </p>
                     <div className="space-y-2">
-                      <a 
-                        href="tel:+233505944839" 
+                      <a
+                        href="tel:+233505944839"
                         className="block text-[#D5A20A] font-semibold hover:text-[#046404] transition-colors"
                       >
                         +233 50 594 4839
                       </a>
-                      <a 
-                        href="tel:+233256869185" 
+                      <a
+                        href="tel:+233256869185"
                         className="block text-[#D5A20A] font-semibold hover:text-[#046404] transition-colors"
                       >
                         +233 25 686 9185
                       </a>
-              </div>
-            </div>
-          </div>
+                    </div>
+                  </div>
+                </div>
 
                 {/* WhatsApp Card */}
                 <div className="group relative">
@@ -315,11 +351,15 @@ export default function Contact({ cart }) {
                     <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mb-6 group-hover:bg-green-600 transition-colors duration-300">
                       <FaWhatsapp className="text-white" size={28} />
                     </div>
-                    <h3 className="text-xl font-bold text-[#046404] mb-3">WhatsApp</h3>
-                    <p className="text-gray-600 mb-4">Quick chat with instant responses</p>
-                    <a 
-                      href="https://wa.me/233505944839" 
-                      target="_blank" 
+                    <h3 className="text-xl font-bold text-[#046404] mb-3">
+                      WhatsApp
+                    </h3>
+                    <p className="text-gray-600 mb-4">
+                      Quick chat with instant responses
+                    </p>
+                    <a
+                      href="https://wa.me/233505944839"
+                      target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center space-x-2 text-green-500 font-semibold hover:text-green-600 transition-colors"
                     >
@@ -336,11 +376,13 @@ export default function Contact({ cart }) {
                     <div className="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mb-6 group-hover:bg-purple-600 transition-colors duration-300">
                       <FiMapPin className="text-white" size={28} />
                     </div>
-                    <h3 className="text-xl font-bold text-[#046404] mb-3">Visit Us</h3>
+                    <h3 className="text-xl font-bold text-[#046404] mb-3">
+                      Visit Us
+                    </h3>
                     <p className="text-gray-600 mb-4">Come see us in person</p>
-                    <a 
-                      href="https://maps.google.com/?q=Tamale,Ghana" 
-                      target="_blank" 
+                    <a
+                      href="https://maps.google.com/?q=Tamale,Ghana"
+                      target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center space-x-2 text-purple-500 font-semibold hover:text-purple-600 transition-colors"
                     >
@@ -348,7 +390,7 @@ export default function Contact({ cart }) {
                       <FiMapPin size={16} />
                     </a>
                   </div>
-              </div>
+                </div>
               </div>
 
               {/* Social Media Section */}
@@ -357,26 +399,34 @@ export default function Contact({ cart }) {
                   Follow Our Journey
                 </h3>
                 <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-                  Stay connected with us on social media for the latest updates, product launches, and community stories.
+                  Stay connected with us on social media for the latest updates,
+                  product launches, and community stories.
                 </p>
                 <div className="flex justify-center space-x-6">
-                  <a href="#" className="w-16 h-16 bg-gradient-to-br from-[#D5A20A] to-[#B8860B] rounded-full flex items-center justify-center hover:bg-white hover:text-[#046404] transition-all duration-300 transform hover:scale-110 shadow-lg">
+                  <a
+                    href="#"
+                    className="w-16 h-16 bg-gradient-to-br from-[#D5A20A] to-[#B8860B] rounded-full flex items-center justify-center hover:bg-white hover:text-[#046404] transition-all duration-300 transform hover:scale-110 shadow-lg"
+                  >
                     <FaFacebookF size={24} />
                   </a>
-                  <a href="#" className="w-16 h-16 bg-gradient-to-br from-[#D5A20A] to-[#B8860B] rounded-full flex items-center justify-center hover:bg-white hover:text-[#046404] transition-all duration-300 transform hover:scale-110 shadow-lg">
+                  <a
+                    href="#"
+                    className="w-16 h-16 bg-gradient-to-br from-[#D5A20A] to-[#B8860B] rounded-full flex items-center justify-center hover:bg-white hover:text-[#046404] transition-all duration-300 transform hover:scale-110 shadow-lg"
+                  >
                     <FaInstagram size={24} />
                   </a>
-                  <a href="#" className="w-16 h-16 bg-gradient-to-br from-[#D5A20A] to-[#B8860B] rounded-full flex items-center justify-center hover:bg-white hover:text-[#046404] transition-all duration-300 transform hover:scale-110 shadow-lg">
+                  <a
+                    href="#"
+                    className="w-16 h-16 bg-gradient-to-br from-[#D5A20A] to-[#B8860B] rounded-full flex items-center justify-center hover:bg-white hover:text-[#046404] transition-all duration-300 transform hover:scale-110 shadow-lg"
+                  >
                     <FaLinkedinIn size={24} />
                   </a>
-              </div>
+                </div>
               </div>
             </div>
           )}
         </div>
       </div>
-
-      <Footer />
     </>
   );
 }

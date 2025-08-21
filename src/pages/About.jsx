@@ -1,5 +1,3 @@
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import liquidSoapImg from "../assets/images/Liquid Soap.png";
 import barSoapImg from "../assets/images/Bar-soap.jpeg";
 import powderedPepperImg from "../assets/images/Powdered pepper.jpeg";
@@ -12,7 +10,7 @@ const images = [
   { src: powderedPepperImg, alt: "Powdered Pepper" },
 ];
 
-export default function About({ cart }) {
+export default function About() {
   const [current, setCurrent] = useState(0);
 
   useEffect(() => {
@@ -24,7 +22,6 @@ export default function About({ cart }) {
 
   return (
     <>
-      <Navbar cart={cart} />
       {/* Hero Section */}
       <div className="relative bg-cover bg-center bg-no-repeat min-h-[500px] flex items-center justify-center text-center bg-[url(https://media.istockphoto.com/id/1142656815/photo/african-woman-mashing-cassava-flour-in-wooden-pod.jpg?s=1024x1024&w=is&k=20&c=hYur-dldEtSOSrBo88_A0wF8bOk6qcwBYf1W-jDK91c=)] mt-15 py-24 px-4">
         {/* Overlay */}
@@ -35,7 +32,10 @@ export default function About({ cart }) {
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight drop-shadow-md">
             The Rise of Nogma H Enterprise
           </h1>
-          <p id="access" className="text-lg md:text-xl text-gray-200 mb-4  leading-relaxed drop-shadow ">
+          <p
+            id="access"
+            className="text-lg md:text-xl text-gray-200 mb-4  leading-relaxed drop-shadow "
+          >
             From a dream in Northern Ghana to empowering thousands, Nogma.H
             Enterprise is a story of vision, community, and hope... Crafting
             Natural Products and Empowering Local Skills.
@@ -67,6 +67,7 @@ export default function About({ cart }) {
                 alt="Ms. Helen, Founder"
                 className="rounded-3xl object-cover border-4 border-white shadow-2xl w-full h-[450px] max-w-[350px]"
               />
+            
             </div>
             <div className="flex-1 text-[#1b1b19]">
               <h3 className="text-3xl md:text-4xl font-bold mb-4 ">
@@ -177,8 +178,6 @@ export default function About({ cart }) {
           ))}
         </div>
       </section>
-
-      <Footer />
     </>
   );
 }

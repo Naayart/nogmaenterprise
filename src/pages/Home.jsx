@@ -11,8 +11,6 @@ import { Link, useLocation } from "react-router-dom";
 import CategorySection from "../components/CategorySection";
 import FeaturedProductSection from "../components/FeaturedProductSection";
 
-
-
 const images = [
   { src: tombrown, alt: "Tom Brown" },
   { src: sheaButterImg, alt: "Shea Butter" },
@@ -35,10 +33,9 @@ export default function Home({ addToCart, cart }) {
       if (section) section.scrollIntoView({ behavior: "smooth" });
     }
   }, [location]);
-  
+
   return (
     <>
-      <Navbar cart={cart} />
       <section className="relative min-h-[70vh] flex flex-col md:flex-row items-center justify-between px-8 py-16 overflow-hidden  pt-20 mt-15">
         <img
           src={watermarkLogo}
@@ -53,7 +50,10 @@ export default function Home({ addToCart, cart }) {
         <div className="max-w-xl z-10">
           <h1 className="text-4xl md:text-5xl font-extrabold text-black mb-6 leading-tight ">
             Natural Ghanaian Goodness{" "}
-            <span id="access" className="text-yellow-400">From</span> Kitchen to Care!
+            <span id="access" className="text-yellow-400">
+              From
+            </span>{" "}
+            Kitchen to Care!
           </h1>
           <p className="text-lg text-gray-600 mb-8 ">
             Healthy products proudly made in Ghana.
@@ -99,8 +99,7 @@ export default function Home({ addToCart, cart }) {
       <CategorySection />
       <FeaturedProductSection addToCart={addToCart} />
       <TestimonialSection />
-       <NewsLetter />
-      <Footer />
+      <NewsLetter />
     </>
   );
 }

@@ -16,7 +16,6 @@ export default function Navbar({ cart }) {
     { to: "/#products", label: "Products", isProducts: true },
     { to: "/blog", label: "Blog" },
     { to: "/contact", label: "Contact" },
-    
   ];
 
   useEffect(() => {
@@ -40,10 +39,7 @@ export default function Navbar({ cart }) {
   };
 
   return (
-    <nav
-      className="h-15 fixed top-0 left-0 right-0 z-50 px-6 py-4 bg-white/10 backdrop-blur-md shadow transition-all duration-300"
-
-    >
+    <nav className="h-15 fixed top-0 left-0 right-0 z-50 px-6 py-4 bg-white/10 backdrop-blur-md shadow transition-all duration-300">
       <div className="flex flex-row items-center justify-between h-full">
         {/* Logo + Company Name */}
         <div className="flex items-center space-x-4 font-Open">
@@ -135,7 +131,7 @@ export default function Navbar({ cart }) {
             className="fixed inset-0 bg-black bg-opacity-40 z-40"
             onClick={() => setDrawerOpen(false)}
           />
-          <div className="fixed top-0 left-0 h-full w-64 bg-[#B4E4AC] shadow-lg z-50 flex flex-col p-6 animate-slide-in">
+          <div className="fixed top-0 right-0 h-full w-64 bg-[#B4E4AC] shadow-lg z-50 flex flex-col p-6 animate-slide-in">
             <button
               className="self-end mb-6 text-[#046404] focus:outline-none"
               onClick={() => setDrawerOpen(false)}
@@ -149,7 +145,7 @@ export default function Navbar({ cart }) {
                     {link.isAnchor ? (
                       <a
                         href={link.to}
-                        className="text-gray-600 hover:text-blue-600"
+                        className="text-gray-600 hover:text-green-600"
                         onClick={() => setDrawerOpen(false)}
                       >
                         {link.label}
@@ -159,8 +155,8 @@ export default function Navbar({ cart }) {
                         to={link.to}
                         className={({ isActive }) =>
                           isActive
-                            ? "text-blue-600 font-semibold"
-                            : "text-gray-600 hover:text-blue-600"
+                            ? "text-gray-600 font-semibold"
+                            : "text-gray-600 hover:text-green-600"
                         }
                         onClick={() => setDrawerOpen(false)}
                       >
@@ -194,9 +190,9 @@ export default function Navbar({ cart }) {
       {/* Animation */}
       <style>{`
         @keyframes slide-in {
-          from { transform: translateX(-100%); }
-          to { transform: translateX(0); }
-        }
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
+    }
         .animate-slide-in {
           animation: slide-in 0.3s cubic-bezier(0.4,0,0.2,1) forwards;
         }

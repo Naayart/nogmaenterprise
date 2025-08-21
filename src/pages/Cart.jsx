@@ -23,7 +23,7 @@ export default function Cart({ cart = [], setCart }) {
 
   return (
     <>
-      <Navbar cart={cart} />
+      
       <div className="min-h-screen bg-[#fff] pt-24 px-2 md:px-8">
         <div className="max-w-5xl mx-auto">
           <h1 className="text-4xl font-extrabold text-center mb-2 mt-4">
@@ -145,7 +145,7 @@ export default function Cart({ cart = [], setCart }) {
           )}
         </div>
       </div>
-      <Footer />
+      
     </>
   );
 }

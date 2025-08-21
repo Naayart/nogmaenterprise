@@ -1,6 +1,4 @@
 import { useSearchParams, useNavigate, useParams } from "react-router-dom";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import { useState } from "react";
 // Import all product images
 import tombrownsingle from "../assets/images/Tombrown-Single.jpg";
@@ -132,7 +130,7 @@ const products = [
   }
 ];
 
-export default function ProductDetail({ addToCart, cart }) {
+export default function ProductDetail({ addToCart }) {
   const {id: paramId} = useParams();
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
@@ -145,7 +143,6 @@ export default function ProductDetail({ addToCart, cart }) {
   if (!product) {
     return (
       <>
-        <Navbar cart={cart} />
         <div className="min-h-screen bg-gray-50 pt-24 px-4">
           <div className="max-w-4xl mx-auto text-center py-12">
             <h1 className="text-2xl font-bold text-gray-800 mb-4">Product Not Found</h1>
@@ -158,7 +155,6 @@ export default function ProductDetail({ addToCart, cart }) {
             </button>
           </div>
         </div>
-        <Footer />
       </>
     );
   }
@@ -175,8 +171,7 @@ export default function ProductDetail({ addToCart, cart }) {
   };
 
   return (
-    <>
-      <Navbar cart={cart} />
+    
       <div className="min-h-screen bg-white pt-24 px-4">
         <div className="max-w-6xl mx-auto py-8">
           {/* Breadcrumb */}
@@ -263,7 +258,5 @@ export default function ProductDetail({ addToCart, cart }) {
           </div>
         </div>
       </div>
-      <Footer />
-    </>
   );
 }

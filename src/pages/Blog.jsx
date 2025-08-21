@@ -137,8 +137,6 @@ export default function Blog({ cart }) {
 
   return (
     <>
-      <Navbar cart={cart} />
-
       {/* Hero Section */}
       <div className="bg-[url(https://cdn.pixabay.com/photo/2021/08/30/18/40/paprika-6586748_960_720.jpg)] bg-cover bg-center bg-no-repeat py-24 pt-28 mt-15 relative">
         <div className="absolute inset-0 bg-black/40"></div>
@@ -221,8 +219,6 @@ export default function Blog({ cart }) {
           )}
         </div>
       </div>
-
-      <Footer />
     </>
   );
 }

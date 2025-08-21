@@ -1,7 +1,7 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { useState } from "react";
-import emailjs from "@emailjs/browser"; 
+import emailjs from "@emailjs/browser";
 
 export default function Checkout({ cart = [] }) {
   const [form, setForm] = useState({
@@ -65,7 +65,6 @@ export default function Checkout({ cart = [] }) {
 
   return (
     <>
-      <Navbar cart={cart} />
       <div className="pt-24 px-4 md:px-8 bg-white min-h-screen">
         <div className="max-w-6xl mx-auto">
           <h1 className="text-4xl font-extrabold text-center mb-2 text-[#046404]">
@@ -220,7 +219,6 @@ export default function Checkout({ cart = [] }) {
           </form>
         </div>
       </div>
-      <Footer />
     </>
   );
 }

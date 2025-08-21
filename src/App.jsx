@@ -7,13 +7,11 @@ import Blog from "./pages/Blog";
 import NotFound from "./pages/NotFound";
 import ProductDetail from "./pages/ProductDetail";
 import AllProduct from "./pages/AllProducts";
-import FeaturedProductSection from "./components/FeaturedProductSection";
 import Navbar from "./components/Navbar";
 import CartNotification from "./components/CartNotification";
+import Footer from "./components/Footer";
 import BlogDetail from "./pages/BlogDetail";
 import Checkout from "./pages/CheckOut";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import { useState } from "react";
 
 // Layout component for shared UI
@@ -22,7 +20,7 @@ function Layout({ cart, children }) {
     <>
       <Navbar cart={cart} />
       {children}
-      <ToastContainer />
+      <Footer />
     </>
   );
 }
@@ -39,17 +37,15 @@ function App() {
       const exists = prev.find((item) => item.id === product.id);
       if (exists) {
         return prev.map((item) =>
-          item.id === product.id ? { ...item, qty: (item.qty || 1) + 1 } : item
+          item.id === product.id
+            ? { ...item, qty: item.qty + (product.qty || 1) }
+            : item
         );
       }
-      return [...prev, { ...product, qty: 1 }];
+      return [...prev, { ...product, qty: product.qty || 1 }];
     });
 
-    toast.success(`${product.name} added to cart!`, {
-      position: "top-right",
-      autoClose: 3000,
-    });
-
+    // Show your custom notification
     setCartNotification({
       show: true,
       message: `${product.name} added to cart!`,
@@ -82,7 +78,7 @@ function App() {
       path: "/about",
       element: (
         <Layout cart={cart}>
-          <About cart={cart} />
+          <About />
         </Layout>
       ),
     },
@@ -114,18 +110,18 @@ function App() {
       path: "/product-detail",
       element: (
         <Layout cart={cart}>
-          <ProductDetail addToCart={addToCart} cart={cart} />
+          <ProductDetail addToCart={addToCart} />
         </Layout>
       ),
     },
-   {
-  path: "/product-detail/:id",
-  element: (
-    <Layout cart={cart}>
-      <ProductDetail cart={cart} addToCart={addToCart} />
-    </Layout>
-  ),
-   },
+    {
+      path: "/product-detail/:id",
+      element: (
+        <Layout cart={cart}>
+          <ProductDetail addToCart={addToCart} />
+        </Layout>
+      ),
+    },
     {
       path: "/all-product",
       element: (

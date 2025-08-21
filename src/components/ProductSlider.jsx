@@ -65,8 +65,8 @@ export default function ProductSlider({ products, addToCart, onProductClick }) {
                 className="w-[60%] py-2 mt-1 rounded-full bg-green-700 text-white font-semibold shadow 
                   hover:bg-yellow-500 hover:text-green-900 hover:scale-105 transition-all duration-200"
                 onClick={(e) => {
-                  e.stopPropagation();
-                  addToCart && addToCart(product);
+                  e.stopPropagation(); // prevent opening product detail
+                  addToCart(product);  // this triggers App.jsx -> sets notification
                 }}
               >
                 Add to Cart

@@ -202,8 +202,6 @@ export default function AllProduct({ cart: initialCart = [], setCart }) {
 
   return (
     <>
-      <Navbar cart={cart} />
-
       {/* Toast matching ProductDetail style */}
       {toast?.visible && (
         <div className="fixed top-24 right-6 bg-white border border-gray-300 shadow-lg rounded-lg p-4 flex items-center gap-3 z-50 animate-slide-in">
@@ -323,8 +321,6 @@ export default function AllProduct({ cart: initialCart = [], setCart }) {
           </div>
         )}
       </section>
-
-      <Footer />
     </>
   );
 }
