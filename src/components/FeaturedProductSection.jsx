@@ -1,16 +1,11 @@
 import ProductSlider from "./ProductSlider";
 import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
 import {ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import tombrown from "../assets/images/Tom brown.png";
 import sheaButterB from "../assets/images/Sheabutter-Big size.jpg";
-import sheaButterImgM from "../assets/images/Sheabutter-Medium.jpg";
 import peanutButterImg from "../assets/images/Groundnut Paste.png";
 import peanutImg from "../assets/images/Peanut-1.png";
 import liquidSoapImg from "../assets/images/Liquid Soap.png";
-import barSoapImg from "../assets/images/Bar-soap.jpeg";
-import powderedPepperImg from "../assets/images/Powdered pepper.jpeg";
 
 export default function FeaturedProductSection({cart, setCart}) {
 
@@ -55,86 +50,7 @@ export default function FeaturedProductSection({cart, setCart}) {
       discount: 17,
       rating: 4,
     },
-    {
-      id: 5,
-      image: barSoapImg,
-      category: "Wellness",
-      name: "Bar Soap",
-      price: "₵8.00",
-      oldPrice: "₵10.00",
-      discount: 20,
-      rating: 3,
-    },
-    {
-      id: 6,
-      image: powderedPepperImg,
-      category: "Food",
-      name: "Powdered Pepper",
-      price: "₵12.00",
-      oldPrice: "₵15.00",
-      discount: 20,
-      rating: 5,
-    },
-    {
-      id: 7,
-      image: tombrown,
-      category: "Food",
-      name: "Tombrown",
-      price: "₵25.00",
-      oldPrice: "₵30.00",
-      discount: 17,
-      rating: 4,
-    },
-    {
-      id: 8,
-      image: sheaButterImgM,
-      category: "Wellness",
-      name: "Sheabutter - Large",
-      price: "₵35.00",
-      oldPrice: "₵40.00",
-      discount: 13,
-      rating: 5,
-    },
-    {
-      id: 9,
-      image: peanutButterImg,
-      category: "Food",
-      name: "Groundnut paste - Family Pack",
-      price: "₵18.00",
-      oldPrice: "₵22.00",
-      discount: 18,
-      rating: 4,
-    },
-    {
-      id: 10,
-      image: barSoapImg,
-      category: "Wellness",
-      name: "Bar Soap - Scented",
-      price: "₵10.00",
-      oldPrice: "₵13.00",
-      discount: 23,
-      rating: 5,
-    },
-    {
-      id: 11,
-      image: powderedPepperImg,
-      category: "Food",
-      name: "Powdered Pepper - Hot",
-      price: "₵14.00",
-      oldPrice: "₵17.00",
-      discount: 18,
-      rating: 4,
-    },
-    {
-      id: 12,
-      image: tombrown,
-      category: "Food",
-      name: "Tombrown - Small Pack",
-      price: "₵12.00",
-      oldPrice: "₵15.00",
-      discount: 20,
-      rating: 3,
-    },
+  
   ];
 
   const navigate = useNavigate();

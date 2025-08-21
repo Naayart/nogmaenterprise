@@ -118,6 +118,14 @@ function App() {
         </Layout>
       ),
     },
+   {
+  path: "/product-detail/:id",
+  element: (
+    <Layout cart={cart}>
+      <ProductDetail cart={cart} addToCart={addToCart} />
+    </Layout>
+  ),
+   },
     {
       path: "/all-product",
       element: (

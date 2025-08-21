@@ -1,25 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React from "react";
 
 export default function ProductSlider({ products, addToCart, onProductClick }) {
-  const [slidesToShow, setSlidesToShow] = useState(getSlidesToShow());
-  const navigate = useNavigate();
-
-  function getSlidesToShow() {
-    if (window.innerWidth < 640) return 1;
-    if (window.innerWidth < 1024) return 2;
-    return 3;
-  }
-
-  useEffect(() => {
-    const handleResize = () => setSlidesToShow(getSlidesToShow());
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-  // const handleProductClick = (product) => {
-  //   navigate(`/product-detail/${product.id}`, { state: { product } });
-  // };
-
   return (
     <div className="relative w-full bg-white py-6 overflow-x-auto scrollbar-hide">
       <div className="flex gap-6 px-4 md:px-8">
@@ -29,7 +10,7 @@ export default function ProductSlider({ products, addToCart, onProductClick }) {
             className={`flex-shrink-0 flex flex-col items-center bg-white rounded-3xl shadow-lg w-[220px] md:w-[250px] lg:w-[270px]
               transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl motion-safe:animate-fadeIn`}
             style={{ animationDelay: `${index * 100}ms` }}
-           onClick={() => onProductClick && onProductClick(product)}
+            onClick={() => onProductClick && onProductClick(product)}
           >
             {/* Product Image */}
             <div className="w-full flex items-center justify-center pt-6 pb-3 px-4">
@@ -69,9 +50,13 @@ export default function ProductSlider({ products, addToCart, onProductClick }) {
 
               {/* Price */}
               <div className="flex items-center space-x-2 mb-3">
-                <span className="text-green-700 font-bold">{product.price}</span>
+                <span className="text-green-700 font-bold">
+                  {product.price}
+                </span>
                 {product.oldPrice && (
-                  <span className="text-gray-400 line-through">{product.oldPrice}</span>
+                  <span className="text-gray-400 line-through">
+                    {product.oldPrice}
+                  </span>
                 )}
               </div>
 
@@ -81,7 +66,7 @@ export default function ProductSlider({ products, addToCart, onProductClick }) {
                   hover:bg-yellow-500 hover:text-green-900 hover:scale-105 transition-all duration-200"
                 onClick={(e) => {
                   e.stopPropagation();
-                  addToCart(product)// <-- Call addToCart with product
+                  addToCart && addToCart(product);
                 }}
               >
                 Add to Cart
