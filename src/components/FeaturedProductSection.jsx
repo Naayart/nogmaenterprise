@@ -85,7 +85,7 @@ export default function FeaturedProductSection({ cart, addToCart }) {
       <div>
         <ProductSlider
           products={featuredProducts.slice(0, 4)}
-          addToCart={addToCart}   //use App's addToCart /
+          addToCart={addToCart}   //use App's addToCart function
           onProductClick={handleProductClick}
         />
       </div>

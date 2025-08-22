@@ -3,7 +3,8 @@ import TestimonialCard from "./TestimonialCard";
 import Leticia from "../assets/images/Leticia-Saaka.png";
 import Lena from "../assets/images/Lena-Sewu.jpeg";
 import Barrister from "../assets/images/Barrister-Deborah.jpeg";
-import Kwesi from "../assets/images/Mr. Kwesi.png"
+import Kwesi from "../assets/images/Mr. Kwesi.png";
+import Akwesi from "../assets/images/Akwesi.png";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
@@ -26,8 +27,8 @@ const testimonials = [
   },
   {
     message: "Beautiful packaging and fantastic results!",
-    author: "Ama Nti.",
-    image: Lena,
+    author: "Akwesi Ofori.",
+    image: Akwesi,
   },
   {
     message: "Great value for money, will recommend to friends!",
